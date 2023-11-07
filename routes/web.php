@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ProdukController::class, 'products']);
 
 Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
