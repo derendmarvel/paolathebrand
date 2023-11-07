@@ -8,16 +8,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav justify-content-end">
             <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link {{ $activateHome ?? '' }}" href="/home">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Products</a>
+            <a class="nav-link {{ $activateProduct ?? '' }}" href="/products">Products</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link {{ $activateAboutUs ?? '' }}" href="/aboutUs">About Us</a>
             </li>
       </ul>
     </div>

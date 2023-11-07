@@ -13,6 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ProdukController::class, 'products']);
+Route::get('/', function(){
+    return view('home');
+});
+
+Route::get('/products', [ProdukController::class, 'products']);
 
 Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
+
+Route::get('/home', function(){
+    return view('home',[
+        'activateHome' => 'active'
+    ]);
+});
+
+Route::get('/aboutUs', function(){
+    return view('aboutUs',[
+        'activateAboutUs' => 'active'
+    ]);
+});
