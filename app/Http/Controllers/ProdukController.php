@@ -9,7 +9,7 @@ use App\Http\Requests\UpdateProdukRequest;
 class ProdukController extends Controller
 {
     public static function products(){
-        return view('home', [
+        return view('product', [
             "activateProduct" => "active",
             'products' => Produk::all()
         ]);

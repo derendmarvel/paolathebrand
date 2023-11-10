@@ -17,16 +17,6 @@
     .large {
       font-size: 64px;
     }
-
-    .image-container {
-      position: relative;
-    }
-
-    .overlay-image {
-      position: absolute;
-      top: 300;
-      right: 200;
-    }
   </style>
 </head>
 <body>
@@ -40,7 +30,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav justify-content-end">
               <li class="nav-item">
-              <a class="nav-link {{ $activateHome ?? '' }}" href="/home">Home</a>
+              <a class="nav-link {{ $activateHome ?? '' }}" href="/">Home</a>
               </li>
               <li class="nav-item mx-5">
               <a class="nav-link {{ $activateProduct ?? '' }}" href="/products">Products</a>
@@ -53,7 +43,7 @@
     </div>
   </nav>
 
-  <div class="w-100">
+  <div class="container p-5">
     @yield('content')
   </div>
 
