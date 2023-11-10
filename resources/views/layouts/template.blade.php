@@ -17,6 +17,30 @@
     .large {
       font-size: 64px;
     }
+
+    .small {
+      font-size: 12px;
+    }
+
+    .extra {
+      padding-left: 200px;
+    }
+
+    .padding-start {
+      padding-left: 64px;
+    }
+
+    .ps-all-products{
+      padding-left: 100px;
+    }
+
+    .red{
+      color: #C3110C;
+    }
+
+    .bg-red{
+      background-color: #C3110C;
+    }
   </style>
 </head>
 <body>
