@@ -17,10 +17,20 @@
     .large {
       font-size: 64px;
     }
+
+    .image-container {
+      position: relative;
+    }
+
+    .overlay-image {
+      position: absolute;
+      top: 300;
+      right: 200;
+    }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle sticky-top py-2 px-5" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg  bg-dark sticky-top py-2 px-5" data-bs-theme="dark">
       <div class="container-fluid">
       <div>
           <a class="navbar-brand" href="#">
@@ -43,13 +53,13 @@
     </div>
   </nav>
 
-  <div class="container p-5">
+  <div class="w-100">
     @yield('content')
   </div>
 
-  <footer class="w-100 position-fixed bottom-0 start-50 translate-middle-x bg-dark">
+  <footer class="w-100 position-fixed bottom-0 start-50 translate-middle-x bg-danger">
     <div class="text-center p-3 text-light">
-      Copyright Project Catalog @2023
+      Copyright © 2023 Paola The Brand
     </div>
   </footer>
 </body>
