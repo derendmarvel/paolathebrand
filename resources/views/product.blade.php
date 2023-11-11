@@ -3,7 +3,7 @@
 @section('title', 'Latest Arrivals')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container container-fluid p-5">
         <div class="row align-items-center bg-dark text-light py-2">
             <div class="col align-items-start pb-5">
                 <h1 class = "fw-bold large ps-5"> Latest </h1>
