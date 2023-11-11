@@ -41,6 +41,16 @@
     .bg-red{
       background-color: #C3110C;
     }
+
+    .scrollable {
+      max-height: 450px;
+      max-width: 450px;
+      overflow-x: auto;
+    }
+
+    .scrollable::-webkit-scrollbar {
+      width: 0;
+    }
   </style>
 </head>
 <body>

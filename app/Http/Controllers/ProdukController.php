@@ -14,4 +14,13 @@ class ProdukController extends Controller
             'products' => Produk::all()
         ]);
     }
+
+    public function detail($id){
+        $produk = Produk::find($id);
+
+        return view('detailProducts', [
+            "activateProduct" => "active",
+            'produk' => $produk
+        ]);
+    }
 }

@@ -23,6 +23,8 @@ Route::get('/', function(){
 
 Route::get('/products', [ProdukController::class, 'products']);
 
+Route::get('/detailProducts/{id}', [ProdukController::class, 'detail']);
+
 Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
 
 // Route::get('/home', function(){
