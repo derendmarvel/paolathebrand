@@ -11,6 +11,8 @@ class Produk extends Model
 
     protected $fillable = ['nama', 'warna', 'size', 'harga', 'foto', 'deskripsi', 'stok'];
 
+    protected $sizelist = ['S', 'M', 'L'];
+
     public function kateori() : BelongsTo{
         return $this->belongsTo(Kategori::class);
     }
