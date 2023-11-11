@@ -20,7 +20,7 @@
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg  bg-dark sticky-top py-2 px-5" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle sticky-top py-2 px-5" data-bs-theme="dark">
       <div class="container-fluid">
       <div>
           <a class="navbar-brand" href="#">
@@ -43,13 +43,13 @@
     </div>
   </nav>
 
-  <div >
+  <div class="container p-5">
     @yield('content')
   </div>
 
-  <footer class="w-100 position-fixed bottom-0 start-50 translate-middle-x bg-danger">
+  <footer class="w-100 position-fixed bottom-0 start-50 translate-middle-x bg-dark">
     <div class="text-center p-3 text-light">
-      Copyright © 2023 Paola The Brand
+      Copyright Project Catalog @2023
     </div>
   </footer>
 </body>
