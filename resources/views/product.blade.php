@@ -17,64 +17,36 @@
                             <h3> Cassie Top </h3>
                         </div>
                     </div>
-                    <div class="col">
-                        <img src="/images/Paola-Lookbook-15.png" alt="Banner 1" width="280" height="390">
-                        <div class="row padding-start pb-5">
-                            <h3> Cassie Top </h3>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
         <div class="row align-items-center py-4">
             <h1 class = "text-center red pb-4 pt-4 py-2"> All Products </h1>
-            <div class="row ps-all-products">
-                <div class="col align-items-start">
-                    <img src="/images/Paola-Lookbook-06.png" alt="Banner 1" width="280" height="390">
-                    <div class="row justify-content-start">
-                        <div class="col-6 ps-4 fs-5 fw-bold red">
-                            <p> Circe Dress (Red) </p>
-                            <div class="pb-5 fw-normal fs-6 text-secondary">
-                                <p> See in Detail </p>
+            <div class="row ps-all-products">    
+                @foreach ($products as $key => $product)
+                @if ($key < 3)
+                    <div class="col align-items-start">
+                        <img src="{{ asset($product->foto) }}" alt="Banner 1" width="280" height="420">
+                        <div class="row justify-content-start">
+                            <div class="col-6 ps-4 fs-5 fw-bold red">
+                                <p> {{ $product->nama }} </p>
+                                <div class="pb-5 fw-normal fs-6 text-secondary">
+                                    <p> See in Detail </p>
+                                </div>
+                            </div>
+                            <div class="col-1 ps-4 pt-3">
+                                <img src="/images/Arrow.png" width="30" height="20">
                             </div>
                         </div>
-                        <div class="col-1 ps-4 pt-3">
-                            <img src="/images/Arrow.png" width="30" height="20">
-                        </div>
                     </div>
-                </div>
-                <div class="col align-items-start">
-                    <img src="/images/Paola-Lookbook-06.png" alt="Banner 1" width="280" height="390">
-                    <div class="row justify-content-start">
-                        <div class="col-6 ps-4 fs-5 fw-bold red">
-                            <p> Circe Dress (Red) </p>
-                            <div class="pb-5 fw-normal fs-6 text-secondary">
-                                <p> See in Detail </p>
-                            </div>
-                        </div>
-                        <div class="col-1 ps-4 pt-3">
-                            <img src="/images/Arrow.png" width="30" height="20">
-                        </div>
-                    </div>
-                </div>
-                <div class="col align-items-start">
-                    <img src="/images/Paola-Lookbook-06.png" alt="Banner 1" width="280" height="390">
-                    <div class="row justify-content-start">
-                        <div class="col-6 ps-4 fs-5 fw-bold red">
-                            <p> Circe Dress (Red) </p>
-                            <div class="pb-5 fw-normal fs-6 text-secondary">
-                                <p> See in Detail </p>
-                            </div>
-                        </div>
-                        <div class="col-1 ps-4 pt-3">
-                            <img src="/images/Arrow.png" width="30" height="20">
-                        </div>
-                    </div>
-                </div>
+                    @else
+                        @break
+                    @endif
+                @endforeach
             </div>
             <div class="row ps-all-products">
                 <div class="col align-items-start">
-                    <img src="/images/Paola-Lookbook-06.png" alt="Banner 1" width="280" height="390">
+                    <img src="/images/Paola-Lookbook-06.png" alt="Banner 1" width="300" height="450">
                     <div class="row justify-content-start">
                         <div class="col-6 ps-4 fs-5 fw-bold red">
                             <p> Circe Dress (Red) </p>

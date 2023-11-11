@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('warna');
-            $table->string('size');
+            $table->string('size')->nullable(true);
             $table->integer('harga');
             $table->string('foto')->nullable(true);
             $table->string('deskripsi');
             $table->integer('stok');
-            $table->foreignIdFor(\App\Models\Kategori::class);
+            $table->foreignIdFor(\App\Models\Kategori::class)->nullable(true);
             $table->timestamps();
         });
     }
