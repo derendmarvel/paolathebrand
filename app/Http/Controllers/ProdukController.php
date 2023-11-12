@@ -11,7 +11,8 @@ class ProdukController extends Controller
     public static function products(){
         return view('product', [
             "activateProduct" => "active",
-            'products' => Produk::all()
+            'products' => Produk::all(),
+            // 'count' => 0
         ]);
     }
 

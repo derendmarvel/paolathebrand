@@ -13,11 +13,11 @@
                 <div class="row scrollable">
                     @foreach ($products as $key => $product)
                     @if ($key < 3)
-                        <div class="col pt-2 padding-start scrollable">
-                            <img src="{{asset($product->foto)}}" alt="Banner 1" width="250" height="375">
-                            <div class="row text-center pb-5 pt-2">
-                                <h3 class="fs-5"> {{$product->nama}} ( {{$product->warna}} ) </h3>
-                            </div>
+                        <div class="col pt-3 padding-start scrollable">
+                            <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="250" height="375"></a>
+                            <!-- <div class="row text-center pb-5 pt-2">
+                                <h3 class="fs-6"> {{$product->nama}} ( {{$product->warna}} ) </h3>
+                            </div> -->
                         </div>
                     @else
                         @break

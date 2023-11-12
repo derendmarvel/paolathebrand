@@ -26,6 +26,10 @@
       padding-left: 200px;
     }
 
+    .ps-home {
+      padding-left: 54px;
+    }
+
     .padding-start {
       padding-left: 64px;
     }
@@ -51,7 +55,7 @@
     .scrollable::-webkit-scrollbar {
       width: 0;
     }
-
+    
     .bg-image {
       background: url('/images/Paola-BG-Dark.png');
       background-size: cover;
@@ -63,7 +67,7 @@
     }
 
     .w-footer {
-      width: 100.95%;
+      width: 100.98%;
     }
 
     .ps-detail {
@@ -103,7 +107,7 @@
 
     <!-- === FOOTER === -->
     <footer class="w-100">
-      <div class="row w-footer align-items-center bg-red text-light pb-5 px-5">
+      <div class="row w-footer align-items-center bg-red text-light pb-5 ps-5">
         <div class="col-md-9 p-5">
           <img src="/images/Paola-Logo-3.png" alt="Paola" width="95" height="70">
           <p class="small fw-lighter">Serving you the chicest and timeless pieces for your wardrove. Made and built with love.</p>
@@ -112,13 +116,13 @@
         <div class="col-md p-5">
           <div class="row ps-2 pt-4 small">
             <div class="col">
-              <p>Products</p>
-              <p>Home</p>
+              <a class="nav-link {{ $activateProduct ?? '' }}" href="/products"><p>Products</p></a>
+              <a class="nav-link {{ $activateHome ?? '' }}" href="/"><p>Home</p></a>
               <p>Catalog</p>
             </div>
             <div class="col">
               <p>Company</p>
-              <p>About Us</p>
+              <a class="nav-link {{ $activateAboutUs ?? '' }}" href="/aboutUs"><p>About Us</p></a>
               <p>Contact</p>
             </div>
           </div>
