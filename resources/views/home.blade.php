@@ -23,7 +23,7 @@
     </div>
 
     <div class="row align-items-center py-4 bg-image-light"> 
-        <h1 class="text-center red pb-5 pt-4 py-2"> Latest Arrivals </h1> 
+        <h1 class="text-center red pb-5 pt-4 py-2"> Paola Tops </h1> 
         <div class="row ps-all-products">
             @foreach ($products as $key => $product)
                 @if ($key < 3)
@@ -37,6 +37,35 @@
                                 <div class="pt-4"> <a href="detailProducts/{{$product['id']}}" class = "link-underline-light link-secondary"> <p class ="fs-4 fw-bold red"> {{$product->nama}} ({{$product->warna}}) </p> </a> </div>
                                 <div class="pb-5 fw-normal fs-6 text-secondary">
                                     <a href="detailProducts/{{$product['id']}}" class="link-underline-light link-secondary"> See in Detail </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <a href="detailProducts/{{$product['id']}}"><img src="/images/Arrow.png" width="42" height="35"> </a>
+                            </div>
+                        </div>
+                    </div>
+                    @else
+                        @break
+                    @endif
+            @endforeach
+        </div>
+    </div>
+
+    <div class="row align-items-center py-4 bg-image text-light"> 
+        <h1 class="text-center pb-5 pt-4 py-2"> Latest Arrivals </h1> 
+        <div class="row ps-all-products">
+            @foreach ($products2 as $key => $product)
+                @if ($key < 3)
+                    @php
+                        $animation_delay = $key * 150;
+                    @endphp
+                    <div class="col justify-content-center" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
+                        <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div home-product"> </a>
+                        <div class="row align-items-center home-product">
+                            <div class="col">
+                                <div class="pt-4"> <a href="detailProducts/{{$product['id']}}" class = "link-underline-light link-light"> <p class ="fs-4 fw-bold"> {{$product->nama}} ({{$product->warna}}) </p> </a> </div>
+                                <div class="pb-5 fw-normal fs-6 text-light">
+                                    <a href="detailProducts/{{$product['id']}}" class="link-underline-light link-light"> See in Detail </a>
                                 </div>
                             </div>
                             <div class="col">

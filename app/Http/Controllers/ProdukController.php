@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use App\Http\Requests\StoreProdukRequest;
 use App\Http\Requests\UpdateProdukRequest;
+use Illuminate\Support\Facades\DB;
 
 class ProdukController extends Controller
 {
@@ -16,10 +17,11 @@ class ProdukController extends Controller
         ]);
     }
 
-    public static function productshome(){
+    public static function productsKat(){
         return view('home', [
-            "activateHome" => "active",
-            'products' => Produk::all()
+            'products' => Produk::where('kategori_id', 2)->get(),
+            'activateHome' => 'active',
+            'products2' => Produk::all(),
         ]);
     }
 
