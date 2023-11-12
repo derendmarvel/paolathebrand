@@ -75,6 +75,10 @@
       padding-left: 150px;
     }
 
+    .ps-text {
+      padding-left: 150px;
+    }
+
     .my-div {
       transition: transform 0.3s ease-in-out;
     }
@@ -92,7 +96,7 @@
         right: -20px;
         top: 120px;
         scale: 0.9
-      }
+    }
 
     @media screen and (min-width: 794px) {
       .absolute-div {
@@ -139,6 +143,175 @@
       background: url('/images/Paola-Header.png');
       background-size: cover;
     }
+
+    .img-home-1 {
+      width: 340px;
+      height: 510px;
+    }
+
+    .img-home-2 {
+      width: 250px;
+      height: 375px;
+    }
+
+    .home-product {
+      padding-left: 0px;
+    }
+
+    .p-product {
+      margin-left: 0px;
+    }
+
+    .card-size {
+      height: 420px;
+      width: 280px;
+    }
+
+    @media only screen and (max-width:1183px){
+      .img-home-1 {
+        width: 200px;
+        height: 300px;
+        padding-top: 16px;
+      }
+
+      .img-home-2 {
+        width: 140px;
+        height: 210px;
+      }
+
+      .card {
+        height: 320px;
+        width: 220px;
+        margin-top: 50px;
+      }
+
+      .card-size {
+        height: 320px;
+        width: 220px;
+      }
+
+      .ps-text {
+        padding-left: 180px;
+      }
+    }
+
+    @media only screen and (max-width:900px){
+      .img-home-1 {
+        width: 200px;
+        height: 300px;
+        padding-top: 16px;
+      }
+
+      .img-home-2 {
+        width: 140px;
+        height: 270px;
+        padding-top: 60px;
+      }
+
+      .ps-home {
+        padding-left: 24px;
+      }
+
+      .ps-detail {
+        padding-left: 50px;
+      }
+
+      .card {
+        height: 300px;
+        width: 200px;
+        margin-top: 50px;
+      }
+
+      .card-size {
+        height: 300px;
+        width: 200px;
+      }
+    }
+
+    @media only screen and (max-width:800px){
+      .img-home-1 {
+        width: 290px;
+        height: 370px;
+        padding-top: 16px;
+        padding-left: 50px;
+      }
+
+      .img-home-2 {
+        width: 190px;
+        height: 330px;
+        margin-right: 80px;
+        margin-top: -30px;
+      }
+
+      .ps-home {
+        padding-left: 24px;
+      }
+
+      .card {
+        height: 295px;
+        width: 200px;
+        margin-top: 50px;
+        margin-left: 50px;
+      }
+
+      .card-size {
+        height: 295px;
+        width: 200px;
+      }
+
+      .p-product {
+        margin-left: 100px;
+      }
+    }
+
+    @media only screen and (max-width:700px){
+      .img-home-1 {
+        width: 220px;
+        height: 316px;
+        padding-top: 16px;
+        padding-left: 20px;
+      }
+
+      .img-home-2 {
+        width: 175px;
+        height: 295px;
+        margin-right: 70px;
+        margin-top: -50px;
+      }
+
+      .home-product {
+        margin-left: 100px;
+      }
+
+      .ps-detail {
+        padding-left: 60px;
+      }
+
+      .card {
+        height: 285px;
+        width: 190px;
+        margin-top: 50px;
+        margin-left: 20px;
+      }
+
+      .card-size {
+        height: 285px;
+        width: 190px;
+      }
+
+      .p-product {
+        margin-left: 0px;
+      }
+
+      .ps-detail {
+        padding-left: 100px;
+      }
+
+      .ps-text {
+        padding-left: 100px;
+      }
+    }
+
   </style>
 </head>
 <body>

@@ -10,26 +10,11 @@
                 <h1 class = "fw-bold large ps-detail"> Style </h1> 
             </div>
             <div class="col">
-                <!-- <div class="row scrollable">
-                    @foreach ($products as $key => $product)
-                    @if ($key < 3)
-                        <div class="col pt-3 padding-start scrollable">
-                            <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="250" height="375"></a>
-                             <div class="row text-center pb-5 pt-2">
-                                <h3 class="fs-6"> {{$product->nama}} ( {{$product->warna}} ) </h3>
-                            </div>
-                        </div>
-                    @else
-                        @break
-                    @endif
-                    @endforeach
-                </div> -->
-                
                 <div class="carousel-container" data-aos="fade-left" data-aos-duration="3000">
                     @foreach ($products as $key => $product)
                         @if ($key < 3)
                             <div class="card">
-                                <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div"> </a>
+                                <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div card-size"> </a>
                             </div>
                         @else
                             @break
@@ -48,8 +33,8 @@
                         $animation_delay = $delay_pattern[$key % count($delay_pattern)];
                     @endphp
                     <div class="col align-items-start" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
-                        <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div"> </a>
-                        <div class="row justify-content-start">
+                        <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div p-product"> </a>
+                        <div class="row justify-content-start p-product">
                             <div class="col">
                             <div class="pt-4"> <a href="detailProducts/{{$product['id']}}" class = "link-underline-light link-secondary"> <p class ="fs-4 fw-bold red"> {{$product->nama}} ({{$product->warna}}) </p> </a> </div>
                                 <div class="pb-5 fw-normal fs-6 text-secondary">

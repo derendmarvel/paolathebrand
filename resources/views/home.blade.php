@@ -13,9 +13,9 @@
                     <a href="/products" class="btn btn-danger px-5 py-3"> SHOP NOW </a>
                 </div>
                 <div class="col pt-2 relative-div" data-aos="fade-left" data-aos-delay="300" data-aos-duration="3000">
-                    <img src="/images/Paola-Lookbook-1.png" alt="Banner 1" width="340" height="510" class = "shadow-lg">
+                    <img src="/images/Paola-Lookbook-1.png" alt="Banner 1" width="340" height="510" class = "shadow-lg img-home-1">
                     <div class="absolute-div">
-                        <img src="/images/Dulcie-Top-Brown.png" alt="Banner 1" width="250" heigth="375" class="shadow-lg">
+                        <img src="/images/Dulcie-Top-Brown.png" alt="Banner 1" width="250" heigth="375" class="shadow-lg img-home-2">
                     </div>
                 </div>
             </div>
@@ -31,8 +31,8 @@
                         $animation_delay = $key * 150;
                     @endphp
                     <div class="col justify-content-center" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
-                        <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div"> </a>
-                        <div class="row align-items-center">
+                        <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div home-product"> </a>
+                        <div class="row align-items-center home-product">
                             <div class="col">
                                 <div class="pt-4"> <a href="detailProducts/{{$product['id']}}" class = "link-underline-light link-secondary"> <p class ="fs-4 fw-bold red"> {{$product->nama}} ({{$product->warna}}) </p> </a> </div>
                                 <div class="pb-5 fw-normal fs-6 text-secondary">

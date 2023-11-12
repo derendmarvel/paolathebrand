@@ -8,7 +8,7 @@
             <div class="col-md-4 ps-detail py-5">
                 <img src="{{$produk['foto']}}" alt="Banner 1" width="290" height="435" class = "shadow-lg" data-aos="fade-up">
             </div>
-            <div class="col-md ps-detail">
+            <div class="col-md ps-text">
                 <div class="row">
                     <p class="pt-5 fs-1 fw-bold red" data-aos="fade-up" data-aos-delay="250">{{$produk['nama']}} ({{$produk['warna']}})</p>
                     <p class="fs-6 text-secondary" data-aos="fade-up" data-aos-delay="500">Stock : {{$produk['stok']}}</p>
