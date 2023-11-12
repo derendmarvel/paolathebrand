@@ -53,67 +53,82 @@
     }
 
     .bg-image {
-      background: url('/images/Paola-BG-Black.png');
+      background: url('/images/Paola-BG-Dark.png');
       background-size: cover;
+    }
+
+    .bg-image-light {
+      background-image: url('/images/Paola-BG-Light.png');
+      background-size: cover;
+    }
+
+    .w-footer {
+      width: 100.95%;
+    }
+
+    .ps-detail {
+      padding-left: 150px;
     }
   </style>
 </head>
 <body>
   <!-- === NAVBAR === -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle sticky-top py-3 px-5" data-bs-theme="dark">
-      <div class="container-fluid">
-      <div>
-          <a class="navbar-brand" href="#">
-          <img src="/images/Paola-Logo-2.png" alt="Paola" width="80" height="45">
-          </a>
+  <div class = "float-start w-100"> 
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle sticky-top py-3 px-5" data-bs-theme="dark">
+        <div class="container-fluid">
+        <div>
+            <a class="navbar-brand" href="#">
+            <img src="/images/Paola-Logo-2.png" alt="Paola" width="80" height="45">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav justify-content-end">
+                <li class="nav-item">
+                <a class="nav-link {{ $activateHome ?? '' }}" href="/">Home</a>
+                </li>
+                <li class="nav-item mx-5">
+                <a class="nav-link {{ $activateProduct ?? '' }}" href="/products">Products</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link {{ $activateAboutUs ?? '' }}" href="/aboutUs">About Us</a>
+                </li>
+          </ul>
+        </div>
       </div>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav justify-content-end">
-              <li class="nav-item">
-              <a class="nav-link {{ $activateHome ?? '' }}" href="/">Home</a>
-              </li>
-              <li class="nav-item mx-5">
-              <a class="nav-link {{ $activateProduct ?? '' }}" href="/products">Products</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link {{ $activateAboutUs ?? '' }}" href="/aboutUs">About Us</a>
-              </li>
-        </ul>
-      </div>
+    </nav>
+
+    <div>
+      @yield('content')
     </div>
-  </nav>
 
-  <div>
-    @yield('content')
-  </div>
-
-  <!-- === FOOTER === -->
-  <footer class="w-100">
-    <div class="row align-items-center bg-red text-light pb-5 px-5">
-      <div class="col p-5">
-        <img src="/images/Paola-Logo-3.png" alt="Paola" width="95" height="70">
-        <p class="small fw-lighter">Serving you the chicest and timeless pieces for your wardrove. Made and built with love.</p>
-        <img src="/images/instagram.png" alt="Paola" width="16" height="16">
-      </div>  
-      <div class="col p-5">
-        <div class="row extra small">
-          <div class="col-5 padding-start">
-            <p>Products</p>
-            <p>Home</p>
-            <p>Catalog</p>
-          </div>
-          <div class="col-5 padding-start">
-            <p>Company</p>
-            <p>About Us</p>
-            <p>Contact</p>
+    <!-- === FOOTER === -->
+    <footer class="w-100">
+      <div class="row w-footer align-items-center bg-red text-light pb-5 px-5">
+        <div class="col-md-9 p-5">
+          <img src="/images/Paola-Logo-3.png" alt="Paola" width="95" height="70">
+          <p class="small fw-lighter">Serving you the chicest and timeless pieces for your wardrove. Made and built with love.</p>
+          <img src="/images/instagram.png" alt="Paola" width="16" height="16">
+        </div>  
+        <div class="col-md p-5">
+          <div class="row ps-2 pt-4 small">
+            <div class="col">
+              <p>Products</p>
+              <p>Home</p>
+              <p>Catalog</p>
+            </div>
+            <div class="col">
+              <p>Company</p>
+              <p>About Us</p>
+              <p>Contact</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="p-3 text-light text-center bg-body-tertiary bg-dark-subtle" data-bs-theme="dark">
-      Copyright © 2023 Paola The Brand
-    </div>
-  </footer>
+      <div class="p-3 text-light text-center bg-body-tertiary bg-dark-subtle" data-bs-theme="dark">
+        Copyright © 2023 Paola The Brand
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
 

@@ -6,8 +6,8 @@
     <div class="container-fluid">
         <div class="row align-items-center bg-image text-light py-5">
             <div class="col align-items-start pb-5">
-                <h1 class = "fw-bold large extra"> Latest </h1>
-                <h1 class = "fw-bold large extra"> Arrivals </h1> 
+                <h1 class = "fw-bold large ps-detail"> Latest </h1>
+                <h1 class = "fw-bold large ps-detail"> Arrivals </h1> 
             </div>
             <div class="col">
                 <div class="row scrollable">

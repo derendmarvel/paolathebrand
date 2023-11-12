@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('foto')->nullable(true);
             $table->string('deskripsi');
             $table->integer('stok');
+            $table->text('link');
             $table->foreignIdFor(\App\Models\Kategori::class);
             $table->timestamps();
         });

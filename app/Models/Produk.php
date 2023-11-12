@@ -9,7 +9,7 @@ class Produk extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama', 'warna', 'size', 'harga', 'foto', 'deskripsi', 'stok'];
+    protected $fillable = ['nama', 'warna', 'size', 'harga', 'foto', 'deskripsi', 'stok', 'link'];
 
     protected $sizelist = ['S', 'M', 'L'];
 

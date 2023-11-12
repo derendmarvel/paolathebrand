@@ -15,6 +15,13 @@ class ProdukController extends Controller
         ]);
     }
 
+    public static function productshome(){
+        return view('home', [
+            "activateHome" => "active",
+            'products' => Produk::all()
+        ]);
+    }
+
     public function detail($id){
         $produk = Produk::find($id);
 

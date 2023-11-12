@@ -15,11 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){
-    return view('home',[
-        'activateHome' => 'active'
-    ]);
-});
+Route::get('/', [ProdukController::class, 'productshome']);
 
 Route::get('/products', [ProdukController::class, 'products']);
 
