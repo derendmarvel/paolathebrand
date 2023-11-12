@@ -5,8 +5,8 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-5 extra pt-3">
-                <img src="{{$produk['foto']}}" alt="Banner 1" width="280" height="400">
+            <div class="col-5 extra py-5">
+                <img src="{{$produk['foto']}}" alt="Banner 1" width="290" height="435" class = "shadow-lg">
             </div>
             <div class="col">
                 <div class="row">

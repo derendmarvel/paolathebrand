@@ -51,14 +51,20 @@
     .scrollable::-webkit-scrollbar {
       width: 0;
     }
+
+    .bg-image {
+      background: url('/images/Paola-BG-Black.png');
+      background-size: cover;
+    }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle sticky-top py-2 px-5" data-bs-theme="dark">
+  <!-- === NAVBAR === -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle sticky-top py-3 px-5" data-bs-theme="dark">
       <div class="container-fluid">
       <div>
           <a class="navbar-brand" href="#">
-          <img src="/images/Paola-Logo-2.png" alt="Paola" width="80" height="80">
+          <img src="/images/Paola-Logo-2.png" alt="Paola" width="80" height="45">
           </a>
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -81,9 +87,31 @@
     @yield('content')
   </div>
 
-  <footer class="w-100 position-fixed bottom-0 start-50 translate-middle-x bg-dark">
-    <div class="text-center p-3 text-light">
-      Copyright Project Catalog @2023
+  <!-- === FOOTER === -->
+  <footer class="w-100">
+    <div class="row align-items-center bg-red text-light pb-5 px-5">
+      <div class="col p-5">
+        <img src="/images/Paola-Logo-3.png" alt="Paola" width="95" height="70">
+        <p class="small fw-lighter">Serving you the chicest and timeless pieces for your wardrove. Made and built with love.</p>
+        <img src="/images/instagram.png" alt="Paola" width="16" height="16">
+      </div>  
+      <div class="col p-5">
+        <div class="row extra small">
+          <div class="col-5 padding-start">
+            <p>Products</p>
+            <p>Home</p>
+            <p>Catalog</p>
+          </div>
+          <div class="col-5 padding-start">
+            <p>Company</p>
+            <p>About Us</p>
+            <p>Contact</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-3 text-light text-center bg-body-tertiary bg-dark-subtle" data-bs-theme="dark">
+      Copyright © 2023 Paola The Brand
     </div>
   </footer>
 </body>

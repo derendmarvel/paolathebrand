@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row align-items-center bg-dark text-light py-2">
+        <div class="row align-items-center bg-image text-light py-5">
             <div class="col align-items-start pb-5">
                 <h1 class = "fw-bold large extra"> Latest </h1>
                 <h1 class = "fw-bold large extra"> Arrivals </h1> 
@@ -62,27 +62,6 @@
                 </div>
                 @endif
                 @endforeach
-            </div>
-        </div>
-        <div class="row align-items-center bg-red text-light pb-5">
-            <div class="col p-5">
-                <img src="/images/Paola-Logo-3.png" alt="Paola" width="95" height="70">
-                <p class="small fw-lighter">Serving you the chicest and timeless pieces for your wardrove. Made and built with love.</p>
-                <img src="/images/instagram.png" alt="Paola" width="16" height="16">
-            </div>  
-            <div class="col p-5">
-                <div class="row extra small">
-                    <div class="col-5 padding-start">
-                        <p>Products</p>
-                        <p>Home</p>
-                        <p>Catalog</p>
-                    </div>
-                    <div class="col-5 padding-start">
-                        <p>Company</p>
-                        <p>About Us</p>
-                        <p>Contact</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
