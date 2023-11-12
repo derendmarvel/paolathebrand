@@ -88,9 +88,56 @@
     }
 
     .absolute-div {
-      position: absolute;
-      right: 0px;
-      top: 80px;
+        position: absolute;
+        right: -20px;
+        top: 120px;
+        scale: 0.9
+      }
+
+    @media screen and (min-width: 794px) {
+      .absolute-div {
+        position: absolute;
+        right: 0px;
+        top: 80px;
+        scale: 1;
+      }
+    }
+    .carousel-container {
+      height: 450px;
+      width: 500px;
+      display: flex;
+    }
+
+    .card {
+      display: flex;
+      background: transparent;
+      height: 420px;
+      width: 280px;
+      background-color: #17141d;
+      box-shadow: -1rem 0 3rem #000;
+      transition: 0.4s ease-out;
+      position: relative;
+      left: 0px;
+    }
+
+    .card:not(:first-child) {
+        margin-left: -100px;
+    }
+
+    .card:hover {
+      transform: translateY(-30px);
+      transition: 0.4s ease-out;
+    }
+
+    .card:hover ~ .card {
+      position: relative;
+      left: 50px;
+      transition: 0.4s ease-out;
+    }
+
+    .about-us-bg {
+      background: url('/images/Paola-Header.png');
+      background-size: cover;
     }
   </style>
 </head>

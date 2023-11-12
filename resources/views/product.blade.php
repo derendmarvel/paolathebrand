@@ -5,27 +5,40 @@
 @section('content')
     <div class="container-fluid">
         <div class="row align-items-center bg-image text-light py-5">
-            <div class="col align-items-start pb-5">
-                <h1 class = "fw-bold large ps-detail"> Latest </h1>
-                <h1 class = "fw-bold large ps-detail"> Arrivals </h1> 
+            <div class="col align-items-start pb-5" data-aos="fade-right" data-aos-duration="3000">
+                <h1 class = "fw-bold large ps-detail"> Find Your </h1>
+                <h1 class = "fw-bold large ps-detail"> Style </h1> 
             </div>
             <div class="col">
-                <div class="row scrollable">
+                <!-- <div class="row scrollable">
                     @foreach ($products as $key => $product)
                     @if ($key < 3)
                         <div class="col pt-3 padding-start scrollable">
                             <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="250" height="375"></a>
-                            <!-- <div class="row text-center pb-5 pt-2">
+                             <div class="row text-center pb-5 pt-2">
                                 <h3 class="fs-6"> {{$product->nama}} ( {{$product->warna}} ) </h3>
-                            </div> -->
+                            </div>
                         </div>
                     @else
                         @break
                     @endif
                     @endforeach
+                </div> -->
+                
+                <div class="carousel-container" data-aos="fade-left" data-aos-duration="3000">
+                    @foreach ($products as $key => $product)
+                        @if ($key < 3)
+                            <div class="card">
+                                <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div"> </a>
+                            </div>
+                        @else
+                            @break
+                        @endif
+                    @endforeach
                 </div>
             </div>
         </div>
+
         <div class="row align-items-center py-4">
             <h1 class = "text-center red pb-5 pt-4 py-2"> All Products </h1>
             <div class="row ps-all-products">

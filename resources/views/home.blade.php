@@ -23,14 +23,14 @@
     </div>
 
     <div class="row align-items-center py-4 bg-image-light"> 
-        <h1 class="text-center red pb-5 pt-4 py-2"> Hottest Items </h1> 
+        <h1 class="text-center red pb-5 pt-4 py-2"> Latest Arrivals </h1> 
         <div class="row ps-all-products">
             @foreach ($products as $key => $product)
                 @if ($key < 3)
                     @php
                         $animation_delay = $key * 150;
                     @endphp
-                    <div class="col align-items-start" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
+                    <div class="col justify-content-center" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
                         <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div"> </a>
                         <div class="row align-items-center">
                             <div class="col">
