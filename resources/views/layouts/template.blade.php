@@ -78,10 +78,20 @@
     .my-div {
       transition: transform 0.3s ease-in-out;
     }
+
     .my-div:hover {
         transform: scale(0.95);
     }
 
+    .relative-div {
+      position: relative;
+    }
+
+    .absolute-div {
+      position: absolute;
+      right: 0px;
+      top: 80px;
+    }
   </style>
 </head>
 <body>

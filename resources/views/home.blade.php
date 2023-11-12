@@ -4,7 +4,7 @@
 
     @section('content')
     <div class="bg-image">
-        <div class= "container px-5 pt-3 pb-5" data-aos="zoom-in" data-aos-duration="3000">
+        <div class= "container px-5 pt-3 pb-5" data-aos="fade-right" data-aos-duration="3000">
             <div class="row align-items-center">
                 <div class="col ps-home align-items-start text-light">
                     <p class = "fw-medium fs-5"> EST. 2023 </p> 
@@ -12,8 +12,11 @@
                     <p class = "fw-normal fs-5"> Serving you the chicest and timeless pieces for your wardrobe. Made and built with love. </p> 
                     <a href="/products" class="btn btn-danger px-5 py-3"> SHOP NOW </a>
                 </div>
-                <div class="col pt-2 d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="3000">
+                <div class="col pt-2 relative-div" data-aos="fade-left" data-aos-delay="300" data-aos-duration="3000">
                     <img src="/images/Paola-Lookbook-1.png" alt="Banner 1" width="340" height="510" class = "shadow-lg">
+                    <div class="absolute-div">
+                        <img src="/images/Dulcie-Top-Brown.png" alt="Banner 1" width="250" heigth="375" class="shadow-lg">
+                    </div>
                 </div>
             </div>
         </div>
