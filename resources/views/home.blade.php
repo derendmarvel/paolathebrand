@@ -52,7 +52,7 @@
     </div>
 
     <div class="row align-items-center py-4 bg-image text-light"> 
-        <h1 class="text-center pb-5 pt-4 py-2"> Latest Arrivals </h1> 
+        <h1 class="text-center pb-5 pt-4 py-2"> Our Product </h1> 
         <div class="row ps-all-products">
             @foreach ($products2 as $key => $product)
                 @if ($key < 3)
