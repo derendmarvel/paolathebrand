@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
-use App\Http\Requests\StoreCartRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateCartRequest;
 
 class CartController extends Controller
@@ -21,15 +21,17 @@ class CartController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCartRequest $request)
+    public function store(Request $request, Cart $cart)
     {
-        //
+        $cart->store([
+            'quantity' => $request->quantity
+        ]);
     }
 
     /**
@@ -37,7 +39,9 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        //
+        return view('show', [
+            'cart' => $cart
+        ]);
     }
 
     /**

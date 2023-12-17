@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,10 @@ Route::get('/products', [ProdukController::class, 'products']);
 Route::get('/detailProducts/{id}', [ProdukController::class, 'detail']);
 
 Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
+
+Route::get('/carts', [CartController::class, 'show']);
+
+Route::post('/addToCard', [CartController::class, 'store']);
 
 // Route::get('/home', function(){
 //     return view('home',[

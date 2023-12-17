@@ -7,7 +7,7 @@
         <div class="row align-items-center bg-image text-light py-5">
             <div class="col align-items-start pb-5" data-aos="fade-right" data-aos-duration="3000">
                 <h1 class = "fw-bold large ps-detail"> Find Your </h1>
-                <h1 class = "fw-bold large ps-detail"> Style </h1> 
+                <h1 class = "fw-bold large ps-detail"> Style </h1>
             </div>
             <div class="col">
                 <div class="carousel-container" data-aos="fade-left" data-aos-duration="3000">
@@ -36,7 +36,7 @@
                         <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div p-product"> </a>
                         <div class="row justify-content-start p-product">
                             <div class="col">
-                            <div class="pt-4"> <a href="detailProducts/{{$product['id']}}" class = "link-underline-light link-secondary"> <p class ="fs-4 fw-bold red"> {{$product->nama}} ({{$product->warna}}) </p> </a> </div>
+                                <div class="pt-4"> <a href="detailProducts/{{$product['id']}}" class = "link-underline-light link-secondary"> <p class ="fs-4 fw-bold red"> {{$product->nama}} ({{$product->warna}}) </p> </a> </div>
                                 <div class="pb-5 fw-normal fs-6 text-secondary">
                                     <a href="detailProducts/{{$product['id']}}" class="link-underline-light link-secondary"> See in Detail <img src="/images/Arrow.png" width="30" height="20"></a>
                                 </div>
