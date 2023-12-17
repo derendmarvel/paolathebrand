@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->timestamps('order_date');
             $table->int('total_price');
+            $table->string('status');
+            $table->int('order_weight');
         });
     }
 

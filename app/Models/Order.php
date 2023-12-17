@@ -10,7 +10,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['order_date', 'total_price'];
+    protected $fillable = ['order_date', 'total_price', 'status', 'order_weight'];
 
     public function shipment(): BelongsTo{
         return $this->belongsTo(Shipment::class);
