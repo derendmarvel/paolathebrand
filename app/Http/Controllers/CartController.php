@@ -29,9 +29,11 @@ class CartController extends Controller
      */
     public function store(Request $request, Cart $cart)
     {
-        $cart->store([
-            'quantity' => $request->quantity
-        ]);
+        // $cart->store([
+        //     'produk_id' => $request->,
+        //     'customer_id' => $request->,
+        //     'quantity' => $request->quantity
+        // ]);
     }
 
     /**
@@ -39,8 +41,9 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        return view('show', [
-            'cart' => $cart
+        return view('cart', [
+            'cart' => $cart,
+            'activateCart' => "active"
         ]);
     }
 

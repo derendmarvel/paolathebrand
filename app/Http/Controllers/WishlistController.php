@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Wishlist;
-use App\Http\Requests\StoreWishlistRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateWishlistRequest;
 
 class WishlistController extends Controller
@@ -27,9 +27,12 @@ class WishlistController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreWishlistRequest $request)
+    public function store(Request $request, Wishlist $wishlist)
     {
-        //
+        // $wishlist->store([
+        //     'customer_id' => $request->,
+        //     'produk_id' => $request->
+        // ]);
     }
 
     /**
@@ -37,7 +40,10 @@ class WishlistController extends Controller
      */
     public function show(Wishlist $wishlist)
     {
-        //
+        return view('wishlist', [
+            'wishlists' => Wishlist::all(),
+            'activateWishlist' => "active"
+        ]);
     }
 
     /**

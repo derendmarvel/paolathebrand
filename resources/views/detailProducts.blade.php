@@ -16,7 +16,7 @@
                     <p class="fs-2 fw-medium red" data-aos="fade-up" data-aos-delay="1000"> Rp {{$produk['harga']}}</p>
                     <div class="row">
                         <p class="col-md-2 pe-1 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="{{$produk['link']}}" class="btn btn-danger w-28 h-75 pb-3"> BUY NOW </a></p>
-                        <p class="col-md align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href=addToCard class="btn btn-danger w-28 h-75 pb-3"> ADD TO CART </a></p>
+                        <p class="col-md align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href=/addToCard class="btn btn-danger w-28 h-75 pb-3"> ADD TO CART </a></p>
                     </div>
                 </div>
             </div>

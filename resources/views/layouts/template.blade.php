@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -60,7 +60,7 @@
     .scrollable::-webkit-scrollbar {
       width: 0;
     }
-    
+
     .bg-image {
       background: url('/images/Paola-BG-Dark.png');
       background-size: cover;
@@ -100,6 +100,10 @@
         right: -20px;
         top: 120px;
         scale: 0.9
+    }
+
+    .ps-like {
+        padding-left: 250px;
     }
 
     @media screen and (min-width: 794px) {
@@ -320,7 +324,7 @@
 </head>
 <body>
   <!-- === NAVBAR === -->
-  <div class = "float-start w-100"> 
+  <div class = "float-start w-100">
   <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle sticky-top py-3 px-5" data-bs-theme="dark">
     <div class="container-fluid" data-aos="fade-down" data-aos-duration="1000">
         <div>
@@ -339,6 +343,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ $activateProduct ?? '' }}" href="/products">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ $activateWishlist ?? '' }}" href="/wishlists">Wishlist</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ $activateCart ?? '' }}" href="/carts">Cart</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ $activateAboutUs ?? '' }}" href="/aboutUs">About Us</a>
@@ -360,7 +370,7 @@
           <img src="/images/Paola-Logo-3.png" alt="Paola" width="95" height="70">
           <p class="small fw-lighter">Serving you the chicest and timeless pieces for your wardrove. Made and built with love.</p>
           <a href ="https://www.instagram.com/paola.thebrand/"><img src="/images/instagram.png" alt="Paola" width="16" height="16"> </a>
-        </div>  
+        </div>
         <div class="col-md p-5">
           <div class="row ps-2 pe-4 pt-4">
             <div class="col" data-aos="fade-up" data-aos-delay="100">
