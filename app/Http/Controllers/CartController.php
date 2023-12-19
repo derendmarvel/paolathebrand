@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Produk;
+use App\Models\Customer;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateCartRequest;
 
@@ -36,6 +38,19 @@ class CartController extends Controller
             if($produk['id'] == $id){
                 Cart::create([
                     'produk_id' => $produk->id
+                ]);
+            }
+        }
+
+        $customers = Customer::get();
+        // $users = User::get();
+
+        $currentUser = Auth::user()->name;
+
+        foreach ($customers as $customer){
+            if($customer->nama == $currentUser){
+                Cart::create([
+                    'customer_id' => $customer['id']
                 ]);
             }
         }
