@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Wishlist;
+use App\Models\Produk;
+use App\Models\Customer;
+// use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateWishlistRequest;
 
@@ -27,12 +30,30 @@ class WishlistController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Wishlist $wishlist)
+    public function store($id, $cust_id)
     {
-        // $wishlist->store([
-        //     'customer_id' => $request->,
-        //     'produk_id' => $request->
-        // ]);
+        $produks = Produk::get();
+
+        foreach ($produks as $produk){
+            if($produk['id'] == $id){
+                Wishlist::create([
+                    'produk_id' => $produk->id
+                ]);
+            }
+        }
+
+        $customers = Customer::get();
+        // $users = User::get();
+
+        // $currentUser = auth()->user()->name;
+
+        // foreach ($customers as $customer){
+        //     if($customer->nama == $currentUser){
+        //         Wishlist::create([
+        //             'customer_id' => $currentUser
+        //         ]);
+        //     }
+        // }
     }
 
     /**

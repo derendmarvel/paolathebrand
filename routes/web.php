@@ -5,6 +5,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,11 +28,11 @@ Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
 
 Route::get('/carts', [CartController::class, 'show']);
 
-Route::post('/addToCard', [CartController::class, 'store']);
+Route::post('/addToCard/{id}', [CartController::class, 'store']);
 
 Route::get('/wishlists', [WishlistController::class, 'show']);
 
-Route::post('/addWishlist', [WishlistController::class, 'store']);
+Route::post('/addWishlist/{id}', [WishlistController::class, 'store']);
 
 // Route::get('/home', function(){
 //     return view('home',[
@@ -44,6 +45,10 @@ Route::get('/aboutUs', function(){
         'activateAboutUs' => 'active'
     ]);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 

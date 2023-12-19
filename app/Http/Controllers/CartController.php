@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateCartRequest;
 
@@ -27,13 +28,17 @@ class CartController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Cart $cart)
+    public function store($id)
     {
-        // $cart->store([
-        //     'produk_id' => $request->,
-        //     'customer_id' => $request->,
-        //     'quantity' => $request->quantity
-        // ]);
+        $produks = Produk::get();
+
+        foreach ($produks as $produk){
+            if($produk['id'] == $id){
+                Cart::create([
+                    'produk_id' => $produk->id
+                ]);
+            }
+        }
     }
 
     /**
