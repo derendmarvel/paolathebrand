@@ -44,3 +44,7 @@ Route::get('/aboutUs', function(){
         'activateAboutUs' => 'active'
     ]);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

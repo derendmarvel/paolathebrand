@@ -11,6 +11,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
   <title> @yield('title')  </title>
 
   <style>
@@ -323,7 +326,6 @@
   </style>
 </head>
 <body>
-  <!-- === NAVBAR === -->
   <div class = "float-start w-100">
   <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle sticky-top py-3 px-5" data-bs-theme="dark">
     <div class="container-fluid" data-aos="fade-down" data-aos-duration="1000">
@@ -332,27 +334,65 @@
                 <img src="/images/Paola-Logo-2.png" alt="Paola" width="80" height="45">
             </a>
         </div>
-        <!-- Add the toggle button for small screens -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav justify-content-end gap-3">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav justify-content-center gap-3">
                 <li class="nav-item">
                     <a class="nav-link {{ $activateHome ?? '' }}" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ $activateProduct ?? '' }}" href="/products">Products</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ $activateWishlist ?? '' }}" href="/wishlists">Wishlist</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ $activateCart ?? '' }}" href="/carts">Cart</a>
-                </li>
+                @auth
+                  @if (Auth::user()->isVisitor())
+                  <li class="nav-item">
+                      <a class="nav-link {{ $activateWishlist ?? '' }}" href="/wishlists">Wishlist</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {{ $activateCart ?? '' }}" href="/carts">Cart</a>
+                  </li>
+                  @endif
+                @endauth
                 <li class="nav-item">
                     <a class="nav-link {{ $activateAboutUs ?? '' }}" href="/aboutUs">About Us</a>
                 </li>
+            </ul>
+          </div>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav justify-content-end gap-3">
+              @guest
+              @if (Route::has('login'))
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              </li>
+              @endif
+            
+              @if (Route::has('register'))
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+              </li>
+              @endif
+              @else
+              <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false" v-pre>
+                  {{ Auth::user()->name }}
+                </a>
+            
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                 document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                  </a>
+            
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                  </form>
+                </div>
+              </li>
+              @endguest
             </ul>
         </div>
     </div>
