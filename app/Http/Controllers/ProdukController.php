@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
+use App\Models\Promo;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProdukRequest;
 use App\Http\Requests\UpdateProdukRequest;
@@ -14,6 +15,7 @@ class ProdukController extends Controller
         return view('product', [
             "activateProduct" => "active",
             'products' => Produk::all(),
+            'promos' => Promo::all()
             // 'count' => 0
         ]);
     }
@@ -23,6 +25,7 @@ class ProdukController extends Controller
             'products' => Produk::where('kategori_id', 2)->get(),
             'activateHome' => 'active',
             'products2' => Produk::all(),
+            'promos' => Promo::all()
         ]);
     }
 

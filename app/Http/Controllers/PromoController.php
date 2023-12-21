@@ -3,64 +3,70 @@
 namespace App\Http\Controllers;
 
 use App\Models\Promo;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorePromoRequest;
 use App\Http\Requests\UpdatePromoRequest;
 
 class PromoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    public static function promos(){
+        return view('home', [
+            "activateHome" => "active",
+            'promos' => Promo::all()
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('Admin.addPromo', [
+            'promos' => Promo::all()
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StorePromoRequest $request)
-    {
-        //
+    public function store(Request $request, Promo $promo){
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'image' => 'image'
+        ]);
+
+        if($request->file('image')){
+            if($promo->image){
+                if(Storage::disk('public')->exists($promo->image)){
+                    Storage::disk('public')->delete($promo->image);
+                }
+            }
+
+            $validatedData['image'] = $request->file('image')->store('images', ['disk' => 'public']);
+
+            Promo::create([
+                'name' => $validatedData['name'],
+                'start_date' => $validatedData['start_date'],
+                'end_date' => $validatedData['end_date'],
+                'image' => $validatedData['image']
+            ]);
+        }
+
+        Promo::create([
+            'name' => $validatedData['name'],
+            'start_date' => $validatedData['start_date'],
+            'end_date' => $validatedData['end_date'],
+            'image' => $validatedData['image']
+        ]);
+
+        return redirect()->route('home');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Promo $promo)
-    {
-        //
-    }
+    public function delete(Promo $promo){
+        if($promo->image){
+            if(Storage::disk('public')->exists($promo->image)){
+                Storage::disk('public')->delete($promo->image);
+            }
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Promo $promo)
-    {
-        //
-    }
+        $promo->delete();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatePromoRequest $request, Promo $promo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Promo $promo)
-    {
-        //
+        return redirect()->route('home');
     }
 }

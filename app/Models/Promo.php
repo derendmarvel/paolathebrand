@@ -10,7 +10,7 @@ class Promo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'start_date', 'end_date'];
+    protected $fillable = ['name', 'start_date', 'end_date', 'image'];
 
     public function produks(): HasMany{
         return $this->hasMany(Produk::class);

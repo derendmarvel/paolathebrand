@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use App\Models\Promo;
 
 class HomeController extends Controller
 {
@@ -28,6 +29,7 @@ class HomeController extends Controller
             'products' => Produk::where('kategori_id', 2)->get(),
             'activateHome' => 'active',
             'products2' => Produk::all(),
+            'promos' => Promo::all()
         ]);
     }
 }

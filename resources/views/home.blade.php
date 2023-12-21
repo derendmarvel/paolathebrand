@@ -7,13 +7,13 @@
         <div class= "container px-5 pt-3 pb-5" data-aos="fade-right" data-aos-duration="3000">
             <div class="row align-items-center">
                 <div class="col ps-home align-items-start text-light">
-                    <p class = "fw-medium fs-5"> EST. 2023 </p> 
-                    <h1 class = "fw-bold large"> Romanticize Your Basic </h1> 
-                    <p class = "fw-normal fs-5"> Serving you the chicest and timeless pieces for your wardrobe. Made and built with love. </p> 
+                    <p class = "fw-medium fs-5"> EST. 2023 </p>
+                    <h1 class = "fw-bold large"> Romanticize Your Basic </h1>
+                    <p class = "fw-normal fs-5"> Serving you the chicest and timeless pieces for your wardrobe. Made and built with love. </p>
                     @auth
                         @if (Auth::user()->isAdmin())
                         <a href="/products" class="btn btn-danger px-5 py-3"> ADD PRODUCT </a>
-                        <a href="/products" class="btn btn-danger px-5 py-3"> ADD PROMO </a>
+                        <a href="/promo/create" class="btn btn-danger px-5 py-3"> ADD PROMO </a>
                         @endif
                         @else
                     <a href="/products" class="btn btn-danger px-5 py-3"> SHOP NOW </a>
@@ -29,8 +29,34 @@
         </div>
     </div>
 
-    <div class="row align-items-center py-4 bg-image-light"> 
-        <h1 class="text-center red pb-5 pt-4 py-2"> Paola Tops </h1> 
+    <div class="row align-items-center py-4 bg-image-light">
+        <h1 class="text-center red pb-5 pt-4 py-2"> Promo </h1>
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                @foreach($promos as $key => $promo)
+                <div class="carousel-item active">
+                    <img src="{{asset('storage/'.$promo->image)}}" class="d-block w-100">
+                    <form action="/promo/delete/{{$promo['id']}}" method="POST" class="ps-delete">
+                        @method('delete')
+                        @csrf
+                        <button class='btn btn-danger' id='delete' name='delete'>DELETE</button>
+                    </form>
+                </div>
+                @endforeach
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="row align-items-center py-4 bg-image-light">
+        <h1 class="text-center red pb-5 pt-4 py-2"> Paola Tops </h1>
         <div class="row ps-all-products">
             @foreach ($products as $key => $product)
                 @if ($key < 3)
@@ -58,8 +84,8 @@
         </div>
     </div>
 
-    <div class="row align-items-center py-4 bg-image text-light"> 
-        <a href="/products" class="link-light link-underline link-underline-opacity-0"><h1 class="text-center pb-5 pt-4 py-2"> Our Product </h1></a> 
+    <div class="row align-items-center py-4 bg-image text-light">
+        <a href="/products" class="link-light link-underline link-underline-opacity-0"><h1 class="text-center pb-5 pt-4 py-2"> Our Product </h1></a>
         <div class="row ps-all-products">
             @foreach ($products2 as $key => $product)
                 @if ($key < 3)

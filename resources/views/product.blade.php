@@ -10,6 +10,7 @@
                 @if (Auth::user()->isAdmin())
                     <h1 class = "fw-bold large ms-5"> Add New Product </h1>
                     <a href="/addProduct" class="btn btn-danger px-5 py-3 ms-5"> ADD PRODUCT </a>
+                    <a href="/kategori/create" class="btn btn-danger px-5 py-3 ms-5"> ADD KATEGORI </a>
                 @endif
                 @else
                 <h1 class = "fw-bold large ps-detail"> Find Your </h1>

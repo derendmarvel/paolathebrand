@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\PromoController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\Admin\ProdukController as AdminProdukController;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,14 @@ Route::get('/wishlists', [WishlistController::class, 'show'])->middleware('visit
 Route::post('/addWishlist/{id}', [WishlistController::class, 'store'])->middleware('visitor');
 
 Route::get('/addProduct', [ProdukController::class, 'addProduct'])->middleware('admin');
+
+Route::get('/promo/create', [PromoController::class, 'create'])->middleware('admin');
+Route::post('/promo/store', [PromoController::class, 'store'])->middleware('admin');
+Route::delete('/promo/delete/{promo}', [PromoController::class, 'delete'])->middleware('admin');
+
+Route::get('/kategori/create', [KategoriController::class, 'create'])->middleware('admin');
+Route::post('/kategori/store', [KategoriController::class, 'store'])->middleware('admin');
+
 
 // Route::get('/home', function(){
 //     return view('home',[
