@@ -20,9 +20,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [ProdukController::class, 'productsKat']);
+Route::get('/', [ProdukController::class, 'productsKat'])->name('home');
 
-Route::get('/products', [ProdukController::class, 'products']);
+Route::get('/products', [ProdukController::class, 'products'])->name('products');
 
 Route::get('/detailProducts/{id}', [ProdukController::class, 'detail']);
 
@@ -36,7 +36,8 @@ Route::get('/wishlists', [WishlistController::class, 'show'])->middleware('visit
 
 Route::post('/addWishlist/{id}', [WishlistController::class, 'store'])->middleware('visitor');
 
-Route::get('/addProduct', [ProdukController::class, 'addProduct'])->middleware('admin');
+Route::get('/produk/create', [ProdukController::class, 'create'])->middleware('admin');
+Route::post('/produk/store', [ProdukController::class, 'store'])->middleware('admin');
 
 Route::get('/promo/create', [PromoController::class, 'create'])->middleware('admin');
 Route::post('/promo/store', [PromoController::class, 'store'])->middleware('admin');

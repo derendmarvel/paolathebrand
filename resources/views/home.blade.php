@@ -12,8 +12,8 @@
                     <p class = "fw-normal fs-5"> Serving you the chicest and timeless pieces for your wardrobe. Made and built with love. </p>
                     @auth
                         @if (Auth::user()->isAdmin())
-                        <a href="/products" class="btn btn-danger px-5 py-3"> ADD PRODUCT </a>
-                        <a href="/promo/create" class="btn btn-danger px-5 py-3"> ADD PROMO </a>
+                        <a href="/produk/create" class="btn btn-danger p-3 me-3 fw-bold"> Add Product </a>
+                        <a href="/promo/create" class="btn btn-success p-3 fw-bold"> Add Promo </a>
                         @endif
                         @else
                     <a href="/products" class="btn btn-danger px-5 py-3"> SHOP NOW </a>
@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <div class="row align-items-center py-4 bg-image-light">
+    <div class="row align-items-center py-4 bg-image text-light">
         <h1 class="text-center red pb-5 pt-4 py-2"> Promo </h1>
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
@@ -59,7 +59,6 @@
         <h1 class="text-center red pb-5 pt-4 py-2"> Paola Tops </h1>
         <div class="row ps-all-products">
             @foreach ($products as $key => $product)
-                @if ($key < 3)
                     @php
                         $animation_delay = $key * 150;
                     @endphp
@@ -77,18 +76,14 @@
                             </div>
                         </div>
                     </div>
-                    @else
-                        @break
-                    @endif
             @endforeach
         </div>
     </div>
 
     <div class="row align-items-center py-4 bg-image text-light">
-        <a href="/products" class="link-light link-underline link-underline-opacity-0"><h1 class="text-center pb-5 pt-4 py-2"> Our Product </h1></a>
+        <a href="/products" class="link-light link-underline link-underline-opacity-0"><h1 class="text-center pb-5 pt-4 py-2"> Better in Black </h1></a>
         <div class="row ps-all-products">
             @foreach ($products2 as $key => $product)
-                @if ($key < 3)
                     @php
                         $animation_delay = $key * 150;
                     @endphp
@@ -106,9 +101,6 @@
                             </div>
                         </div>
                     </div>
-                    @else
-                        @break
-                    @endif
             @endforeach
         </div>
     </div>

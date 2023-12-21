@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
@@ -18,7 +20,7 @@
 
   <style>
     body {
-      font-family: 'Fira Sans', sans-serif;
+      font-family: 'Playfair Display', serif;
       overflow-x: hidden;
     }
 
@@ -35,7 +37,14 @@
     }
 
     .ps-home {
-      padding-left: 54px;
+      padding-left: 32px;
+    }
+
+    .padding-form {
+      padding-left: 64px;
+      padding-right: 64px;
+      padding-top: 32px;
+      padding-bottom: 32px;
     }
 
     .padding-start {
@@ -344,7 +353,7 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav justify-content-center gap-3">
                 <li class="nav-item">
-                    <a class="nav-link {{ $activateHome ?? '' }}" href="/">Home</a>
+                    <a class="nav-link {{ $activateHome ?? '' }}" href="/"> Home </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ $activateProduct ?? '' }}" href="/products">Products</a>

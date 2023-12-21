@@ -5,12 +5,12 @@
 @section('content')
     <div class="container-fluid">
         <div class="row align-items-center bg-image text-light py-5">
-            <div class="col align-items-start pb-5" data-aos="fade-right" data-aos-duration="3000">
+            <div class="col align-items-start pb-5 ps-5" data-aos="fade-right" data-aos-duration="3000">
             @auth
                 @if (Auth::user()->isAdmin())
-                    <h1 class = "fw-bold large ms-5"> Add New Product </h1>
-                    <a href="/addProduct" class="btn btn-danger px-5 py-3 ms-5"> ADD PRODUCT </a>
-                    <a href="/kategori/create" class="btn btn-danger px-5 py-3 ms-5"> ADD KATEGORI </a>
+                    <h1 class = "fw-bold large ms-5 mb-3"> Paola's Products </h1>
+                    <a href="/produk/create" class="btn btn-danger px-5 py-3 ms-5 fw-bold"> Add Product </a>
+                    <a href="/kategori/create" class="btn btn-success px-5 py-3 ms-2 fw-bold"> Add Category </a>
                 @endif
                 @else
                 <h1 class = "fw-bold large ps-detail"> Find Your </h1>

@@ -23,8 +23,7 @@ class ProdukSeeder extends Seeder
                     'size' => "Free Size",
                     'harga' => "97500",
                     'foto' => "/images/Cassie-Top-Black.png",
-                    'desk
-                    ripsi' => "This is a black variant of the Cassie Cropped Top made of Faux Leather & Lace. Fit for summer and casual outings.",
+                    'deskripsi' => "This is a black variant of the Cassie Cropped Top made of Faux Leather & Lace. Fit for summer and casual outings.",
                     'stok' => "12",
                     'link' => "https://shopee.co.id/Cassie-Top-i.1004486511.23771277936?xptdk=e9efba20-74d6-4683-969a-4c392c2e3e8d",
                     // 'kategori_id' => "2",

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class = "container-fluid bg-white p-5">
+<div class = "container-fluid bg-white padding-form">
     <h1 class = "red"> New Kategori </h1>
     <form action="/kategori/store" method="POST">
         @csrf

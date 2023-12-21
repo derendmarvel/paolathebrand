@@ -21,7 +21,11 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->integer('stok');
             $table->text('link');
-            $table->foreignIdFor(\App\Models\Kategori::class);
+            $table->unsignedBigInteger('kategori_id')->default(2);
+            $table->foreign('kategori_id')
+            ->references('id')
+            ->on('kategoris')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
