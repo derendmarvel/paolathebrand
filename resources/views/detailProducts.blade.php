@@ -15,9 +15,16 @@
                     <p class="fs-6 w-75" data-aos="fade-up" data-aos-delay="750"> {{$produk['deskripsi']}}</p>
                     <p class="fs-2 fw-medium red" data-aos="fade-up" data-aos-delay="1000"> Rp {{$produk['harga']}}</p>
                     <div class="row">
-                        <p class="col-md-2 pe-1 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="{{$produk['link']}}" class="btn btn-danger w-28 h-75 pb-3"> BUY NOW </a></p>
+                    @auth
+                        @if (Auth::user()->isAdmin())
+                        <p class="col-md-2 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="" class="btn btn-success w-28 h-75 pb-3"> EDIT </a></p>
+                        <p class="col-md align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="addToCard/{{$produk['id']}}" class="btn btn-danger w-28 h-75 pb-3"> DELETE </a></p>
+                        @endif
+                        @else
+                        <p class="col-md-2 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="{{$produk['link']}}" class="btn btn-danger w-28 h-75 pb-3"> BUY NOW </a></p>
                         <p class="col-md align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="addToCard/{{$produk['id']}}" class="btn btn-danger w-28 h-75 pb-3"> ADD TO CART </a></p>
                     </div>
+                    @endauth
                 </div>
             </div>
         </div>

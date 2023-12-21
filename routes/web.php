@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\Admin\ProdukController as AdminProdukController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,13 +27,15 @@ Route::get('/detailProducts/{id}', [ProdukController::class, 'detail']);
 
 Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
 
-Route::get('/carts', [CartController::class, 'show']);
+Route::get('/carts', [CartController::class, 'show'])->middleware('visitor');
 
-Route::post('/addToCard/{id}', [CartController::class, 'store']);
+Route::post('/addToCard/{id}', [CartController::class, 'store'])->middleware('visitor');
 
-Route::get('/wishlists', [WishlistController::class, 'show']);
+Route::get('/wishlists', [WishlistController::class, 'show'])->middleware('visitor');
 
-Route::post('/addWishlist/{id}', [WishlistController::class, 'store']);
+Route::post('/addWishlist/{id}', [WishlistController::class, 'store'])->middleware('visitor');
+
+Route::get('/addProduct', [ProdukController::class, 'addProduct'])->middleware('admin');
 
 // Route::get('/home', function(){
 //     return view('home',[

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreProdukRequest;
 use App\Http\Requests\UpdateProdukRequest;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +30,28 @@ class ProdukController extends Controller
         $produk = Produk::find($id);
 
         return view('detailProducts', [
+            "activateProduct" => "active",
+            'produk' => $produk
+        ]);
+    }
+
+    public function adminDetail($id){
+        $produk = Produk::find($id);
+
+        return view('detailProductsAdmin', [
+            "activateProduct" => "active",
+            'produk' => $produk
+        ]);
+    }
+
+    public function addProduct(){
+        return view('/admin/addProduct');
+    }
+
+    public function insert(Request $request){
+        $produk = Produk::find();
+
+        return view('detailProductsAdmin', [
             "activateProduct" => "active",
             'produk' => $produk
         ]);

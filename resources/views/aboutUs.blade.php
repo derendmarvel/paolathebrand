@@ -2,7 +2,7 @@
 
 @section('title', 'Paola The Brand')
 
-    @section('content')
+@section('content')
 
     <div class="row align-items-center about-us-bg">
         <div class="col-md p-4" data-aos="fade-right" data-aos-duration="3000">
@@ -21,4 +21,4 @@
         </div>
     </div>
 
-    @endsection
+@endsection

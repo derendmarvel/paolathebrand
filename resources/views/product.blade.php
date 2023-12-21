@@ -6,8 +6,15 @@
     <div class="container-fluid">
         <div class="row align-items-center bg-image text-light py-5">
             <div class="col align-items-start pb-5" data-aos="fade-right" data-aos-duration="3000">
+            @auth
+                @if (Auth::user()->isAdmin())
+                    <h1 class = "fw-bold large ms-5"> Add New Product </h1>
+                    <a href="/addProduct" class="btn btn-danger px-5 py-3 ms-5"> ADD PRODUCT </a>
+                @endif
+                @else
                 <h1 class = "fw-bold large ps-detail"> Find Your </h1>
                 <h1 class = "fw-bold large ps-detail"> Style </h1>
+            @endauth
             </div>
             <div class="col">
                 <div class="carousel-container" data-aos="fade-left" data-aos-duration="3000">

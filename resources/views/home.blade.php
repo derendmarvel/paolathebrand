@@ -10,7 +10,14 @@
                     <p class = "fw-medium fs-5"> EST. 2023 </p> 
                     <h1 class = "fw-bold large"> Romanticize Your Basic </h1> 
                     <p class = "fw-normal fs-5"> Serving you the chicest and timeless pieces for your wardrobe. Made and built with love. </p> 
+                    @auth
+                        @if (Auth::user()->isAdmin())
+                        <a href="/products" class="btn btn-danger px-5 py-3"> ADD PRODUCT </a>
+                        <a href="/products" class="btn btn-danger px-5 py-3"> ADD PROMO </a>
+                        @endif
+                        @else
                     <a href="/products" class="btn btn-danger px-5 py-3"> SHOP NOW </a>
+                    @endauth
                 </div>
                 <div class="col pt-2 relative-div" data-aos="fade-left" data-aos-delay="300" data-aos-duration="3000">
                     <img src="/images/Paola-Lookbook-1.png" alt="Banner 1" width="340" height="510" class = "shadow-lg img-home-1">
