@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Cart')
+@section('title', 'Checkout')
 
 @section('content')
     <div class = "container-fluid bg-white padding-form">
@@ -35,12 +35,11 @@
                 <input type="text" name="weight" class="form-control">
             </div>
             <div class="mb-3 form-group">
-                <label> Expedition </label> {{-- ini nanti diganti dropdown ngambil data dari tabel shipment, sama payment juga tapi blm aku bikin --}}
-                <select class="form-control" name="expedition">
-                    <option value="">Select</option>
-                    <option value="jne">JNE</option>
-                    <option value="pos">POS Indonesi</option>
-                    <option value="tiki">TIKI</option>
+                <label> Expedition </label> 
+                <select class="form-select" size="1" name="expedition" required>
+                    @foreach ($shipments as $shipment)
+                        <option value="{{ $shipment->id }}">{{ $shipment->name }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group">

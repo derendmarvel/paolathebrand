@@ -4,8 +4,9 @@
 
 @section('content')
     <div class="row align-items-center pt-4">
-        <img src="/images/Paola-BG-Light.png">
+        <img src="/images/Paola-BG-Light.png" class ="h-50">
         <div class="row ps-all-products">
+            @if($wishlists->isNotEmpty())
             @foreach ($wishlists as $key => $wishlist)
                 @php
                     $delay_pattern = [0, 100, 200];
@@ -23,6 +24,10 @@
                     </div>
                 </div>
             @endforeach
+           
+            @else
+                <h1 class = "fw-bold large text-center"> Oh, no! Your Wishlist is Empty. </h1>
+            @endif
         </div>
     </div>
 @endsection

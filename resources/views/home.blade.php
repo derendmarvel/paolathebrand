@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="row align-items-center py-5 text-light">
+        <div class="row align-items-center py-5 text-light" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
         <h1 class="text-center red pb-5 pt-3 py-2"> Promo </h1>
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">

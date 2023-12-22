@@ -19,10 +19,12 @@
                         @if (Auth::user()->isAdmin())
                         <p class="col-md-2 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="" class="btn btn-success w-28 h-75 pb-3 fw-bold"> Edit </a></p>
                         <p class="col-md align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="addToCard/{{$produk['id']}}" class="btn btn-danger w-28 h-75 pb-3 fw-bold"> Delete </a></p>
-                        @endif
+                        @elseif (Auth::user()->isVisitor())
+                        <p class="col-md-4 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="{{$produk['link']}}" class="btn btn-info text-light w-100 h-100 p-2 fw-bold"> Buy Now </a></p>
+                        <p class="col-md-4 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="addToCard/{{$produk['id']}}" class="btn btn-danger w-100 h-100 p-2 fw-bold"> Add To Cart </a></p>
                         @else
                         <p class="col-md-4 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="{{$produk['link']}}" class="btn btn-info w-100 h-100 p-2 fw-bold"> Buy Now </a></p>
-                        <p class="col-md-4 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="addToCard/{{$produk['id']}}" class="btn btn-danger w-100 h-100 p-2 fw-bold"> Add To Cart </a></p>
+                        @endif
                     </div>
                     @endauth
                 </div>

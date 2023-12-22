@@ -13,6 +13,14 @@
         <input type="text" class="form-control" name = "nama" required>
     </div>
     <div class="mb-3">
+        <label for="kategori" class="form-label"> Kategori </label>
+        <select class="form-select" size="1" name="kategori_id" required>
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->kategori }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="mb-3">
         <label for="warna" class="form-label"> Color </label>
         <input type="text" class="form-control" name = "warna" required>
     </div>
@@ -40,14 +48,6 @@
     <div class="mb-3">
         <label for="link" class="form-label"> Link </label>
         <input type="text" class="form-control" name = "link" required>
-    </div>
-    <div class="mb-3">
-        <label for="kategori" class="form-label"> Kategori </label>
-        <select class="form-select" size="1" name="kategori_id" required>
-            @foreach ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->kategori }}</option>
-            @endforeach
-        </select>
     </div>
     <button type="submit" class="btn btn-danger"> ADD PRODUCT </button>
     </form>

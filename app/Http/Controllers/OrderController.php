@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Shipment;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 
@@ -43,7 +44,8 @@ class OrderController extends Controller
         }
         // print_r($data['city']);
 
-        return view('checkout', $data);
+        $shipments = Shipment::all();
+        return view('checkout', $data, compact('shipments'));
     }
 
     public function cekOngkir($from, $to, $weight, $expedition){
