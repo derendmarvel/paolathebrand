@@ -11,11 +11,7 @@ class Payment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['amount', 'payment_date', 'payment_method'];
-
-    public function customer(): BelongsTo{
-        return $this->belongsTo(Customer::class);
-    }
+    protected $fillable = ['name'];
 
     public function orders(): HasMany{
         return $this->hasMany(Order::class);

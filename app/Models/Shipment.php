@@ -11,11 +11,7 @@ class Shipment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['shipment_date', 'address', 'city', 'country'];
-
-    public function customer(): BelongsTo{
-        return $this->belongsTo(Customer::class);
-    }
+    protected $fillable = ['name'];
 
     public function orders(): HasMany{
         return $this->hasMany(Order::class);

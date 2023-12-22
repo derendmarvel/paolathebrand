@@ -16,19 +16,11 @@ class Customer extends Model
         return $this->hasMany(Order::class);
     }
 
-    public function payments(): HasMany{
-        return $this->hasMany(Payment::class);
-    }
-
     public function carts(): HasMany{
         return $this->hasMany(Cart::class);
     }
 
     public function wishlists(): HasMany{
         return $this->hasMany(Wishlist::class);
-    }
-
-    public function shipments(): HasMany{
-        return $this->hasMany(Shipment::class);
     }
 }

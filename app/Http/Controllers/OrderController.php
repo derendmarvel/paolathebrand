@@ -8,59 +8,77 @@ use App\Http\Requests\UpdateOrderRequest;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public $api_key = "855813b222b10d90e5d3ec901f0d8220";
+
     public function index()
     {
-        //
+        $curl = curl_init();
+
+        curl_setopt_array($curl,
+            array(
+                CURLOPT_URL => "https://api.rajaongkir.com/starter/city",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => array(
+                    "key: ".$this->api_key
+                )
+            )
+        );
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            // echo "cURL Error #:" . $err;
+            $data['city'] = array('error' => true);
+        } else {
+            // echo $response;
+            $data['city'] = json_decode($response);
+        }
+        // print_r($data['city']);
+
+        return view('checkout', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    public function cekOngkir($from, $to, $weight, $expedition){
+        $curl = curl_init();
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreOrderRequest $request)
-    {
-        //
-    }
+        curl_setopt_array($curl,
+            array(
+                CURLOPT_URL => "https://api.rajaongkir.com/starter/cost",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_POSTFIELDS => "origin=".$from."&destination=".$to."&weight=".$weight."&courier=".$expedition,
+                CURLOPT_HTTPHEADER => array(
+                    "content-type: application/x-www-form-urlencoded",
+                    "key: ".$this->api_key
+                )
+            )
+        );
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Order $order)
-    {
-        //
-    }
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
+        curl_close($curl);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateOrderRequest $request, Order $order)
-    {
-        //
-    }
+        if ($err) {
+            // echo "cURL Error #:" . $err;
+            $data['total'] = array('error' => true);
+        } else {
+            // echo $response;
+            $data['total'] = json_decode($response);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Order $order)
-    {
-        //
+        return view('payment', $data);
     }
 }

@@ -14,10 +14,7 @@ return new class extends Migration
         Schema::create('shipments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->date('shipment_date');
-            $table->string('address');
-            $table->string('city');
-            $table->string('country');
+            $table->string('name');
         });
     }
 

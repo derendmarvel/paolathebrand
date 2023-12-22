@@ -4,7 +4,9 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PromoController;
+use App\Http\Controllers\GetApiController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Admin\ProdukController as AdminProdukController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -46,6 +48,10 @@ Route::delete('/promo/delete/{promo}', [PromoController::class, 'delete'])->midd
 Route::get('/kategori/create', [KategoriController::class, 'create'])->middleware('admin');
 Route::post('/kategori/store', [KategoriController::class, 'store'])->middleware('admin');
 
+Route::get('/getApi', [GetApiController::class, 'index'])->middleware('visitor');
+
+Route::get('/checkout', [OrderController::class, 'index'])->middleware('visitor');
+Route::get('/cekOngkir', [OrderController::class, 'cekOngkir'])->middleware('visitor');
 
 // Route::get('/home', function(){
 //     return view('home',[
