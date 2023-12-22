@@ -6,6 +6,12 @@
     <div class="container-fluid">
         <div class="row align-items-center bg-image-long text-light py-5 ps-product">
             <div class="col align-items-start pb-5" data-aos="fade-right" data-aos-duration="3000">
+
+            @if(!Auth::user())
+            <h1 class = "fw-bold large"> Find Your </h1>
+            <h1 class = "fw-bold large"> Style </h1>
+            @endif
+
             @auth
                 @if (Auth::user()->isAdmin())
                     <h1 class = "fw-bold large mb-3"> Paola's Products </h1>
