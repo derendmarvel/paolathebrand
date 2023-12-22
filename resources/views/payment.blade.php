@@ -4,12 +4,12 @@
 
 @section('content')
     <strong>From :</strong>
-    <?php echo $total->rajaongkir->origin_details->city_name ?>
-    <?php echo $total->rajaongkir->origin_details->province ?>
+    <?php echo $from ?>
+    {{-- <?php echo $total->rajaongkir->origin_details->province ?> --}}
 
     <strong>To :</strong>
-    <?php echo $total->rajaongkir->destination_details->city_name ?>
-    <?php echo $total->rajaongkir->destination_details->province ?>
+    <?php echo $to ?>
+    {{-- <?php echo $total->rajaongkir->destination_details->province ?> --}}
 
     <strong>Expedition :</strong>
     <?php echo $total->rajaongkir->results[0]->name ?><br>
