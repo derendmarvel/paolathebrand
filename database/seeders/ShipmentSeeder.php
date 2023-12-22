@@ -14,13 +14,13 @@ class ShipmentSeeder extends Seeder
     public function run(): void
     {
         Shipment::create([
-            'name' => 'JNE'
+            'name' => 'jne'
         ]);
         Shipment::create([
-            'name' => 'POS Indonesia'
+            'name' => 'pos'
         ]);
         Shipment::create([
-            'name' => 'TIKI'
+            'name' => 'tiki'
         ]);
     }
 }

@@ -35,10 +35,10 @@
                 <input type="text" name="weight" class="form-control">
             </div>
             <div class="mb-3 form-group">
-                <label> Expedition </label> 
+                <label> Expedition </label>
                 <select class="form-select" size="1" name="expedition" required>
                     @foreach ($shipments as $shipment)
-                        <option value="{{ $shipment->id }}">{{ $shipment->name }}</option>
+                        <option value="{{ $shipment->name }}">{{ $shipment->name }}</option>
                     @endforeach
                 </select>
             </div>

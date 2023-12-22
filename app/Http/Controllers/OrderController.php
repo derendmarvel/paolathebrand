@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Shipment;
-use App\Http\Requests\StoreOrderRequest;
-use App\Http\Requests\UpdateOrderRequest;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
@@ -48,7 +47,12 @@ class OrderController extends Controller
         return view('checkout', $data, compact('shipments'));
     }
 
-    public function cekOngkir($from, $to, $weight, $expedition){
+    public function cekOngkir(Request $request){
+        $from = $request->input('from');
+        $to = $request->input('to');
+        $weight = $request->input('weight');
+        $expedition = $request->input('expedition');
+
         $curl = curl_init();
 
         curl_setopt_array($curl,
@@ -80,6 +84,7 @@ class OrderController extends Controller
             // echo $response;
             $data['total'] = json_decode($response);
         }
+        print_r($data['total']);
 
         return view('payment', $data);
     }

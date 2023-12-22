@@ -11,10 +11,10 @@
                     <h1 class = "fw-bold large mb-3"> Paola's Products </h1>
                     <a href="/produk/create" class="btn btn-danger p-3 me-3 fw-bold"> Add Product </a>
                     <a href="/kategori/create" class="btn btn-success p-3 fw-bold"> Add Kategori </a>
-                @endif
                 @else
                     <h1 class = "fw-bold large"> Find Your </h1>
-                    <h1 class = "fw-bold large"> Style </h1>    
+                    <h1 class = "fw-bold large"> Style </h1>
+                @endif
             @endauth
             </div>
             <div class="col">

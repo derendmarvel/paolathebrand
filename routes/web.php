@@ -51,7 +51,7 @@ Route::post('/kategori/store', [KategoriController::class, 'store'])->middleware
 Route::get('/getApi', [GetApiController::class, 'index'])->middleware('visitor');
 
 Route::get('/checkout', [OrderController::class, 'index'])->middleware('visitor');
-Route::get('/cekOngkir', [OrderController::class, 'cekOngkir'])->middleware('visitor');
+Route::post('/cekOngkir', [OrderController::class, 'cekOngkir'])->middleware('visitor');
 
 // Route::get('/home', function(){
 //     return view('home',[
