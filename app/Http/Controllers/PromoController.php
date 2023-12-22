@@ -19,7 +19,8 @@ class PromoController extends Controller
 
     public function create(){
         return view('Admin.addPromo', [
-            'promos' => Promo::all()
+            'promos' => Promo::all(),
+            'activateAddPromo' => "active" 
         ]);
     }
 

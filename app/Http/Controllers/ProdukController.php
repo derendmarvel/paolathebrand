@@ -13,20 +13,19 @@ use Illuminate\Support\Facades\DB;
 
 class ProdukController extends Controller
 {
-    // public static function products(){
-    //     return view('product', [
-    //         "activateProduct" => "active",
-    //         'products' => Produk::all(),
-    //         'promos' => Promo::all()
-    //         // 'count' => 0
-    //     ]);
-    // }
+    public static function products(){
+         return view('product', [
+             "activateProduct" => "active",
+             'products' => Produk::all(),
+             'promos' => Promo::all()
+         ]);
+     }
 
     public static function productsKat(){
         return view('home', [
             'products' => Produk::where('kategori_id', 2)->take(3)->get(),
             'activateHome' => 'active',
-            'products2' => Produk::where('warna', 'Black')->take(3)->get(),
+            'products2' => Produk::where('warna', "Black")->take(3)->get(),
             'promos' => Promo::all()
         ]);
     }
@@ -51,7 +50,9 @@ class ProdukController extends Controller
 
     public function create(){
         $categories = Kategori::all();
-        return view('Admin.addProduct', compact('categories'));
+        return view('Admin.addProduct', compact('categories'), [
+            "activateAddProduct" => "active"
+        ]);
     }
 
     public function store(Request $request, Produk $produk){
@@ -66,8 +67,6 @@ class ProdukController extends Controller
             'link' => 'required',
             'kategori_id' => 'required',
         ]);
-
-
 
         if($request->file('foto')){
             if($produk->image){
@@ -103,6 +102,6 @@ class ProdukController extends Controller
             'kategori_id' => $validatedData['kategori_id'],
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('products');
     }
 }

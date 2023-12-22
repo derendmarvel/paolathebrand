@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [ProdukController::class, 'productsKat'])->name('home');
+Route::get('/', [ProdukController::class, 'productsKat']);
 
 Route::get('/products', [ProdukController::class, 'products'])->name('products');
 
@@ -67,8 +67,4 @@ Route::get('/aboutUs', function(){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [ProdukController::class, 'productsKat'])->name('home');

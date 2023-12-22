@@ -3,7 +3,7 @@
     @section('title', 'Paola The Brand')
 
     @section('content')
-    <div class="bg-image">
+    <div class="bg-image-long">
         <div class= "container px-5 pt-3 pb-5" data-aos="fade-right" data-aos-duration="3000">
             <div class="row align-items-center">
                 <div class="col ps-home align-items-start text-light">
@@ -14,10 +14,13 @@
                         @if (Auth::user()->isAdmin())
                             <a href="/produk/create" class="btn btn-danger p-3 me-3 fw-bold"> Add Product </a>
                             <a href="/promo/create" class="btn btn-success p-3 fw-bold"> Add Promo </a>
-                        @endif
-                        @else
+                        @elseif (Auth::user()->isVisitor())
                             <a href="/products" class="btn btn-danger px-5 py-3"> SHOP NOW </a>
+                        @endif
+                    @else
+                        <a href="/products" class="btn btn-danger px-5 py-3"> SHOP NOW </a>
                     @endauth
+                    
                 </div>
                 <div class="col pt-2 relative-div" data-aos="fade-left" data-aos-delay="300" data-aos-duration="3000">
                     <img src="/images/Paola-Lookbook-1.png" alt="Banner 1" width="340" height="510" class = "shadow-lg img-home-1">
@@ -27,9 +30,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="row align-items-center py-5 bg-image text-light">
+        <div class="row align-items-center py-5 text-light">
         <h1 class="text-center red pb-5 pt-3 py-2"> Promo </h1>
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
@@ -58,11 +59,13 @@
             </button>
         </div>
     </div>
+    </div>
 
     <div class="row align-items-center py-4 bg-image-light">
         <h1 class="text-center red pb-5 pt-4 py-2"> Paola Tops </h1>
         <div class="row ps-all-products">
             @foreach ($products as $key => $product)
+                @if ($key < 3)
                     @php
                         $animation_delay = $key * 150;
                     @endphp
@@ -80,11 +83,14 @@
                             </div>
                         </div>
                     </div>
+                @else
+                    @break
+                @endif
             @endforeach
         </div>
     </div>
 
-    <div class="row align-items-center py-4 bg-image text-light">
+    <div class="row align-items-center py-4 bg-image-long text-light">
         <a href="/products" class="link-light link-underline link-underline-opacity-0"><h1 class="text-center pb-5 pt-4 py-2"> Better in Black </h1></a>
         <div class="row ps-all-products">
             @foreach ($products2 as $key => $product)

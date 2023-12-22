@@ -4,17 +4,17 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row align-items-center bg-image text-light py-5">
-            <div class="col align-items-start pb-5 ps-5" data-aos="fade-right" data-aos-duration="3000">
+        <div class="row align-items-center bg-image-long text-light py-5 ps-product">
+            <div class="col align-items-start pb-5" data-aos="fade-right" data-aos-duration="3000">
             @auth
                 @if (Auth::user()->isAdmin())
-                    <h1 class = "fw-bold large ms-5 mb-3"> Paola's Products </h1>
-                    <a href="/produk/create" class="btn btn-danger px-5 py-3 ms-5 fw-bold"> Add Product </a>
-                    <a href="/kategori/create" class="btn btn-success px-5 py-3 ms-2 fw-bold"> Add Category </a>
+                    <h1 class = "fw-bold large mb-3"> Paola's Products </h1>
+                    <a href="/produk/create" class="btn btn-danger py-3 fw-bold"> Add Product </a>
+                    <a href="/kategori/create" class="btn btn-success py-3 fw-bold"> Add Category </a>
                 @endif
                 @else
-                    <h1 class = "fw-bold large ps-detail"> Find Your </h1>
-                    <h1 class = "fw-bold large ps-detail"> Style </h1>    
+                    <h1 class = "fw-bold large"> Find Your </h1>
+                    <h1 class = "fw-bold large"> Style </h1>    
             @endauth
             </div>
             <div class="col">
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="row align-items-center py-4">
+        <div class="row align-items-center py-4 bg-image-light">
             <h1 class = "text-center red pb-5 pt-4 py-2"> All Products </h1>
             <div class="row ps-all-products">
                 @foreach ($products as $key => $product)

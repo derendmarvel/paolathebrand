@@ -50,6 +50,11 @@
       padding-left: 32px;
     }
 
+    .ps-product {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
     .padding-form {
       padding-left: 64px;
       padding-right: 64px;
@@ -90,6 +95,11 @@
 
     .bg-image-light {
       background-image: url('/images/Paola-BG-Light.png');
+      background-size: cover;
+    }
+
+    .bg-image-long {
+      background-image: url('/images/Paola-BG-Dark-Long.png');
       background-size: cover;
     }
 
@@ -360,14 +370,14 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav justify-content-center gap-3">
-                <li class="nav-item">
+        <div class="collapse navbar-collapse col-md-8 ps-5" id="navbarNav">
+            <ul class="navbar-nav mx-auto ps-5 gap-3">
+                  <li class="nav-item">
                     <a class="nav-link {{ $activateHome ?? '' }}" href="/"> Home </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ $activateProduct ?? '' }}" href="/products">Products</a>
-                </li>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {{ $activateProduct ?? '' }}" href="/products">Products</a>
+                  </li>
                 @auth
                   @if (Auth::user()->isVisitor())
                   <li class="nav-item">
@@ -375,6 +385,19 @@
                   </li>
                   <li class="nav-item">
                       <a class="nav-link {{ $activateCart ?? '' }}" href="/carts">Cart</a>
+                  </li>
+                  @endif
+                @endauth
+                @auth
+                  @if (Auth::user()->isAdmin())
+                  <li class="nav-item">
+                      <a class="nav-link {{ $activateAddProduct ?? '' }}" href="/produk/create"> Add Product </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {{ $activateAddPromo ?? '' }}" href="/promo/create"> Add Promo </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {{ $activateAddCategory ?? '' }}" href="/kategori/create"> Add Category </a>
                   </li>
                   @endif
                 @endauth
