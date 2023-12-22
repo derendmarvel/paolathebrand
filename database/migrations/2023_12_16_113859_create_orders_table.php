@@ -15,6 +15,21 @@ return new class extends Migration
             $table->id();
             //$table->timestamps('order_date');
             $table->timestamps();
+            $table->unsignedBigInteger('shipment_id');
+            $table->foreign('shipment_id')
+                ->references('id')
+                ->on('shipments')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('customer_id');
+            $table->foreign('customer_id')
+                ->references('id')
+                ->on('customers')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('payment_id');
+            $table->foreign('payment_id')
+                ->references('id')
+                ->on('payments')
+                ->onDelete('cascade');
             $table->integer('total_price');
             $table->string('status');
             $table->integer('order_weight');

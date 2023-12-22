@@ -5,8 +5,8 @@
     <div class="col-md p-4" data-aos="fade-right" data-aos-duration="3000">
         <img src="/images/Paola-Logo-2.png" alt="Paola" width="384" height="216">
     </div>
-    <div class="col-md p-3 bg-light" data-aos="fade-left" data-aos-duration="3000">
-    <h1 class="text-red pb-5 pt-4 py-2"> Register </h1>
+    <div class="col-md px-3 py-5 bg-light" data-aos="fade-left" data-aos-duration="3000">
+    <h1 class="text-red pb-5 pt-4 py-2 padding-start"> Register </h1>
         <div class="card-body">
             <form method="POST" action="{{ route('register') }}">
                 @csrf

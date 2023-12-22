@@ -10,7 +10,7 @@
     </div>
     <div class="col-md p-3 bg-light" data-aos="fade-left" data-aos-duration="3000">
         <div class = "mt-5 mb-5">
-            <h1 class="text-red pb-5 pt-4 py-2"> Login </h1>
+            <h1 class="text-red pb-5 pt-4 py-2 padding-start"> Login </h1>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
