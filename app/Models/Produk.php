@@ -11,7 +11,7 @@ class Produk extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama', 'warna', 'size', 'harga', 'foto', 'deskripsi', 'stok', 'link'];
+    protected $fillable = ['nama', 'warna', 'size', 'harga', 'foto', 'deskripsi', 'stok', 'link', 'kategori_id', 'promo_id'];
 
     protected $sizelist = ['S', 'M', 'L'];
 
@@ -23,11 +23,11 @@ class Produk extends Model
         return $this->hasMany(Cart::class);
     }
 
-    public function kateori() : BelongsTo{
-        return $this->belongsTo(Kategori::class);
+    public function kategori(): BelongsTo{
+        return $this->belongsTo(Kategori::class, 'kategori_id', 'id');
     }
 
     public function promo() : BelongsTo{
-        return $this->belongsTo(Promo::class);
+        return $this->belongsTo(Promo::class, 'promo_id', 'id');
     }
 }

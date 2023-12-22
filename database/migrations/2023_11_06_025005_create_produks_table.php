@@ -21,11 +21,16 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->integer('stok');
             $table->text('link');
-            $table->unsignedBigInteger('kategori_id')->default(2);
+            $table->unsignedBigInteger('kategori_id')->nullable(true);
             $table->foreign('kategori_id')
-            ->references('id')
-            ->on('kategoris')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('kategoris')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('promo_id')->nullable(true);
+            $table->foreign('promo_id')
+                ->references('id')
+                ->on('promos')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
