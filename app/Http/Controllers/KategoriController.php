@@ -17,7 +17,7 @@ class KategoriController extends Controller
 
     public function create(){
         return view('Admin.addKategori', [
-            'activateAddCategory' => "active" 
+            'activateAddCategory' => "active"
         ]);
     }
 

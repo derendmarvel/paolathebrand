@@ -45,7 +45,7 @@ Route::get('/promo/create', [PromoController::class, 'create'])->middleware('adm
 Route::post('/promo/store', [PromoController::class, 'store'])->middleware('admin');
 Route::delete('/promo/delete/{promo}', [PromoController::class, 'delete'])->middleware('admin');
 
-Route::get('/kategori/create', [KategoriController::class, 'create'])->middleware('admin');
+Route::get('/category/create', [KategoriController::class, 'create'])->middleware('admin');
 Route::post('/kategori/store', [KategoriController::class, 'store'])->middleware('admin');
 
 Route::get('/getApi', [GetApiController::class, 'index'])->middleware('visitor');
