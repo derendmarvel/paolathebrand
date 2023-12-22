@@ -12,11 +12,11 @@
                     <p class = "fw-normal fs-5"> Serving you the chicest and timeless pieces for your wardrobe. Made and built with love. </p>
                     @auth
                         @if (Auth::user()->isAdmin())
-                        <a href="/produk/create" class="btn btn-danger p-3 me-3 fw-bold"> Add Product </a>
-                        <a href="/promo/create" class="btn btn-success p-3 fw-bold"> Add Promo </a>
+                            <a href="/produk/create" class="btn btn-danger p-3 me-3 fw-bold"> Add Product </a>
+                            <a href="/promo/create" class="btn btn-success p-3 fw-bold"> Add Promo </a>
                         @endif
                         @else
-                    <a href="/products" class="btn btn-danger px-5 py-3"> SHOP NOW </a>
+                            <a href="/products" class="btn btn-danger px-5 py-3"> SHOP NOW </a>
                     @endauth
                 </div>
                 <div class="col pt-2 relative-div" data-aos="fade-left" data-aos-delay="300" data-aos-duration="3000">
@@ -29,18 +29,22 @@
         </div>
     </div>
 
-    <div class="row align-items-center py-4 bg-image text-light">
-        <h1 class="text-center red pb-5 pt-4 py-2"> Promo </h1>
+    <div class="row align-items-center py-5 bg-image text-light">
+        <h1 class="text-center red pb-5 pt-3 py-2"> Promo </h1>
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
                 @foreach($promos as $key => $promo)
-                <div class="carousel-item active">
-                    <img src="{{asset('storage/'.$promo->image)}}" class="d-block w-100">
-                    <form action="/promo/delete/{{$promo['id']}}" method="POST" class="ps-delete">
-                        @method('delete')
-                        @csrf
-                        <button class='btn btn-danger' id='delete' name='delete'>DELETE</button>
-                    </form>
+                <div class="carousel-item active align-items-center pb-4">
+                    <img src="{{asset($promo->image)}}" class="d-block mx-auto w-25 h-25">
+                    @auth
+                        @if (Auth::user()->isAdmin())
+                            <form action="/promo/delete/{{$promo['id']}}" method="POST" class="text-center d-block mx-auto pt-4">
+                                @method('delete')
+                                @csrf
+                                <button class='btn btn-danger w-25' id='delete' name='delete'>DELETE</button>
+                            </form>
+                        @endif
+                    @endauth
                 </div>
                 @endforeach
             </div>

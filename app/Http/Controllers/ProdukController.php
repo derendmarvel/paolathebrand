@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\DB;
 
 class ProdukController extends Controller
 {
-    public static function products(){
-        return view('product', [
-            "activateProduct" => "active",
-            'products' => Produk::all(),
-            'promos' => Promo::all()
-            // 'count' => 0
-        ]);
-    }
+    // public static function products(){
+    //     return view('product', [
+    //         "activateProduct" => "active",
+    //         'products' => Produk::all(),
+    //         'promos' => Promo::all()
+    //         // 'count' => 0
+    //     ]);
+    // }
 
     public static function productsKat(){
         return view('home', [
