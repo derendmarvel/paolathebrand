@@ -397,7 +397,7 @@
                       <a class="nav-link {{ $activateAddPromo ?? '' }}" href="/promo/create"> Add Promo </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link {{ $activateAddCategory ?? '' }}" href="/kategori/create"> Add Category </a>
+                      <a class="nav-link {{ $activateAddCategory ?? '' }}" href="/category/create"> Add Category </a>
                   </li>
                   @endif
                 @endauth
