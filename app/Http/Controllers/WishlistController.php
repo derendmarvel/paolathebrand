@@ -23,38 +23,49 @@ class WishlistController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        //
+        // return view('createWishlist', ['id' => $id]);
+        // return redirect()->route('addWishlist', array('id' => $id));
     }
 
     /**
      * Store a newly created resource in storage.
      */
+
+    // public function perantara($id){
+    //     return redirect()->route('/addWishlist/'.$id);
+    // }
+
     public function store($id)
     {
-        $produks = Produk::get();
-
-        foreach ($produks as $produk){
-            if($produk['id'] == $id){
-                Wishlist::create([
-                    'produk_id' => $produk->id
-                ]);
-            }
-        }
-
         $customers = Customer::get();
         // $users = User::get();
 
         $currentUser = Auth::user()->name;
 
+        $produks = Produk::get();
+
         foreach ($customers as $customer){
             if($customer->nama == $currentUser){
-                Wishlist::create([
-                    'customer_id' => $customer['id']
-                ]);
+                $addCustomer = $customer['id'];
             }
+
+            foreach ($produks as $produk){
+                if($produk['id'] == $id){
+                    $addProduk = $produk['id'];
+                }
+            }
+
+            Wishlist::create([
+                'customer_id' => $addCustomer,
+                'produk_id' => $addProduk
+            ]);
         }
+
+        return view('wishlist', [
+            'wishlists' => Wishlist::all(),
+        ]);
     }
 
     /**
