@@ -84,7 +84,7 @@ class OrderController extends Controller
             // echo $response;
             $data['total'] = json_decode($response);
         }
-        print_r($data['total']);
+        // print_r($data['total']);
 
         return view('payment', $data);
     }

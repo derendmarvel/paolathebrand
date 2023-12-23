@@ -14,7 +14,7 @@
                     <option value="">Select City</option>
                     @if($city)
                         @foreach ($city->rajaongkir->results as $each)
-                            <option value="$each->city_name"><?php echo $each->city_name ?></option>
+                            <option value="{{$each->city_id}}"><?php echo $each->city_name ?></option>
                         @endforeach
                     @endif
                 </select>
@@ -25,7 +25,7 @@
                     <option value="">Select City</option>
                     @if($city)
                         @foreach ($city->rajaongkir->results as $each)
-                            <option value="$each->city_name"><?php echo $each->city_name ?></option>
+                            <option value="{{$each->city_id}}"><?php echo $each->city_name ?></option>
                         @endforeach
                     @endif
                 </select>
