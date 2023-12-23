@@ -3,7 +3,7 @@
     @section('title', 'Product Detail')
 
     @section('content')
-        <div class="container-fluid bg-image-light">
+        <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-md-4 ps-detail py-5">
                     <img src="{{ asset('storage/'.$produk->foto) }}" alt="Banner 1" width="290" height="435" class = "shadow-lg" data-aos="fade-up">
@@ -18,7 +18,7 @@
                         @auth
                             @if (Auth::user()->isAdmin())
                             <div class="col-md align-items-center" data-aos="fade-up" data-aos-delay="1250"> 
-                                <a href="" class="btn btn-info text-light w-100 h-100 p-2 fw-bold"> Edit </a>
+                                <a href="{{ route('produk.edit', $produk)}}" class="btn btn-info text-light w-100 h-100 p-2 fw-bold"> Edit </a>
                             </div>
                             <div class="col-md align-items-center" data-aos="fade-up" data-aos-delay="1250"> 
                             <form action="{{ route('produk.destroy', $produk)}}" method="POST">
@@ -31,9 +31,10 @@
                             @elseif (Auth::user()->isVisitor())
                             <p class="col-md-4 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="{{$produk['link']}}" class="btn btn-info text-light w-100 h-100 p-2 fw-bold"> Buy Now </a></p>
                             <p class="col-md-4 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="addToCard/{{$produk['id']}}" class="btn btn-danger w-100 h-100 p-2 fw-bold"> Add To Cart </a></p>
-                            @else
-                            <p class="col-md-4 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="{{$produk['link']}}" class="btn btn-info w-100 h-100 p-2 fw-bold"> Buy Now </a></p>
                             @endif
+                        @else
+                            <p class="col-md-4 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="{{$produk['link']}}" class="btn btn-danger w-100 h-100 p-2 fw-bold"> Buy Now </a></p>
+                            
                         </div>
                         @endauth
                     </div>

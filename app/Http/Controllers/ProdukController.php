@@ -94,6 +94,68 @@ class ProdukController extends Controller
         return redirect()->route('products');
     }
 
+    public function edit(Produk $produk){
+        $produk = Produk::where('id', $produk->id)->first();
+        $categories = Kategori::all();
+        return view('Admin.editProduct', compact('produk', 'categories'));
+    }
+
+    public function update(Request $request, Produk $produk){
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'warna' => 'required',
+            'size' => 'required',
+            'harga' => 'required',
+            'foto' => 'image',
+            'deskripsi' => 'required',
+            'stok' => 'required',
+            'link' => 'required',
+            'kategori_id' => 'required',
+        ]);
+
+        if ($request->file('foto')){
+            if ($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['foto'] = $request->file('foto')->store('images', ['disk' => 'public']);
+            $produk->update([
+                'nama' => $validatedData['nama'],
+                'warna' => $validatedData['warna'],
+                'size' => $validatedData['size'],
+                'harga' => $validatedData['harga'],
+                'foto' => $validatedData['foto'],
+                'deskripsi' => $validatedData['deskripsi'],
+                'stok' => $validatedData['stok'],
+                'link' => $validatedData['link'],
+                'kategori_id' => $validatedData['kategori_id'],
+            ]);
+        } else {
+            $produk->update([
+                'nama' => $validatedData['nama'],
+                'warna' => $validatedData['warna'],
+                'size' => $validatedData['size'],
+                'harga' => $validatedData['harga'],
+                'deskripsi' => $validatedData['deskripsi'],
+                'stok' => $validatedData['stok'],
+                'link' => $validatedData['link'],
+                'kategori_id' => $validatedData['kategori_id'],
+            ]);
+        }
+
+        // $produk->update([
+        //     'nama' => $request->nama,
+        //     'warna' => $request->warna,
+        //     'size' => $request->size,
+        //     'harga' => $request->harga,
+        //     'deskripsi' => $request->deskripsi,
+        //     'stok' => $request->stok,
+        //     'link' => $request->link,
+        //     'kategori_id' => $request->kategori_id,
+        // ]);
+
+        return redirect()->route('products');
+    }
+
     public function destroy(Produk $produk){
         if($produk->foto){
             if(Storage::disk('public')->exists($produk->foto)){

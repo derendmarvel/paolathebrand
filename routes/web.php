@@ -41,6 +41,8 @@ Route::get('/addWishlist/{id}', [WishlistController::class, 'store'])->middlewar
 
 Route::get('/produk/create', [ProdukController::class, 'create'])->middleware('admin');
 Route::post('/produk/store', [ProdukController::class, 'store'])->middleware('admin');
+Route::get('/produk/edit/{produk}', [ProdukController::class, 'edit'])->middleware('admin')->name('produk.edit');
+Route::put('/produk/update/{produk}', [ProdukController::class, 'update'])->middleware('admin')->name('produk.update');
 Route::delete('/produk/destroy/{produk}', [ProdukController::class, 'destroy'])->middleware('admin')->name('produk.destroy');
 
 Route::get('/promo/create', [PromoController::class, 'create'])->middleware('admin');
