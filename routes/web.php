@@ -41,6 +41,7 @@ Route::get('/addWishlist/{id}', [WishlistController::class, 'store'])->middlewar
 
 Route::get('/produk/create', [ProdukController::class, 'create'])->middleware('admin');
 Route::post('/produk/store', [ProdukController::class, 'store'])->middleware('admin');
+Route::delete('/produk/destroy/{produk}', [ProdukController::class, 'destroy'])->middleware('admin')->name('produk.destroy');
 
 Route::get('/promo/create', [PromoController::class, 'create'])->middleware('admin');
 Route::post('/promo/store', [PromoController::class, 'store'])->middleware('admin');

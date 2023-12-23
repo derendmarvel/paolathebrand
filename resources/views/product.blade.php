@@ -50,14 +50,14 @@
                         <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div p-product"> </a>
                         <div class="row justify-content-start p-product">
                             <div class="col">
-                                <div class="pt-4 row"> <a href="detailProducts/{{$product['id']}}" class = "link-underline-light link-secondary col"> <p class ="fs-4 fw-bold red"> {{$product->nama}} ({{$product->warna}}) </p> </a> <a href="addWishlist/{{$product['id']}}" class="col pt-1 ps-like z-2 position-absolute"> <img src="/images/Unlike_button.png" width="25" height="25"> </a> </div>
+                                <div class="pt-4 row"> 
+                                    <a href="detailProducts/{{$product['id']}}" class ="link-underline-light link-secondary col fs-4 fw-bold text-danger"> {{$product->nama}} ({{$product->warna}}) </a> 
+                                    <a href="addWishlist/{{$product['id']}}" class="col pt-1 ps-like z-2 position-absolute"> <img src="/images/Unlike_button.png" width="25" height="25"> </a> 
+                                </div>
                                 <div class="pb-5 fw-normal fs-6 text-secondary">
                                     <a href="detailProducts/{{$product['id']}}" class="link-underline-light link-secondary"> See in Detail <img src="/images/Arrow.png" width="30" height="20"></a>
                                 </div>
                             </div>
-                            <!-- <div class="col ps-4 pt-3">
-                                <img src="/images/Arrow.png" width="30" height="20">
-                            </div>  -->
                         </div>
                     </div>
                 @endforeach

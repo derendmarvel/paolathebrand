@@ -88,20 +88,31 @@ class ProdukController extends Controller
                 'link' => $validatedData['link'],
                 'kategori_id' => $validatedData['kategori_id'],
             ]);
+        } else {
+            Produk::create([
+                'nama' => $validatedData['nama'],
+                'warna' => $validatedData['warna'],
+                'size' => $validatedData['size'],
+                'harga' => $validatedData['harga'],
+                'deskripsi' => $validatedData['deskripsi'],
+                'stok' => $validatedData['stok'],
+                'link' => $validatedData['link'],
+                'kategori_id' => $validatedData['kategori_id'],
+            ]);
+        }
+        return redirect()->route('products');
+    }
+
+    public function destroy(Produk $produk){
+        if($produk->foto){
+            if(Storage::disk('public')->exists($produk->foto)){
+                Storage::disk('public')->delete($produk->foto);
+            }
         }
 
-        Produk::create([
-            'nama' => $validatedData['nama'],
-            'warna' => $validatedData['warna'],
-            'size' => $validatedData['size'],
-            'harga' => $validatedData['harga'],
-            'foto' => $validatedData['foto'],
-            'deskripsi' => $validatedData['deskripsi'],
-            'stok' => $validatedData['stok'],
-            'link' => $validatedData['link'],
-            'kategori_id' => $validatedData['kategori_id'],
-        ]);
+        $produk->delete();
 
         return redirect()->route('products');
     }
 }
+
