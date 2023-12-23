@@ -39,15 +39,6 @@ class ProdukController extends Controller
         ]);
     }
 
-    public function adminDetail($id){
-        $produk = Produk::find($id);
-
-        return view('detailProductsAdmin', [
-            "activateProduct" => "active",
-            'produk' => $produk
-        ]);
-    }
-
     public function create(){
         $categories = Kategori::all();
         return view('Admin.addProduct', compact('categories'), [

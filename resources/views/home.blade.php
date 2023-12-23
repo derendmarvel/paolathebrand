@@ -23,9 +23,9 @@
                     
                 </div>
                 <div class="col pt-2 relative-div" data-aos="fade-left" data-aos-delay="300" data-aos-duration="3000">
-                    <img src="/images/Paola-Lookbook-1.png" alt="Banner 1" width="340" height="510" class = "shadow-lg img-home-1">
+                    <img src="storage/images/Paola-Lookbook-1.png" alt="Banner 1" width="340" height="510" class = "shadow-lg img-home-1">
                     <div class="absolute-div">
-                        <img src="/images/Dulcie-Top-Brown.png" alt="Banner 1" width="250" heigth="375" class="shadow-lg img-home-2">
+                        <img src="storage/images/Dulcie-Top-Brown.png" alt="Banner 1" width="250" heigth="375" class="shadow-lg img-home-2">
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
             <div class="carousel-inner">
                 @foreach($promos as $key => $promo)
                 <div class="carousel-item active align-items-center pb-4">
-                    <img src="{{asset($promo->image)}}" class="d-block mx-auto w-25 h-25">
+                    <img src="{{ asset('storage/'.$promo->image) }}" class="d-block mx-auto w-25 h-25">
                     @auth
                         @if (Auth::user()->isAdmin())
                             <form action="/promo/delete/{{$promo['id']}}" method="POST" class="text-center d-block mx-auto pt-4">
@@ -70,7 +70,7 @@
                         $animation_delay = $key * 150;
                     @endphp
                     <div class="col justify-content-center" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
-                        <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div home-product"> </a>
+                        <a href="detailProducts/{{$product['id']}}"><img src="{{ asset('storage/'.$product->foto) }}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div home-product"> </a>
                         <div class="row align-items-center home-product">
                             <div class="col">
                                 <div class="pt-4"> <a href="detailProducts/{{$product['id']}}" class = "link-underline-light link-secondary"> <p class ="fs-4 fw-bold red"> {{$product->nama}} ({{$product->warna}}) </p> </a> </div>
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <a href="detailProducts/{{$product['id']}}"><img src="/images/Arrow.png" width="42" height="35"> </a>
+                                <a href="detailProducts/{{$product['id']}}"><img src="storage/images/Arrow.png" width="42" height="35"> </a>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                         $animation_delay = $key * 150;
                     @endphp
                     <div class="col justify-content-center" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
-                        <a href="detailProducts/{{$product['id']}}"><img src="{{asset($product->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div home-product"> </a>
+                        <a href="detailProducts/{{$product['id']}}"><img src="{{ asset('storage/'.$product->foto) }}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div home-product"> </a>
                         <div class="row align-items-center home-product">
                             <div class="col">
                                 <div class="pt-4"> <a href="detailProducts/{{$product['id']}}" class = "link-underline-light link-light"> <p class ="fs-4 fw-bold"> {{$product->nama}} ({{$product->warna}}) </p> </a> </div>
@@ -107,7 +107,7 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <a href="detailProducts/{{$product['id']}}"><img src="/images/Arrow.png" width="42" height="35"> </a>
+                                <a href="detailProducts/{{$product['id']}}"><img src="storage/images/Arrow.png" width="42" height="35"> </a>
                             </div>
                         </div>
                     </div>

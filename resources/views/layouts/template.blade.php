@@ -89,17 +89,22 @@
     }
 
     .bg-image {
-      background: url('/images/Paola-BG-Dark.png');
+      background: url('storage/images/Paola-BG-Dark.png');
       background-size: cover;
     }
 
     .bg-image-light {
-      background-image: url('/images/Paola-BG-Light.png');
+      background-image: url('storage/images/Paola-BG-Light.png');
       background-size: cover;
     }
 
     .bg-image-long {
-      background-image: url('/images/Paola-BG-Dark-Long.png');
+      background-image: url('storage/images/Paola-BG-Dark-Long.png');
+      background-size: cover;
+    }
+
+    .about-us-bg {
+      background: url('storage/images/Paola-Header.png');
       background-size: cover;
     }
 
@@ -183,10 +188,7 @@
       transition: 0.4s ease-out;
     }
 
-    .about-us-bg {
-      background: url('/images/Paola-Header.png');
-      background-size: cover;
-    }
+    
 
     .img-home-1 {
       width: 340px;
@@ -364,7 +366,7 @@
     <div class="container-fluid" data-aos="fade-down" data-aos-duration="1000">
         <div>
             <a class="navbar-brand" href="#">
-                <img src="/images/Paola-Logo-2.png" alt="Paola" width="80" height="45">
+                <img src="storage/images/Paola-Logo-2.png" alt="Paola" width="80" height="45">
             </a>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -453,9 +455,9 @@
     <footer class="w-100">
       <div class="row w-footer align-items-center bg-red text-light pb-5 ps-5">
         <div class="col-md-9 p-5" data-aos="fade-up">
-          <img src="/images/Paola-Logo-3.png" alt="Paola" width="95" height="70">
+          <img src="storage/images/Paola-Logo-3.png" alt="Paola" width="95" height="70">
           <p class="small fw-lighter">Serving you the chicest and timeless pieces for your wardrove. Made and built with love.</p>
-          <a href ="https://www.instagram.com/paola.thebrand/"><img src="/images/instagram.png" alt="Paola" width="16" height="16"> </a>
+          <a href ="https://www.instagram.com/paola.thebrand/"><img src="storage/images/instagram.png" alt="Paola" width="16" height="16"> </a>
         </div>
         <div class="col-md p-5">
           <div class="row ps-2 pe-4 pt-4">
