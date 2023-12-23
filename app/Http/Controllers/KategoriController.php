@@ -25,5 +25,7 @@ class KategoriController extends Controller
         Kategori::create([
             'kategori' => $request->kategori
         ]);
+
+        return redirect()->route('home');
     }
 }
