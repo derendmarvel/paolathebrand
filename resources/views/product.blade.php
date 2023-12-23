@@ -50,9 +50,13 @@
                         <a href="/detailProducts/{{$product['id']}}"><img src="{{ asset('storage/'.$product->foto) }}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div p-product"> </a>
                         <div class="row justify-content-start p-product">
                             <div class="col">
-                                <div class="pt-4 row"> 
-                                    <a href="/detailProducts/{{$product['id']}}" class ="link-underline-light link-secondary col fs-4 fw-bold text-danger pb-2"> {{$product->nama}} ({{$product->warna}}) </a> 
-                                    <a href="addWishlist/{{$product['id']}}" class="col pt-1 ps-like z-2 position-absolute"> <img src="storage/images/Unlike_button.png" width="25" height="25"> </a> 
+                                <div class="pt-4 row">
+                                    <a href="/detailProducts/{{$product['id']}}" class ="link-underline-light link-secondary col fs-4 fw-bold text-danger pb-2"> {{$product->nama}} ({{$product->warna}}) </a>
+                                    <form action="addWishlist/{{$product['id']}}" method="POST">
+                                        @csrf
+                                        <button type="submit"> <img src="storage/images/Unlike_button.png" width="25" height="25"> </button>
+                                    </form>
+                                    {{-- <a href="addWishlist/{{$product['id']}}" class="col pt-1 ps-like z-2 position-absolute"> <img src="storage/images/Unlike_button.png" width="25" height="25"> </a>  --}}
                                 </div>
                                 <div class="pb-5 fw-normal fs-6 text-secondary">
                                     <a href="/detailProducts/{{$product['id']}}" class="link-underline-light link-secondary"> See in Detail <img src="storage/images/Arrow.png" width="30" height="20"></a>

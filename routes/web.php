@@ -37,7 +37,7 @@ Route::post('/addToCard/{id}', [CartController::class, 'store'])->middleware('vi
 Route::get('/wishlists', [WishlistController::class, 'show'])->middleware('visitor');
 
 // Route::get('/createWishlist/{id}', [WishlistController::class, 'create'])->middleware('visitor');
-Route::get('/addWishlist/{id}', [WishlistController::class, 'store'])->middleware('visitor')->name('addWishlist');
+Route::post('/addWishlist/{id}', [WishlistController::class, 'store'])->middleware('visitor')->name('addWishlist');
 
 Route::get('/produk/create', [ProdukController::class, 'create'])->middleware('admin');
 Route::post('/produk/store', [ProdukController::class, 'store'])->middleware('admin');
