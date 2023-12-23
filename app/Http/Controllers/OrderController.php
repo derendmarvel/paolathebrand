@@ -86,9 +86,6 @@ class OrderController extends Controller
         }
         print_r($data['total']);
 
-        return view('payment', $data, [
-            'from' => $from,
-            'to' => $to
-        ]);
+        return view('payment', $data);
     }
 }

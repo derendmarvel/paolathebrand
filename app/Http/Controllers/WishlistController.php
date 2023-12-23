@@ -39,12 +39,12 @@ class WishlistController extends Controller
 
     public function store($id)
     {
-        $customers = Customer::get();
+        $customers = Customer::all();
         // $users = User::get();
 
         $currentUser = Auth::user()->name;
 
-        $produks = Produk::get();
+        $produks = Produk::all();
 
         foreach ($customers as $customer){
             if($customer->nama == $currentUser){
@@ -56,6 +56,11 @@ class WishlistController extends Controller
                     $addProduk = $produk['id'];
                 }
             }
+
+            // $wish = new Wishlist();
+            // $wish->customer_id = $addCustomer;
+            // $wish->produk_id = $addProduk;
+            // $wish->save();
 
             Wishlist::create([
                 'customer_id' => $addCustomer,
