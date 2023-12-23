@@ -24,6 +24,7 @@
                                 <div class="pb-5 fw-normal fs-6 text-secondary">
                                     <a href="detailProducts/{{$wishlist->produk['id']}}" class="link-underline-light link-secondary"> See in Detail <img src="/images/Arrow.png" width="30" height="20"></a>
                                 </div>
+                                <div class="pt-4 row"> <a href="" class="btn btn-danger px-5 py-3"> Add To Cart </a> </div>
                             </div>
                         </div>
                     </div>

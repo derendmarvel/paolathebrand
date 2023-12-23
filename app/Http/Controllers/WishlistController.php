@@ -70,6 +70,7 @@ class WishlistController extends Controller
 
         return view('wishlist', [
             'wishlists' => Wishlist::all(),
+            'activateWishlist' => "active"
         ]);
     }
 
