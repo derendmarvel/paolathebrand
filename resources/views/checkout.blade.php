@@ -10,13 +10,15 @@
             @csrf
             <div class="mb-3 form-group">
                 <label> From </label>
+                {{-- <option value="jakarta barat">Jakarta Barat</option> --}}
                 <select class="form-control autosearch" name="from">
-                    <option value="">Select City</option>
+                    <option value="151">Jakarta Barat</option>
+                    {{-- <option value="">Select City</option>
                     @if($city)
-                        @foreach ($city->rajaongkir->results as $each)
-                            <option value="{{$each->city_id}}"><?php echo $each->city_name ?></option>
-                        @endforeach
-                    @endif
+                        @foreach ($city->rajaongkir->results as $each) --}}
+                            {{-- <option value="{{$each->city_id}}"><?php echo $each->city_name ?></option> --}}
+                        {{-- @endforeach
+                    @endif --}}
                 </select>
             </div>
             <div class="mb-3 form-group">

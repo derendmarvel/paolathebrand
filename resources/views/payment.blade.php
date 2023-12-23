@@ -8,7 +8,7 @@
     @endphp --}}
 
     <strong>From :</strong>
-    <?php echo $total->rajaongkir->origin_details->city_name ?>
+    <?php echo "Jakarta Barat" ?>
 
     <strong>To :</strong>
     <?php echo $total->rajaongkir->destination_details->city_name ?>
