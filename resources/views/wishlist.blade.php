@@ -19,7 +19,18 @@
                                 <div class="pb-3 fw-normal fs-6 text-secondary">
                                     <a href="detailProducts/{{$wishlist->produk['id']}}" class="link-underline-light link-secondary"> See in Detail <img src="{{ asset('storage/images/Arrow.png') }}" width="30" height="20"></a>
                                 </div>
-                                <div> <a href="addToCart/{{$wishlist->produk['id']}}" class="btn btn-danger"> Add To Cart </a> </div>
+                                <div class="shadow">
+                                    <button id = "minus" class ="mx-4"> - </button>
+                                    <span id = "counter" class= "mx-4"> 0 </span>
+                                    <button id = "plus" class = "mx-4"> + </button>
+                                </div>
+                                <form action="/addToCart/{{$wishlist->produk['id']}}" method="POST" id="addToCartForm">
+                                    @csrf
+                                    @method('post')
+                                    <input type="hidden" name="quantity" id="quantityInput" value="0">
+                                    <button type="submit" class="btn btn-danger w-100 h-100 p-2 fw-bold" data-aos="fade-up" data-aos-delay="1250">Add to Cart</button>
+                                </form>
+                                {{-- <div> <a href="addToCart/{{$wishlist->produk['id']}}" class="btn btn-danger"> Add To Cart </a> </div> --}}
                             </div>
                         </div>
                     </div>

@@ -45,8 +45,8 @@ class CartController extends Controller
                 'produk_id' => $produk->id,
                 'quantity' => $request->input('quantity')
             ]);
-        }      
-        
+        }
+
         return view('cart', [
             'cart' => Cart::where('user_id', $user->id)->get(),
             'activateCart' => "active"
@@ -59,7 +59,7 @@ class CartController extends Controller
     public function show(Cart $cart)
     {
         return view('cart', [
-            'cart' => $cart,
+            'cart' => Cart::all(),
             'activateCart' => "active"
         ]);
     }

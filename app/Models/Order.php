@@ -11,7 +11,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['shipment_id', 'user_id', 'payment_id', 'order_date', 'total_price', 'status', 'order_weight'];
+    protected $fillable = ['shipment', 'user_id', 'payment', 'order_date', 'total_price', 'status', 'order_weight'];
 
     public function shipment(): BelongsTo{
         return $this->belongsTo(Shipment::class, 'shipment_id', 'id');

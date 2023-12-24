@@ -7,20 +7,61 @@
         dd($total);
     @endphp --}}
 
-    <strong>From :</strong>
-    <?php echo "Jakarta Barat" ?>
+    <div class="row align-items-center py-5 bg-image-light px-5">
+        <div class="row px-5">
+            @foreach ($carts as $key => $cart)
+                @php
+                    $delay_pattern = [0, 100, 200];
+                    $animation_delay = $delay_pattern[$key % count($delay_pattern)];
+                @endphp
+                <div class="col-md-4 align-items-start" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
+                    <a href="detailProducts/{{$cart->produk->nama}}"><img src="{{asset('storage/'.$cart->produk->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div p-product"> </a>
+                    <div class="row justify-content-start p-product">
+                        <div class="col">
+                            <div class="pt-4 row"> <a href="detailProducts/{{$cart->produk['id']}}" class = "link-underline-light link-secondary col"> <p class ="fs-4 fw-bold"> {{$cart->quantity}} </p> <p class ="fs-4 fw-bold red"> {{$cart->produk->nama}} ({{$cart->produk->warna}}) </p> </a> </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
 
-    <strong>To :</strong>
-    <?php echo $total->rajaongkir->destination_details->city_name ?>
+    <form method="POST" action="/finalOrder">
+        @csrf
+        <strong>From :</strong>
+        <p value="Jakarta Barat" type="text" name="from"> Jakarta Barat </p>
+        {{-- <?php //echo "Jakarta Barat" ?> --}}
 
-    <strong>Expedition :</strong>
-    <?php echo $total->rajaongkir->results[0]->name ?><br>
+        <strong>To :</strong>
+        <p value="{{$total->rajaongkir->destination_details->city_name}}" type="text" name="to"> {{$total->rajaongkir->destination_details->city_name}} </p>
+        {{-- <?php //echo $total->rajaongkir->destination_details->city_name ?> --}}
 
-    <strong>Weight :</strong>
-    <?php echo $total->rajaongkir->query->weight/1000 ?>Kg<br>
+        <strong>Expedition :</strong>
+        <p value="{{$total->rajaongkir->results[0]->name}}" type="text" name="expedition"> {{$total->rajaongkir->results[0]->name}} </p>
+        {{-- <?php //echo $total->rajaongkir->results[0]->name ?><br> --}}
 
-    <strong>Cost :</strong>
-    @foreach ($total->rajaongkir->results[0]->costs as $biaya) <br>
-        <?php echo $biaya->service?> : <?php echo number_format($biaya->cost[0]->value) ?> (<?php echo $biaya->cost[0]->etd ?> Day)<br>
-    @endforeach
+        <strong>Weight :</strong>
+        <p value="{{$total->rajaongkir->query->weight/1000}}" type="text" name="weight"> {{$total->rajaongkir->query->weight/1000}} </p>
+        {{-- <?php //echo $total->rajaongkir->query->weight/1000 ?>Kg<br> --}}
+
+        <strong>Cost :</strong>
+        <div class="mb-3">
+            <select class="form-control autosearch" name="from">
+                {{-- <option value="">Select Expedition</option> --}}
+                @foreach ($total->rajaongkir->results[0]->costs as $biaya) <br>
+                <option name="cost" value="{{$biaya->service}}"> {{number_format($biaya->cost[0]->value)}} {{$biaya->cost[0]->etd}} Day </option>
+                {{-- <?php //echo $biaya->service?> : <?php //echo number_format($biaya->cost[0]->value) ?> (<?php //echo $biaya->cost[0]->etd ?> Day)<br> --}}
+                @endforeach
+            </select>
+        </div>
+
+        <strong>Proof of Payment</strong>
+        <div>
+            <input type="file" name="proof" id="image" class="form-control" accept="image/jpg, image/png, image/jpeg">
+        </div>
+
+        <div class="form-group">
+            <input class="btn btn-danger" value="Pay Now" type="submit" name="submit">
+        </div>
+    </form>
 @endsection

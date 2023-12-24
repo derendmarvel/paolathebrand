@@ -188,7 +188,7 @@
       transition: 0.4s ease-out;
     }
 
-    
+
 
     .img-home-1 {
       width: 340px;
@@ -386,7 +386,7 @@
                       <a class="nav-link {{ $activateWishlist ?? '' }}" href="/wishlists">Wishlist</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link {{ $activateCart ?? '' }}" href="/carts">Cart</a>
+                      <a class="nav-link {{ $activateCart ?? '' }}" href="/cart">Cart</a>
                   </li>
                   @endif
                 @endauth

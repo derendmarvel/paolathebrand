@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Shipment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -44,7 +46,16 @@ class OrderController extends Controller
         // print_r($data['city']);
 
         $shipments = Shipment::all();
-        return view('checkout', $data, compact('shipments'));
+        $carts = Cart::all();
+        $weight = 0;
+
+        foreach($carts as $cart){
+            $weight = $weight + $cart->quantity;
+        }
+
+        $weight = $weight*250;
+
+        return view('checkout', $data, compact('shipments', 'carts', 'weight'));
     }
 
     public function cekOngkir(Request $request){
@@ -86,6 +97,27 @@ class OrderController extends Controller
         }
         // print_r($data['total']);
 
-        return view('payment', $data);
+        $carts = Cart::all();
+        return view('payment', $data, compact('carts'));
+    }
+
+    public function store(Request $request){
+        $shipment = $request->input('expedition');
+        $user = Auth::user('id');
+        $payment = $request->input('proof');
+        $price = $request->input('cost');
+        $status = "paid";
+        $weight = $request->input('weight');
+
+        Order::create([
+            'shipment' => $shipment,
+            'user_id' => $user,
+            'payment' => $payment,
+            'total_price' => $price,
+            'status' => $status,
+            'order_weight' =>$weight
+        ]);
+
+        return view('home');
     }
 }
