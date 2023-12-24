@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use App\Models\Promo;
 use App\Models\Kategori;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreProdukRequest;
 use App\Http\Requests\UpdateProdukRequest;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +19,8 @@ class ProdukController extends Controller
          return view('product', [
              "activateProduct" => "active",
              'products' => Produk::all(),
-             'promos' => Promo::all()
+             'promos' => Promo::all(),
+             'wishlists' => Wishlist::where('user_id', Auth::user()->id)->get()
          ]);
      }
 
