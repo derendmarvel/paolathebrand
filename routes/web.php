@@ -33,10 +33,11 @@ Route::get('/cart', [CartController::class, 'show'])->middleware('visitor');
 
 Route::post('/addToCart/{id}', [CartController::class, 'store'])->middleware('visitor');
 
-Route::get('/wishlists', [WishlistController::class, 'show'])->middleware('visitor');
+Route::get('/wishlists', [WishlistController::class, 'show'])->middleware('visitor')->name('wishlist');
 
 // Route::get('/createWishlist/{id}', [WishlistController::class, 'create'])->middleware('visitor');
 Route::post('/addWishlist/{id}', [WishlistController::class, 'store'])->middleware('visitor')->name('addWishlist');
+Route::delete('/wishlist/destroy/{wishlist}', [WishlistController::class, 'destroy'])->middleware('visitor')->name('wishlist.destroy');
 
 Route::get('/produk/create', [ProdukController::class, 'create'])->middleware('admin');
 Route::post('/produk/store', [ProdukController::class, 'store'])->middleware('admin');

@@ -16,9 +16,17 @@
                         <a href="detailProducts/{{$wishlist->produk->nama}}"><img src="{{asset('storage/'.$wishlist->produk->foto)}}" alt="Banner 1" class = "shadow-lg my-div p-product w-100"> </a>
                         <div class="row justify-content-start p-product">
                             <div class="col" data-aos="fade-up" data-aos-delay="300">
-                                <div class="pt-4 row"> <a href="detailProducts/{{$wishlist->produk['id']}}" class = "link-underline-light link-secondary col"> 
+                                <div class="pt-4 row"> <a href="detailProducts/{{$wishlist->produk['id']}}" class = "link-underline-light link-secondary"> 
+                                <div class= "col-md-10">
                                     <p class ="fs-4 fw-bold red"> {{$wishlist->produk->nama}} ({{$wishlist->produk->warna}}) </p> </a> 
-                                    <a href="/addWishlist" class="col pt-1 ps-like z-2 position-absolute align-items-end text-end"> <img src="{{ asset('storage/images/Like_button.png') }}" width="25" height="25"> </a> 
+                                </div>
+                                <div class= "col-md-2">
+                                    <form action="{{ route('wishlist.destroy', $wishlist)}}" method="POST" id="addToCartForm">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn w-25">  <img src="{{ asset('storage/images/Like_button.png') }}" width="30" height="30"> </button>
+                                    </form>
+                                </div>
                                 </div>
                                 <div class="pb-3 fw-normal fs-6 text-secondary">
                                     <a href="detailProducts/{{$wishlist->produk['id']}}" class="link-underline-light link-secondary"> See in Detail <img src="{{ asset('storage/images/Arrow.png') }}" width="30" height="20"></a>
@@ -32,7 +40,12 @@
                                     @csrf
                                     @method('post')
                                     <input type="hidden" name="quantity" id="quantityInput" value="0">
-                                    <button type="submit" class="btn btn-danger w-100 h-100 p-2 fw-bold">Add to Cart</button>
+                                    <button type="submit" class="btn btn-success text-light w-100 h-100 p-2 fw-bold">Add to Cart</button>
+                                </form>
+                                <form action="{{ route('wishlist.destroy', $wishlist)}}" method="POST" id="addToCartForm">
+                                    @method('delete')    
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger w-100 h-100 p-2 fw-bold my-2"> Remove from Wishlist </button>
                                 </form>
                                 {{-- <div> <a href="addToCart/{{$wishlist->produk['id']}}" class="btn btn-danger"> Add To Cart </a> </div> --}}
                             </div>
