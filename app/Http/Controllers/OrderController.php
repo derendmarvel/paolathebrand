@@ -118,6 +118,6 @@ class OrderController extends Controller
             'order_weight' =>$weight
         ]);
 
-        return view('home');
+        return redirect()->route('home');
     }
 }

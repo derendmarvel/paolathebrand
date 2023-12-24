@@ -43,7 +43,10 @@
             {{-- <?php //echo $total->rajaongkir->results[0]->name ?><br> --}}
 
             <strong>Weight :</strong>
-            <p value="{{$total->rajaongkir->query->weight/1000}}" type="text" name="weight"> {{$total->rajaongkir->query->weight/1000}} </p>
+            <select class="form-control autosearch" name="weight">
+                <option value="{{$total->rajaongkir->query->weight/1000}}">{{$total->rajaongkir->query->weight/1000}} Kg</option>
+            </select>
+            {{-- <p value="{{$total->rajaongkir->query->weight/1000}}" type="text" name="weight"> {{$total->rajaongkir->query->weight/1000}} </p> --}}
             {{-- <?php //echo $total->rajaongkir->query->weight/1000 ?>Kg<br> --}}
 
             <strong>Cost :</strong>
