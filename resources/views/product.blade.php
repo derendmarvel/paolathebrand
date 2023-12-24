@@ -38,33 +38,57 @@
             </div>
         </div>
 
-        <div class="row align-items-center py-4 bg-image-light">
-            <h1 class = "text-center red pb-5 pt-4 py-2"> All Products </h1>
-            <div class="row ps-all-products">
+        <div class="row align-items-center py-4 bg-image-light px-3">
+            <h1 class = "text-center red pb-5 pt-4 py-2 fw-bold"> All Products </h1>
+            <div class="row px-5">
                 @foreach ($products as $key => $product)
                     @php
                         $delay_pattern = [0, 100, 200];
                         $animation_delay = $delay_pattern[$key % count($delay_pattern)];
                     @endphp
                     <div class="col-md-4 align-items-start" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
-                        <a href="/detailProducts/{{$product['id']}}"><img src="{{ asset('storage/'.$product->foto) }}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div p-product"> </a>
+                        <a href="/detailProducts/{{$product['id']}}"><img src="{{ asset('storage/'.$product->foto) }}" alt="Banner 1" class = "shadow-lg my-div p-product w-100"> </a>
                         <div class="row justify-content-start p-product">
                             <div class="col">
-                                <div class="pt-4 row">
-                                    <a href="/detailProducts/{{$product['id']}}" class ="link-underline-light link-secondary col fs-4 fw-bold text-danger pb-2"> {{$product->nama}} ({{$product->warna}}) </a>
+                                <div class="row pt-4">
+                                    <div class= "col-md-10">
+                                        <a href="/detailProducts/{{$product['id']}}" class ="link-underline-light link-secondary col fs-4 fw-bold text-danger pb-2"> {{$product->nama}} ({{$product->warna}}) </a>
+                                    </div>
                                     @auth
                                     @if(Auth::user()->isVisitor())
-                                    <form action="addWishlist/{{$product['id']}}" method="POST">
-                                        @csrf
-                                        @method('post')
-                                        <button type = "submit"> <img src="storage/images/Unlike_button.png" width="25" height="25"> </button>
-                                    </form>
+                                    <div class= "col-md-2">
+                                        <form action="addWishlist/{{$product['id']}}" method="POST">
+                                            @csrf
+                                            @method('post')
+                                            <button type = "submit" class = "btn w-25" id="likeButton"> 
+                                                <img src="storage/images/Unlike_button.png" id="likeImage" width="30" height="30">
+                                            </button>
+                                        </form>
+                                    </div>
                                     @endif
                                     @endauth
+                                    <script>
+                                        function updateImageSource{{$key}}() {
+                                            var condition{{$key}} = {{$wishlists->contains('produk_id', $product->id) ? 'true' : 'false'}};
+                                            var imageElement{{$key}} = document.querySelector('.likeImage{{$key}}[data-product-id="{{$product->id}}"]');
+                                            
+                                            if (condition{{$key}}) {
+                                                imageElement{{$key}}.src = 'storage/images/Like_button.png';
+                                            } else {
+                                                imageElement{{$key}}.src = 'storage/images/Unlike_button.png';
+                                            }
+                                        }
+
+                                        window.onload = function() {
+                                            updateImageSource{{$key}}();
+                                        };
+                                    </script>
                                     <!-- <a href="addWishlist/{{$product['id']}}" class="col pt-1 ps-like z-2 position-absolute"> <img src="storage/images/Unlike_button.png" width="25" height="25"> </a>  -->
                                 </div>
-                                <div class="pb-5 fw-normal fs-6 text-secondary">
-                                    <a href="/detailProducts/{{$product['id']}}" class="link-underline-light link-secondary"> See in Detail <img src="storage/images/Arrow.png" width="30" height="20"></a>
+                                <div class="row pb-5 fw-normal fs-6 text-secondary">
+                                    <div class= "col-md-6">
+                                        <a href="/detailProducts/{{$product['id']}}" class="link-underline-light link-secondary my-2"> See in Detail <img src="storage/images/Arrow.png" width="30" height="20"></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -73,4 +97,6 @@
             </div>
         </div>
     </div>
+
+    
     @endsection
