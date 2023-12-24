@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Wishlist;
 use App\Models\Produk;
-use App\Models\Customer;
 use Illuminate\Support\Facades\Auth;
-// use App\Models\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateWishlistRequest;
 
@@ -37,35 +36,33 @@ class WishlistController extends Controller
     //     return redirect()->route('/addWishlist/'.$id);
     // }
 
-    public function store($id)
-    {
-        $customers = Customer::all();
-        // $users = User::get();
-
+    public function store($id){
+        $customers = User::all();
+        $produks = Produk::all();
         $currentUser = Auth::user()->name;
 
-        $produks = Produk::all();
+        foreach ($customers as $customer) {
+            if ($customer->nama == $currentUser) {
+                $addCustomer = $customer->id;
 
-        foreach ($customers as $customer){
-            if($customer->nama == $currentUser){
-                $addCustomer = $customer['id'];
-            }
+                foreach ($produks as $produk) {
+                    if ($produk->id == $id) {
+                        $addProduk = $produk->id;
+                        $existingWishlist = Wishlist::where('user_id', $addCustomer)
+                                                    ->where('produk_id', $addProduk)
+                                                    ->first();
 
-            foreach ($produks as $produk){
-                if($produk['id'] == $id){
-                    $addProduk = $produk['id'];
+                        if (!$existingWishlist) {
+                            Wishlist::create([
+                                'user_id' => $addCustomer,
+                                'produk_id' => $addProduk
+                            ]);
+                        }
+                        break;
+                    }
                 }
+                break;
             }
-
-            // $wish = new Wishlist();
-            // $wish->customer_id = $addCustomer;
-            // $wish->produk_id = $addProduk;
-            // $wish->save();
-
-            Wishlist::create([
-                'customer_id' => $addCustomer,
-                'produk_id' => $addProduk
-            ]);
         }
 
         return view('wishlist', [
