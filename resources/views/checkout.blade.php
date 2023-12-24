@@ -9,7 +9,7 @@
             <div class="carousel-container ms-5" data-aos="fade-left" data-aos-duration="3000">
                 @foreach ($carts as $cart)
                     <div class="card">
-                        <img src="{{ asset('storage/'.$cart->produk->foto) }}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div card-size"> 
+                        <img src="{{ asset('storage/'.$cart->produk->foto) }}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div card-size">
                     </div>
                 @endforeach
             </div>
@@ -22,17 +22,17 @@
             @csrf
             <div class="mb-3 form-group">
                 <label> From </label>
-                <input type="text" class="form-control" name = "from" value = "151" disabled>
-                <!-- {{-- <option value="jakarta barat">Jakarta Barat</option> --}}
-                <select class="form-control autosearch" name="from" disabled>
-                    <option value="151">Jakarta Barat</option>
+                {{-- <input type="text" class="form-control" name = "from" value = "151" disabled> --}}
+                {{-- <option value="jakarta barat">Jakarta Barat</option> --}}
+                <select class="form-control autosearch" name="from">
+                    <option value="151">Jakarta Barat</option> {{-- ini jangan diganti ya, kl disabled g kebaca datanya --}}
                     {{-- <option value="">Select City</option>
                     @if($city)
                         @foreach ($city->rajaongkir->results as $each) --}}
                             {{-- <option value="{{$each->city_id}}"><?php echo $each->city_name ?></option> --}}
                         {{-- @endforeach
                     @endif --}}
-                </select> -->
+                </select>
             </div>
             <div class="mb-3 form-group">
                 <label> To </label>
@@ -48,7 +48,7 @@
             <div class="mb-3 form-group">
                 <label> Weight in gr</label>
                 <select class="form-control autosearch" name="weight">
-                    <option value="{{(int)$weight}}">{{$weight}}</option>
+                    <option value="{{(int)$weight}}">{{$weight}} Kg</option>
                 </select>
                 {{-- <input type="text" name="weight" class="form-control"> --}}
             </div>
@@ -65,7 +65,7 @@
             </div>
             {{-- <button type="submit" class="btn btn-danger">Submit</button> --}}
         </form>
-    </div>  
+    </div>
         </div>
     </div>
 @endsection
