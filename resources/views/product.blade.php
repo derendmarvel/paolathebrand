@@ -69,6 +69,9 @@
                                     </div>
                                     @endif
                                     @endauth
+
+                                    @auth
+                                    @if(Auth::user()->isVisitor())
                                     <script>
                                         function updateImageSource{{$key}}() {
                                             var condition{{$key}} = {{$wishlists->contains('produk_id', $product->id) ? 'true' : 'false'}};
@@ -85,6 +88,9 @@
                                             updateImageSource{{$key}}();
                                         };
                                     </script>
+                                    @endif
+                                    @endauth
+
                                     <!-- <a href="addWishlist/{{$product['id']}}" class="col pt-1 ps-like z-2 position-absolute"> <img src="storage/images/Unlike_button.png" width="25" height="25"> </a>  -->
                                 </div>
                                 <div class="row pb-5 fw-normal fs-6 text-secondary">

@@ -378,7 +378,7 @@
                     <a class="nav-link {{ $activateHome ?? '' }}" href="/"> Home </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link {{ $activateProduct ?? '' }}" href="/products">Products</a>
+                      <a class="nav-link {{ $activateProduct ?? '' }}" href="/productNoLogin">Products</a>
                   </li>
                 @auth
                   @if (Auth::user()->isVisitor())

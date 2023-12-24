@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [ProdukController::class, 'productsKat']);
 
 Route::get('/products', [ProdukController::class, 'products'])->name('products');
+Route::get('/productNoLogin', [ProdukController::class, 'productNoLogin'])->name('productNoLogin');
 
 Route::get('/detailProducts/{id}', [ProdukController::class, 'detail'])->name('produk.detail');
 

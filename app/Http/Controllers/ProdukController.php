@@ -24,6 +24,14 @@ class ProdukController extends Controller
          ]);
      }
 
+    public static function productNoLogin(){
+        return view('product', [
+            "activateProduct" => "active",
+            'products' => Produk::all(),
+            'promos' => Promo::all()
+        ]);
+    }
+
     public static function productsKat(){
         return view('home', [
             'products' => Produk::where('kategori_id', 2)->take(3)->get(),
