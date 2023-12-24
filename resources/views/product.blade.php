@@ -46,12 +46,14 @@
                         $delay_pattern = [0, 100, 200];
                         $animation_delay = $delay_pattern[$key % count($delay_pattern)];
                     @endphp
-                    <div class="col-md-4 align-items-start" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
+                    <div class="col-md-4 align-items-start px-4" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
+                        <div class="px-3">
                         <a href="/detailProducts/{{$product['id']}}"><img src="{{ asset('storage/'.$product->foto) }}" alt="Banner 1" class = "shadow-lg my-div p-product w-100"> </a>
+                        </div>
                         <div class="row justify-content-start p-product">
                             <div class="col">
                                 <div class="row pt-4">
-                                    <div class= "col-md-10">
+                                    <div class= "col-md-9 ps-3">
                                         <a href="/detailProducts/{{$product['id']}}" class ="link-underline-light link-secondary col fs-4 fw-bold text-danger pb-2"> {{$product->nama}} ({{$product->warna}}) </a>
                                     </div>
                                     @auth
@@ -60,8 +62,8 @@
                                         <form action="addWishlist/{{$product['id']}}" method="POST">
                                             @csrf
                                             @method('post')
-                                            <button type = "submit" class = "btn w-25" id="likeButton"> 
-                                                <img src="storage/images/Unlike_button.png" id="likeImage" width="30" height="30">
+                                            <button type = "submit" class = "btn w-25" id="likeButton">
+                                                <img src="storage/images/Unlike_button.png" id="likeImage" width="25" height="25">
                                             </button>
                                         </form>
                                     </div>
@@ -71,7 +73,7 @@
                                         function updateImageSource{{$key}}() {
                                             var condition{{$key}} = {{$wishlists->contains('produk_id', $product->id) ? 'true' : 'false'}};
                                             var imageElement{{$key}} = document.querySelector('.likeImage{{$key}}[data-product-id="{{$product->id}}"]');
-                                            
+
                                             if (condition{{$key}}) {
                                                 imageElement{{$key}}.src = 'storage/images/Like_button.png';
                                             } else {
@@ -86,7 +88,7 @@
                                     <!-- <a href="addWishlist/{{$product['id']}}" class="col pt-1 ps-like z-2 position-absolute"> <img src="storage/images/Unlike_button.png" width="25" height="25"> </a>  -->
                                 </div>
                                 <div class="row pb-5 fw-normal fs-6 text-secondary">
-                                    <div class= "col-md-6">
+                                    <div class= "col-md-6 ps-3">
                                         <a href="/detailProducts/{{$product['id']}}" class="link-underline-light link-secondary my-2"> See in Detail <img src="storage/images/Arrow.png" width="30" height="20"></a>
                                     </div>
                                 </div>
@@ -98,5 +100,5 @@
         </div>
     </div>
 
-    
+
     @endsection
