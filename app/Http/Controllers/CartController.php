@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Produk;
-use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateCartRequest;
@@ -30,30 +30,27 @@ class CartController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store($id)
+    public function store(Request $request, int $id)
     {
-        $produks = Produk::get();
+        $user = Auth::user();
+        $produk = Produk::find($id);
 
-        foreach ($produks as $produk){
-            if($produk['id'] == $id){
-                Cart::create([
-                    'produk_id' => $produk->id
-                ]);
-            }
-        }
+        $existingItem = Cart::where('user_id', $user->id)
+                                        ->where('produk_id', $produk->id)
+                                        ->first();
 
-        $customers = Customer::get();
-        // $users = User::get();
-
-        $currentUser = Auth::user()->name;
-
-        foreach ($customers as $customer){
-            if($customer->nama == $currentUser){
-                Cart::create([
-                    'customer_id' => $customer['id']
-                ]);
-            }
-        }
+        if (!$existingItem){
+            Cart::create([
+                'user_id' => $user->id,
+                'produk_id' => $produk->id,
+                'quantity' => $request->input('quantity')
+            ]);
+        }      
+        
+        return view('cart', [
+            'cart' => Cart::where('user_id', $user->id)->get(),
+            'activateCart' => "active"
+        ]);
     }
 
     /**

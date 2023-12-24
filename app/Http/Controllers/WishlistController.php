@@ -36,37 +36,23 @@ class WishlistController extends Controller
     //     return redirect()->route('/addWishlist/'.$id);
     // }
 
-    public function store($id){
-        $customers = User::all();
-        $produks = Produk::all();
-        $currentUser = Auth::user()->name;
+    public function store(int $produk_id){
+        $user = Auth::user();
+        $produk = Produk::find($produk_id);
 
-        foreach ($customers as $customer) {
-            if ($customer->nama == $currentUser) {
-                $addCustomer = $customer->id;
+        $existingWishlist = Wishlist::where('user_id', $user->id)
+                                        ->where('produk_id', $produk->id)
+                                        ->first();
 
-                foreach ($produks as $produk) {
-                    if ($produk->id == $id) {
-                        $addProduk = $produk->id;
-                        $existingWishlist = Wishlist::where('user_id', $addCustomer)
-                                                    ->where('produk_id', $addProduk)
-                                                    ->first();
-
-                        if (!$existingWishlist) {
-                            Wishlist::create([
-                                'user_id' => $addCustomer,
-                                'produk_id' => $addProduk
-                            ]);
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-        }
+        if (!$existingWishlist){
+            Wishlist::create([
+                'user_id' => $user->id,
+                'produk_id' => $produk->id
+            ]);
+        }                           
 
         return view('wishlist', [
-            'wishlists' => Wishlist::all(),
+            'wishlists' => Wishlist::where('user_id', $user->id)->get(),
             'activateWishlist' => "active"
         ]);
     }

@@ -29,9 +29,9 @@ Route::get('/detailProducts/{id}', [ProdukController::class, 'detail'])->name('p
 
 Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
 
-Route::get('/carts', [CartController::class, 'show'])->middleware('visitor');
+Route::get('/cart', [CartController::class, 'show'])->middleware('visitor');
 
-Route::post('/addToCard/{id}', [CartController::class, 'store'])->middleware('visitor');
+Route::post('/addToCart/{id}', [CartController::class, 'store'])->middleware('visitor');
 
 Route::get('/wishlists', [WishlistController::class, 'show'])->middleware('visitor');
 
