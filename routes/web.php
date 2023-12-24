@@ -55,7 +55,6 @@ Route::get('/getApi', [GetApiController::class, 'index'])->middleware('visitor')
 
 Route::get('/checkout', [OrderController::class, 'index'])->middleware('visitor');
 Route::post('/cekOngkir', [OrderController::class, 'cekOngkir'])->middleware('visitor');
-
 Route::post('/finalOrder', [OrderController::class, 'store'])->middleware('visitor');
 
 // Route::get('/home', function(){

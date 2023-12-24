@@ -3,33 +3,28 @@
 @section('title', 'Checkout')
 
 @section('content')
-    <div class = "container-fluid bg-white padding-form">
-        <h1 class = "red"> Check Out </h1>
-        <div class="row align-items-center py-5 bg-image-light px-5">
-            <div class="row px-5">
-                @foreach ($carts as $key => $cart)
-                    @php
-                        $delay_pattern = [0, 100, 200];
-                        $animation_delay = $delay_pattern[$key % count($delay_pattern)];
-                    @endphp
-                    <div class="col-md-4 align-items-start" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
-                        <a href="detailProducts/{{$cart->produk->nama}}"><img src="{{asset('storage/'.$cart->produk->foto)}}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div p-product"> </a>
-                        <div class="row justify-content-start p-product">
-                            <div class="col">
-                                <div class="pt-4 row"> <a href="detailProducts/{{$cart->produk['id']}}" class = "link-underline-light link-secondary col"> <p class ="fs-4 fw-bold"> {{$cart->quantity}} </p> <p class ="fs-4 fw-bold red"> {{$cart->produk->nama}} ({{$cart->produk->warna}}) </p> </a> </div>
-                            </div>
-                        </div>
+
+    <div class="row align-items-center about-us-bg">
+        <div class="col-md p-4" data-aos="fade-right" data-aos-duration="3000">
+            <div class="carousel-container ms-5" data-aos="fade-left" data-aos-duration="3000">
+                @foreach ($carts as $cart)
+                    <div class="card">
+                        <img src="{{ asset('storage/'.$cart->produk->foto) }}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div card-size"> 
                     </div>
                 @endforeach
             </div>
         </div>
+        <div class="col-md px-3 py-5 bg-light" data-aos="fade-left" data-aos-duration="3000">
+        <div class = "container-fluid padding-form">
+        <h1 class = "red text-center"> Check Out </h1>
         <form method="POST" action="/cekOngkir">
         {{-- <form action="/promo/store" method="POST" enctype="multipart/form-data"> --}}
             @csrf
             <div class="mb-3 form-group">
                 <label> From </label>
-                {{-- <option value="jakarta barat">Jakarta Barat</option> --}}
-                <select class="form-control autosearch" name="from">
+                <input type="text" class="form-control" name = "from" value = "151" disabled>
+                <!-- {{-- <option value="jakarta barat">Jakarta Barat</option> --}}
+                <select class="form-control autosearch" name="from" disabled>
                     <option value="151">Jakarta Barat</option>
                     {{-- <option value="">Select City</option>
                     @if($city)
@@ -37,12 +32,12 @@
                             {{-- <option value="{{$each->city_id}}"><?php echo $each->city_name ?></option> --}}
                         {{-- @endforeach
                     @endif --}}
-                </select>
+                </select> -->
             </div>
             <div class="mb-3 form-group">
                 <label> To </label>
                 <select class="form-control autosearch" name="to">
-                    <option value="">Select City</option>
+                    <option value=""> Select City </option>
                     @if($city)
                         @foreach ($city->rajaongkir->results as $each)
                             <option value="{{$each->city_id}}"><?php echo $each->city_name ?></option>
@@ -70,5 +65,7 @@
             </div>
             {{-- <button type="submit" class="btn btn-danger">Submit</button> --}}
         </form>
+    </div>  
+        </div>
     </div>
 @endsection

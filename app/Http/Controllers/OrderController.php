@@ -46,15 +46,15 @@ class OrderController extends Controller
         // print_r($data['city']);
 
         $shipments = Shipment::all();
-        $carts = Cart::all();
+        $carts = Cart::where('user_id', Auth::user()->id)->get();
         $weight = 0;
 
         foreach($carts as $cart){
             $weight = $weight + $cart->quantity;
+            $cart->delete();
         }
 
-        $weight = $weight*250;
-
+        $weight = $weight * 250;
         return view('checkout', $data, compact('shipments', 'carts', 'weight'));
     }
 
@@ -103,7 +103,7 @@ class OrderController extends Controller
 
     public function store(Request $request){
         $shipment = $request->input('expedition');
-        $user = Auth::user('id');
+        $user = Auth::user()->id;
         $payment = $request->input('proof');
         $price = $request->input('cost');
         $status = "paid";

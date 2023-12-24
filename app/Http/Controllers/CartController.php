@@ -43,12 +43,16 @@ class CartController extends Controller
             Cart::create([
                 'user_id' => $user->id,
                 'produk_id' => $produk->id,
-                'quantity' => $request->input('quantity')
+                'quantity' => $request->input('quantity'),
+                'total_price' => (int)$produk->harga * (int)'quantity'
             ]);
+        } else {
+            $existingItem->quantity = $existingItem->quantity + (int)$request->input('quantity');
+            $existingItem->total_price = (int)$produk->harga * (int)'quantity';
         }
 
         return view('cart', [
-            'cart' => Cart::where('user_id', $user->id)->get(),
+            'carts' => Cart::where('user_id', $user->id)->get(),
             'activateCart' => "active"
         ]);
     }
@@ -59,7 +63,7 @@ class CartController extends Controller
     public function show(Cart $cart)
     {
         return view('cart', [
-            'cart' => Cart::all(),
+            'carts' => Cart::all(),
             'activateCart' => "active"
         ]);
     }

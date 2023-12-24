@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-md ps-text">
                     <div class="row">
-                        <p class="pt-5 fs-1 fw-bold red" data-aos="fade-up" data-aos-delay="250">{{$produk['nama']}} ({{$produk['warna']}})</p>
+                        <p class="fs-1 fw-bold red" data-aos="fade-up" data-aos-delay="250">{{$produk['nama']}} ({{$produk['warna']}})</p>
                         <p class="fs-6 text-secondary" data-aos="fade-up" data-aos-delay="500">Stock : {{$produk['stok']}}</p>
                         <p class="fs-6 w-75" data-aos="fade-up" data-aos-delay="750"> {{$produk['deskripsi']}}</p>
                         <p class="fs-2 fw-medium red" data-aos="fade-up" data-aos-delay="1000"> Rp {{$produk['harga']}}</p>
@@ -29,19 +29,17 @@
                             </div>
 
                             @elseif (Auth::user()->isVisitor())
-                            <p class="align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="{{$produk['link']}}" class="btn btn-info text-light w-100 h-100 p-2 fw-bold"> Buy Now </a></p>
-                            <div class="shadow">
-                                <button id = "minus" class ="mx-4"> - </button>
-                                <span id = "counter" class= "mx-4"> 0 </span>
-                                <button id = "plus" class = "mx-4"> + </button>
+                            <div class="w-25 pb-3" data-aos="fade-up" data-aos-delay="1250">
+                                <button id = "minus" class ="btn btn-danger me-2"> - </button>
+                                <span id = "counter" class= "me-2"> 0 </span>
+                                <button id = "plus" class = "btn btn-success"> + </button>
                             </div>
                             <form action="/addToCart/{{$produk['id']}}" method="POST" id="addToCartForm">
                                 @csrf
                                 @method('post')
                                 <input type="hidden" name="quantity" id="quantityInput" value="0"> 
-                                <button type="submit" class="btn btn-danger w-100 h-100 p-2 fw-bold" data-aos="fade-up" data-aos-delay="1250">Add to Cart</button>
+                                <button type="submit" class="btn btn-danger w-75 p-2 fw-bold" data-aos="fade-up" data-aos-delay="1500">Add to Cart</button>
                             </form>
-
                             @endif
                         @else
                             <p class="col-md-4 align-items-center" data-aos="fade-up" data-aos-delay="1250"> <a href="{{$produk['link']}}" class="btn btn-danger w-100 h-100 p-2 fw-bold"> Buy Now </a></p>
