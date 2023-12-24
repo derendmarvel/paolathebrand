@@ -10,10 +10,10 @@ class Wishlist extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['customer_id','produk_id'];
+    protected $fillable = ['user_id','produk_id'];
 
-    public function customer(): BelongsTo{
-        return $this->belongsTo(Customer::class, 'customer_id', 'id');
+    public function user(): BelongsTo{
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function produk(): BelongsTo{

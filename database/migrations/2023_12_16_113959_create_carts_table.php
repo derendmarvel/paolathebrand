@@ -19,10 +19,10 @@ return new class extends Migration
                 ->references('id')
                 ->on('produks')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('customer_id')->nullable(true);
-            $table->foreign('customer_id')
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
                 ->references('id')
-                ->on('customers')
+                ->on('users')
                 ->onDelete('cascade');
             $table->integer('quantity');
         });

@@ -20,10 +20,10 @@ return new class extends Migration
                 ->references('id')
                 ->on('shipments')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('customer_id');
-            $table->foreign('customer_id')
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
                 ->references('id')
-                ->on('customers')
+                ->on('users')
                 ->onDelete('cascade');
             $table->unsignedBigInteger('payment_id');
             $table->foreign('payment_id')

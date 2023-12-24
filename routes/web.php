@@ -7,7 +7,6 @@ use App\Http\Controllers\PromoController;
 use App\Http\Controllers\GetApiController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\Admin\ProdukController as AdminProdukController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +25,7 @@ Route::get('/', [ProdukController::class, 'productsKat']);
 
 Route::get('/products', [ProdukController::class, 'products'])->name('products');
 
-Route::get('/detailProducts/{id}', [ProdukController::class, 'detail']);
+Route::get('/detailProducts/{id}', [ProdukController::class, 'detail'])->name('produk.detail');
 
 Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
 

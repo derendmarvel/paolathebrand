@@ -70,7 +70,7 @@
                         $animation_delay = $key * 150;
                     @endphp
                     <div class="col justify-content-center" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
-                        <a href="detailProducts/{{$product['id']}}"><img src="{{ asset('storage/'.$product->foto) }}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div home-product"> </a>
+                        <a href=" {{ route('produk.detail', $product->id) }}"><img src="{{ asset('storage/'.$product->foto) }}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div home-product"> </a>
                         <div class="row align-items-center home-product">
                             <div class="col">
                                 <div class="pt-4"> <a href="detailProducts/{{$product['id']}}" class = "link-underline-light link-secondary"> <p class ="fs-4 fw-bold red"> {{$product->nama}} ({{$product->warna}}) </p> </a> </div>

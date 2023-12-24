@@ -3,13 +3,8 @@
 @section('title', 'Wishlist')
 
 @section('content')
-    <div class="row align-items-center pt-4">
-        @if($wishlists->isNotEmpty())
-            <div class="col-md p-4" data-aos="fade-right" data-aos-duration="3000">
-                <img src="/images/Paola-BG-Light.png" class ="h-50">
-            </div>
-        @endif
-        <div class="row ps-all-products">
+    <div class="row align-items-center py-5 bg-image-light">
+        <div class="row px-5">
             @if($wishlists->isNotEmpty())
                 @foreach ($wishlists as $key => $wishlist)
                     @php
@@ -30,7 +25,8 @@
                     </div>
                 @endforeach
             @else
-                <h1 class = "fw-bold large text-center pt-5"> Oh, no! Your Wishlist is Empty. </h1>
+                <h1 class = "fw-bold large text-center py-5"> Oh, no! Your Wishlist is Empty. </h1>
+                <a href="/products" class="btn btn-danger py-3"> SHOP NOW </a>
             @endif
         </div>
     </div>

@@ -22,11 +22,12 @@ class DatabaseSeeder extends Seeder
             ProdukSeeder::class,
             PromoSeeder::class,
             OrderSeeder::class,
-            CustomerSeeder::class,
             CartSeeder::class,
             WishlistSeeder::class,
             PaymentSeeder::class,
-            ShipmentSeeder::class
+            ShipmentSeeder::class,
+            ProvinceSeeder::class,
+            CitySeeder::class
         ]);
 
         Model::reguard();
