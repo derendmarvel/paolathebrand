@@ -32,14 +32,16 @@
                                     <a href="detailProducts/{{$wishlist->produk['id']}}" class="link-underline-light link-secondary"> See in Detail <img src="{{ asset('storage/images/Arrow.png') }}" width="30" height="20"></a>
                                 </div>
                                 <div class="pb-3">
-                                    <button id = "minus" class ="btn btn-danger me-2"> - </button>
-                                    <span id = "counter" class= "me-2"> 0 </span>
-                                    <button id = "plus" class = "btn btn-success text-light"> + </button>
+                                    <button class="btn btn-danger me-2 minus"> - </button>
+                                    <span class="me-2 counter"> 0 </span>
+                                    <button class="btn btn-success text-light plus"> + </button>
                                 </div>
-                                <form action="/addToCart/{{$wishlist->produk['id']}}" method="POST" id="addToCartForm">
+
+                                <form action="/addToCart/{{$wishlist->produk['id']}}" method="POST" class="addToCartForm">
+                                    @method('post')    
                                     @csrf
-                                    @method('post')
-                                    <input type="hidden" name="quantity" id="quantityInput" value="0">
+                                    <!-- Update the form identifier to use a unique identifier -->
+                                    <input type="hidden" name="quantity" class="quantityInput" value="0">
                                     <button type="submit" class="btn btn-success text-light w-100 h-100 p-2 fw-bold">Add to Cart</button>
                                 </form>
                                 <form action="{{ route('wishlist.destroy', $wishlist)}}" method="POST" id="addToCartForm">
@@ -59,22 +61,24 @@
         </div>
     </div>
     <script>
-            var x = $("#counter").text();
+        $(".plus").click(function () {
+            var counter = $(this).parent().find(".counter");
+            counter.text(parseInt(counter.text()) + 1);
+        });
 
-            $("#plus").click(function () {
-                $("#counter").text(++x);
-            });
+        $(".minus").click(function () {
+            var counter = $(this).parent().find(".counter");
+            var x = parseInt(counter.text());
+            if (x > 0) {
+                counter.text(x - 1);
+            }
+        });
 
-            $("#minus").click(function () {
-                if (x <= 0) {
-                    $("#counter").text(0);
-                } else {
-                    $("#counter").text(--x);
-                }
-            });
+        $(".addToCartForm").submit(function () {
+            var quantityInput = $(this).find(".quantityInput");
+            var counter = $(this).find(".counter");
+            quantityInput.val(counter.text());
+        });
+    </script>
 
-            $("#addToCartForm").submit(function () {
-                $("#quantityInput").val(x);
-            });
-        </script>
 @endsection

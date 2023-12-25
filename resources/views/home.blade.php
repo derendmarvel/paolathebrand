@@ -22,7 +22,7 @@
                 @endauth
             </div>
             <div class="col-sm-12 col-md-6 order-lg-2 order-1" data-aos="fade-left" data-aos-delay="300" data-aos-duration="3000">
-                <img src="storage/images/Paola-Header-Image-Compressed.png" alt="Banner 1" class="shadow-lg img-fluid w-100">
+                <img src="storage/images/Paola-Header-Image-Compressed.png" alt="Banner 1" class="img-fluid w-100">
             </div>
         </div>
         </div>
@@ -31,7 +31,7 @@
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
                 @foreach($promos as $key => $promo)
-                <div class="carousel-item active align-items-center pb-4">
+            <div class="carousel-item{{ $key === 0 ? ' active' : '' }} align-items-center pb-4">
                     <img src="{{ asset('storage/'.$promo->image) }}" class="d-block mx-auto img-fluid promos">
                     @auth
                         @if (Auth::user()->isAdmin())

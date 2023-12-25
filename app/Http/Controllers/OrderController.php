@@ -51,7 +51,6 @@ class OrderController extends Controller
 
         foreach($carts as $cart){
             $weight = $weight + $cart->quantity;
-            $cart->delete();
         }
 
         $weight = $weight * 250;
@@ -97,7 +96,12 @@ class OrderController extends Controller
         }
         // print_r($data['total']);
 
-        $carts = Cart::all();
+        $carts = Cart::where('user_id', Auth::user()->id)->get();
+
+        foreach($carts as $cart){
+            $cart->delete();
+        }
+
         return view('payment', $data, compact('carts'));
     }
 
@@ -119,5 +123,12 @@ class OrderController extends Controller
         ]);
 
         return redirect()->route('home');
+    }
+
+    public function adminView(){
+        return view('Admin.orders', [
+            "activateOrders" => "active",
+            'orders' => Order::all(),
+        ]);
     }
 }

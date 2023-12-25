@@ -382,6 +382,9 @@
                   <li class="nav-item">
                       <a class="nav-link {{ $activateAddCategory ?? '' }}" href="/category/create"> Add Category </a>
                   </li>
+                  <li class="nav-item">
+                      <a class="nav-link {{ $activateOrders ?? '' }}" href="/orders"> Orders </a>
+                  </li>
                   @endif
                 @endauth
                 <li class="nav-item">

@@ -1,13 +1,13 @@
 @extends('layouts.template')
 
-@section('title', 'Cart')
+@section('title', 'Payment')
 
 @section('content')
     {{-- @php
         dd($total);
     @endphp --}}
 
-    <div class="row align-items-center py-5 bg-image-light px-5">
+    <div class="row align-items-center py-5 px-5">
         <div class="row px-5">
             @foreach ($carts as $key => $cart)
                 @php
