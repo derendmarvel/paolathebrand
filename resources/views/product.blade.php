@@ -3,9 +3,9 @@
     @section('title', 'Products')
 
     @section('content')
-    <div class="container-fluid">
-        <div class="row align-items-center bg-image-long text-light py-5 ps-product">
-            <div class="col align-items-start pb-5" data-aos="fade-right" data-aos-duration="3000">
+    <div class = "col-12">
+        <div class="row align-items-center bg-image-long text-light py-5 px-2 py-md-5 px-md-5">
+            <div class="col-12 col-md-6 align-items-start ps-product header-text order-lg-1 order-2" data-aos="fade-right" data-aos-duration="3000">
 
             @if(!Auth::user())
             <h1 class = "fw-bold large"> Find Your </h1>
@@ -23,8 +23,8 @@
                 @endif
             @endauth
             </div>
-            <div class="col">
-                <div class="carousel-container" data-aos="fade-left" data-aos-duration="3000">
+            <div class="col-6 col-md-6 order-lg-2 order-1">
+                <div class = "carousel-container d-none d-md-flex" data-aos="fade-left" data-aos-duration="3000">
                     @foreach ($products as $key => $product)
                         @if ($key < 3)
                             <div class="card">

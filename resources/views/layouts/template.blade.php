@@ -31,6 +31,7 @@
   <style>
     body {
       font-family: 'Playfair Display', serif;
+      overflow-x: hidden;
     }
 
     .large {
@@ -96,6 +97,44 @@
       width: 100%;
     }
 
+    .carousel-container {
+      height: 200px;
+      width: 150px;
+      display: flex;
+    }
+
+    .card {
+      display: flex;
+      background: transparent;
+      height: 240px;
+      width: 160px;
+      background-color: #17141d;
+      box-shadow: -1rem 0 3rem #000;
+      transition: 0.4s ease-out;
+      position: relative;
+      
+    }
+
+    .card:not(:first-child) {
+        margin-left: -10px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      transition: 0.4s ease-out;
+    }
+
+    .card:hover ~ .card {
+      position: relative;
+      left: 50px;
+      transition: 0.4s ease-out;
+    }
+
+    .card-size {
+      height: 240px;
+      width: 160px;
+    }
+
     @media only screen and (min-width:1080px){
       .large {
         font-size: 64px;
@@ -148,12 +187,49 @@
         padding-right: 100px;
       }
 
+      .ps-product {
+        padding-left: 100px;
+        padding-right: 100px;
+      }
+
       .header-text{
         text-align: left;
       }
 
       .extra-width{
-        width: 99.15%;
+        width: 99.05%;
+      }
+
+      .carousel-container {
+        height: 450px;
+        width: 500px;
+        display: flex;
+      }
+
+      .card {
+        height: 420px;
+        width: 280px;
+        left: 0px;
+      }
+
+      .card:not(:first-child) {
+          margin-left: -100px;
+      }
+
+      .card:hover {
+        transform: translateY(-30px);
+        transition: 0.4s ease-out;
+      }
+
+      .card:hover ~ .card {
+        position: relative;
+        left: 50px;
+        transition: 0.4s ease-out;
+      }
+
+      .card-size {
+        height: 420px;
+        width: 280px;
       }
     }
 
@@ -167,8 +243,8 @@
     }
 
     .ps-product {
-      padding-left: 100px;
-      padding-right: 100px;
+      padding-left: 32px;
+      padding-right: 32px;
     }
 
     .padding-form {
@@ -241,38 +317,6 @@
       top: 80px;
       scale: 1;
     }
-    .carousel-container {
-      height: 450px;
-      width: 500px;
-      display: flex;
-    }
-
-    .card {
-      display: flex;
-      background: transparent;
-      height: 420px;
-      width: 280px;
-      background-color: #17141d;
-      box-shadow: -1rem 0 3rem #000;
-      transition: 0.4s ease-out;
-      position: relative;
-      left: 0px;
-    }
-
-    .card:not(:first-child) {
-        margin-left: -100px;
-    }
-
-    .card:hover {
-      transform: translateY(-30px);
-      transition: 0.4s ease-out;
-    }
-
-    .card:hover ~ .card {
-      position: relative;
-      left: 50px;
-      transition: 0.4s ease-out;
-    }
 
     .img-home-1 {
       width: 340px;
@@ -292,16 +336,13 @@
       margin-left: 0px;
     }
 
-    .card-size {
-      height: 420px;
-      width: 280px;
-    }
+    
 
 
   </style>
 </head>
 <body>
-  <div class ="col float-start">
+  <div class ="float-start w-100">
   <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle sticky-top p-4" data-bs-theme="dark">
     <div class="container-fluid" data-aos="fade-down" data-aos-duration="1000">
         <div>
