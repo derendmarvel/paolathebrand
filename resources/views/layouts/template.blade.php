@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,61 +31,22 @@
   <style>
     body {
       font-family: 'Playfair Display', serif;
-      overflow-x: hidden;
     }
 
     .large {
-      font-size: 64px;
+      font-size: 34px;
     }
 
     .small {
-      font-size: 12px;
+      font-size: 18px;
     }
 
-    .extra {
-      padding-left: 200px;
+    .arrow{
+      width: 24px;
     }
 
-    .ps-home {
-      padding-left: 32px;
-    }
-
-    .ps-product {
-      padding-left: 100px;
-      padding-right: 100px;
-    }
-
-    .padding-form {
-      padding-left: 64px;
-      padding-right: 64px;
-      padding-top: 32px;
-      padding-bottom: 32px;
-    }
-
-    .padding-start {
-      padding-left: 64px;
-    }
-
-    .ps-all-products{
-      padding-left: 100px;
-    }
-
-    .red{
-      color: #C3110C;
-    }
-
-    .bg-red{
-      background-color: #C3110C;
-    }
-
-    .scrollable {
-      max-height: 450px;
-      max-width: 450px;
-      overflow-x: auto;
-    }
-
-    .scrollable::-webkit-scrollbar {
-      width: 0;
+    .promos{
+      width: 300px;
     }
 
     .bg-image {
@@ -108,8 +69,135 @@
       background-size: cover;
     }
 
-    .w-footer {
-      width: 100.98%;
+    .login-bg{
+      background: url("{{ asset('storage/images/Paola-Header-3.jpg') }}");
+      background-size: cover;
+    }
+
+    .register-bg{
+      background: url("{{ asset('storage/images/Paola-Header-2.jpg') }}");
+      background-size: cover;
+    }
+
+    .ps-all-products{
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+
+    .reset-margin{
+      margin: 0px;
+    }
+
+    .header-text{
+      text-align: center;
+    }
+
+    .extra-width{
+      width: 100%;
+    }
+
+    @media only screen and (min-width:1080px){
+      .large {
+        font-size: 64px;
+      }
+
+      .small {
+        font-size: 20px;
+      }
+
+      .arrow{
+        width: 30px;
+      }
+
+      .promos{
+        width: 400px;
+      }
+
+      .bg-image {
+        background: url('storage/images/Paola-BG-Dark.png');
+        background-size: cover;
+      }
+
+      .bg-image-light {
+        background-image: url("{{ asset('storage/images/Paola-BG-Light.png') }}");
+        background-size: cover;
+      }
+
+      .bg-image-long {
+        background-image: url("{{ asset('storage/images/Paola-BG-Dark-Long.png') }}");
+        background-size: cover;
+      }
+
+      .about-us-bg {
+        background: url("{{ asset('storage/images/Paola-Header.png') }}");
+        background-size: cover;
+      }
+
+      .login-bg{
+        background: url("{{ asset('storage/images/Paola-Header-3.jpg') }}");
+        background-size: cover;
+      }
+
+      .register-bg{
+        background: url("{{ asset('storage/images/Paola-Header-2.jpg') }}");
+        background-size: cover;
+      }
+
+      .ps-all-products{
+        padding-left: 100px;
+        padding-right: 100px;
+      }
+
+      .header-text{
+        text-align: left;
+      }
+
+      .extra-width{
+        width: 99.15%;
+      }
+    }
+
+    .extra {
+      padding-left: 200px;
+    }
+
+    .ps-home {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    .ps-product {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
+    .padding-form {
+      padding-left: 64px;
+      padding-right: 64px;
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+
+    .padding-start {
+      padding-left: 64px;
+    }
+
+    .red{
+      color: #C3110C;
+    }
+
+    .bg-red{
+      background-color: #C3110C;
+    }
+
+    .scrollable {
+      max-height: 450px;
+      max-width: 450px;
+      overflow-x: auto;
+    }
+
+    .scrollable::-webkit-scrollbar {
+      width: 0;
     }
 
     .ps-detail {
@@ -146,14 +234,12 @@
     .ps-delete {
         padding-left: 590px;
     }
-
-    @media screen and (min-width: 794px) {
-      .absolute-div {
-        position: absolute;
-        right: 0px;
-        top: 80px;
-        scale: 1;
-      }
+    
+    .absolute-div {
+      position: absolute;
+      right: 0px;
+      top: 80px;
+      scale: 1;
     }
     .carousel-container {
       height: 450px;
@@ -188,8 +274,6 @@
       transition: 0.4s ease-out;
     }
 
-
-
     .img-home-1 {
       width: 340px;
       height: 510px;
@@ -213,156 +297,12 @@
       width: 280px;
     }
 
-    @media only screen and (max-width:1183px){
-      .img-home-1 {
-        width: 200px;
-        height: 300px;
-        padding-top: 16px;
-      }
-
-      .img-home-2 {
-        width: 140px;
-        height: 210px;
-      }
-
-      .card {
-        height: 320px;
-        width: 220px;
-        margin-top: 50px;
-      }
-
-      .card-size {
-        height: 320px;
-        width: 220px;
-      }
-
-      .ps-text {
-        padding-left: 180px;
-      }
-    }
-
-    @media only screen and (max-width:900px){
-      .img-home-1 {
-        width: 200px;
-        height: 300px;
-        padding-top: 16px;
-      }
-
-      .img-home-2 {
-        width: 140px;
-        height: 270px;
-        padding-top: 60px;
-      }
-
-      .ps-home {
-        padding-left: 24px;
-      }
-
-      .ps-detail {
-        padding-left: 50px;
-      }
-
-      .card {
-        height: 300px;
-        width: 200px;
-        margin-top: 50px;
-      }
-
-      .card-size {
-        height: 300px;
-        width: 200px;
-      }
-    }
-
-    @media only screen and (max-width:800px){
-      .img-home-1 {
-        width: 290px;
-        height: 370px;
-        padding-top: 16px;
-        padding-left: 50px;
-      }
-
-      .img-home-2 {
-        width: 180px;
-        height: 320px;
-        margin-right: 80px;
-        margin-top: -30px;
-      }
-
-      .ps-home {
-        padding-left: 24px;
-      }
-
-      .card {
-        height: 295px;
-        width: 200px;
-        margin-top: 50px;
-        margin-left: 50px;
-      }
-
-      .card-size {
-        height: 295px;
-        width: 200px;
-      }
-
-      .p-product {
-        margin-left: 100px;
-      }
-    }
-
-    @media only screen and (max-width:700px){
-      .img-home-1 {
-        width: 220px;
-        height: 316px;
-        padding-top: 16px;
-        padding-left: 20px;
-      }
-
-      .img-home-2 {
-        width: 180px;
-        height: 320px;
-        margin-right: 70px;
-        margin-top: -100px;
-      }
-
-      .home-product {
-        margin-left: 20px;
-      }
-
-      .ps-detail {
-        padding-left: 60px;
-      }
-
-      .card {
-        height: 285px;
-        width: 190px;
-        margin-top: 50px;
-        margin-left: 20px;
-      }
-
-      .card-size {
-        height: 285px;
-        width: 190px;
-      }
-
-      .p-product {
-        margin-left: 0px;
-      }
-
-      .ps-detail {
-        padding-left: 100px;
-      }
-
-      .ps-text {
-        padding-left: 100px;
-      }
-    }
 
   </style>
 </head>
 <body>
-  <div class = "float-start w-100">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle sticky-top py-3 px-5" data-bs-theme="dark">
+  <div class ="col float-start">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle sticky-top p-4" data-bs-theme="dark">
     <div class="container-fluid" data-aos="fade-down" data-aos-duration="1000">
         <div>
             <a class="navbar-brand" href="#">
@@ -372,8 +312,8 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse col-md-8 ps-5" id="navbarNav">
-            <ul class="navbar-nav mx-auto ps-5 gap-3">
+        <div class="collapse navbar-collapse col-md-8 ps-3 ps-md-5 pb-3 pb-md-0" id="navbarNav">
+            <ul class="navbar-nav mx-auto ps-3 ps-md-5 gap-3">
                   <li class="nav-item">
                     <a class="nav-link {{ $activateHome ?? '' }}" href="/"> Home </a>
                   </li>
@@ -408,8 +348,8 @@
                 </li>
             </ul>
           </div>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav justify-content-end gap-3">
+          <div class="collapse navbar-collapse justify-content-end ps-3 ps-md-5" id="navbarNav">
+            <ul class="navbar-nav justify-content-end ps-3 ps-md-5 gap-3">
               @guest
               @if (Route::has('login'))
               <li class="nav-item">
@@ -451,33 +391,33 @@
       @yield('content')
     </div>
 
-    <!-- === FOOTER === -->
-    <footer class="w-100">
-      <div class="row w-footer align-items-center bg-red text-light pb-5 ps-5">
-        <div class="col-md-9 p-5" data-aos="fade-up">
-          <img src="{{ asset('storage/images/Paola-Logo-3.png') }}" alt="Paola" width="95" height="70">
-          <p class="small fw-lighter">Serving you the chicest and timeless pieces for your wardrove. Made and built with love.</p>
-          <a href ="https://www.instagram.com/paola.thebrand/"><img src="{{ asset('storage/images/instagram.png') }}" alt="Paola" width="16" height="16"> </a>
+    <footer class="extra-width">
+    <div class="row align-items-center bg-red text-light p-4">
+        <div class="col-md-8 p-5" data-aos="fade-up">
+            <img src="{{ asset('storage/images/Paola-Logo-3.png') }}" alt="Paola" width="95" height="70">
+            <p class="small fw-lighter">Serving you the chicest and timeless pieces for your wardrobe. Made and built with love.</p>
+            <a href="https://www.instagram.com/paola.thebrand/"><img src="{{ asset('storage/images/instagram.png') }}" alt="Paola" width="16" height="16"> </a>
         </div>
-        <div class="col-md p-5">
-          <div class="row ps-2 pe-4 pt-4">
-            <div class="col" data-aos="fade-up" data-aos-delay="100">
-              <a class="nav-link {{ $activateHome ?? '' }}" href="/"><p>Home</p></a>
-              <a class="nav-link {{ $activateProduct ?? '' }}" href="/products"><p>Products</p></a>
-              <a class="nav-link {{ $activateAboutUs ?? '' }}" href="/aboutUs"><p>About Us</p></a>
+        <div class="col-md-4 p-5">
+            <div class="row ps-2 pe-4 pt-4">
+                <div class="col" data-aos="fade-up" data-aos-delay="100">
+                    <a class="nav-link {{ $activateHome ?? '' }}" href="/"><p>Home</p></a>
+                    <a class="nav-link {{ $activateProduct ?? '' }}" href="/products"><p>Products</p></a>
+                    <a class="nav-link {{ $activateAboutUs ?? '' }}" href="/aboutUs"><p>About Us</p></a>
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="200">
+                    <a class="nav-link" href="https://shopee.co.id/paola_thebrand?originalCategoryId=11042750&page=0"> <p>Shop Now</p> </a>
+                    <a class="nav-link" href="https://linktr.ee/paola.thebrand"> <p>Linktree</p> </a>
+                    <a class="nav-link" href="https://api.whatsapp.com/send/?phone=6287880159046&text&type=phone_number&app_absent=0"> <p>Whatsapp</p> </a>
+                </div>
             </div>
-            <div class="col" data-aos="fade-up" data-aos-delay="200">
-              <a class="nav-link" href = "https://shopee.co.id/paola_thebrand?originalCategoryId=11042750&page=0"> <p>Shop Now</p> </a>
-              <a class="nav-link" href = "https://linktr.ee/paola.thebrand"> <p>Linktree</p> </a>
-              <a class="nav-link" href = "https://api.whatsapp.com/send/?phone=6287880159046&text&type=phone_number&app_absent=0"> <p>Whatsapp</p> </a>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="p-3 text-light text-center bg-body-tertiary bg-dark-subtle" data-bs-theme="dark">
-        Copyright © 2023 Paola The Brand
-      </div>
+    </div>
+    <div class="row align-items-center pt-3 text-light bg-body-tertiary bg-dark-subtle" data-bs-theme="dark">
+        <p class = "text-center"> Copyright © 2023 Paola The Brand </p>
+    </div>
     </footer>
+
   </div>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>

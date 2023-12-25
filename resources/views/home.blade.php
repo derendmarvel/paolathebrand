@@ -3,40 +3,36 @@
     @section('title', 'Paola The Brand')
 
     @section('content')
-    <div class="bg-image-long">
-        <div class= "container px-5 pt-3 pb-5" data-aos="fade-right" data-aos-duration="3000">
-            <div class="row align-items-center">
-                <div class="col ps-home align-items-start text-light">
-                    <p class = "fw-medium fs-5"> EST. 2023 </p>
-                    <h1 class = "fw-bold large"> Romanticize Your Basic </h1>
-                    <p class = "fw-normal fs-5"> Serving you the chicest and timeless pieces for your wardrobe. Made and built with love. </p>
-                    @auth
-                        @if (Auth::user()->isAdmin())
-                            <a href="/produk/create" class="btn btn-danger p-3 me-3 fw-bold"> Add Product </a>
-                            <a href="/promo/create" class="btn btn-success p-3 fw-bold"> Add Promo </a>
-                        @elseif (Auth::user()->isVisitor())
-                            <a href="/products" class="btn btn-danger px-5 py-3"> SHOP NOW </a>
-                        @endif
-                    @else
-                        <a href="/productNoLogin" class="btn btn-danger px-5 py-3"> SHOP NOW </a>
-                    @endauth
-
-                </div>
-                <div class="col pt-2 relative-div" data-aos="fade-left" data-aos-delay="300" data-aos-duration="3000">
-                    <img src="storage/images/Paola-Lookbook-1.png" alt="Banner 1" width="340" height="510" class = "shadow-lg img-home-1">
-                    <div class="absolute-div">
-                        <img src="storage/images/Dulcie-Top-Brown.png" alt="Banner 1" width="250" heigth="375" class="shadow-lg img-home-2">
-                    </div>
-                </div>
+    <div class="bg-image-long px-md-5">
+        <div class= "px-5 py-3" data-aos="fade-right" data-aos-duration="3000">
+        <div class="row align-items-center">
+            <div class="col-sm-12 col-md-6 px-4 header-text text-light order-lg-1 order-2">
+                <p class="fw-medium fs-5 fs-sm-1">EST. 2023</p>
+                <h1 class="fw-bold large">Romanticize Your Basic</h1>
+                <p class="fw-normal small py-2">Serving you the chicest and timeless pieces for your wardrobe. Made and built with love.</p>
+                @auth
+                    @if (Auth::user()->isAdmin())
+                        <a href="/produk/create" class="btn btn-danger p-3 me-3 fw-bold">Add Product</a>
+                        <a href="/promo/create" class="btn btn-success p-3 fw-bold">Add Promo</a>
+                    @elseif (Auth::user()->isVisitor())
+                        <a href="/products" class="btn btn-danger px-5 py-3">SHOP NOW</a>
+                    @endif
+                @else
+                    <a href="/productNoLogin" class="btn btn-danger px-5 py-3">SHOP NOW</a>
+                @endauth
+            </div>
+            <div class="col-sm-12 col-md-6 order-lg-2 order-1" data-aos="fade-left" data-aos-delay="300" data-aos-duration="3000">
+                <img src="storage/images/Paola-Header-Image-Compressed.png" alt="Banner 1" class="shadow-lg img-fluid w-100">
             </div>
         </div>
+        </div>
         <div class="row align-items-center py-5 text-light" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-        <h1 class="text-center red pb-5 pt-3 py-2"> Promo </h1>
+        <h1 class="text-center red py-4"> Promo </h1>
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
                 @foreach($promos as $key => $promo)
                 <div class="carousel-item active align-items-center pb-4">
-                    <img src="{{ asset('storage/'.$promo->image) }}" class="d-block mx-auto w-25 h-25">
+                    <img src="{{ asset('storage/'.$promo->image) }}" class="d-block mx-auto img-fluid promos">
                     @auth
                         @if (Auth::user()->isAdmin())
                             <form action="/promo/delete/{{$promo['id']}}" method="POST" class="text-center d-block mx-auto pt-4">
@@ -61,53 +57,57 @@
     </div>
     </div>
 
-    <div class="row align-items-center py-4 bg-image-light">
-        <h1 class="text-center red pb-5 pt-4 py-2"> Paola Tops </h1>
-        <div class="row ps-all-products">
+    <div class="col-md-12 align-items-center p-4 bg-image-light">
+        <h1 class="text-center red py-4"> Paola Tops </h1>
+        <div class="row align-items-center ps-all-products">
             @foreach ($products as $key => $product)
-                @if ($key < 3)
                     @php
-                        $animation_delay = $key * 150;
+                        $animation_delay = $key * 250;
                     @endphp
-                    <div class="col justify-content-center" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
-                        <a href=" {{ route('produk.detail', $product->id) }}"><img src="{{ asset('storage/'.$product->foto) }}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div home-product"> </a>
+                    <div class="col-md-4 justify-content-center pb-4" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
+                        <a href="detailProducts/{{$product['id']}}"><img src="{{ asset('storage/'.$product->foto) }}" alt="Banner 1" class="shadow-lg my-div home-product w-100"></a>
+                        <div class="row mt-3">
+                            <a href="detailProducts/{{$product['id']}}" class="link-underline-light link-danger">
+                                <p class="fs-4 fw-bold"> {{$product->nama}} ({{$product->warna}}) </p>
+                            </a>
+                        </div>
                         <div class="row align-items-center home-product">
-                            <div class="col">
-                                <div class="pt-4"> <a href="detailProducts/{{$product['id']}}" class = "link-underline-light link-secondary"> <p class ="fs-4 fw-bold red"> {{$product->nama}} ({{$product->warna}}) </p> </a> </div>
-                                <div class="pb-5 fw-normal fs-6 text-secondary">
+                            <div class="col-6 col-md-8">
+                                <div class="fw-normal fs-6 text-light">
                                     <a href="detailProducts/{{$product['id']}}" class="link-underline-light link-secondary"> See in Detail </a>
                                 </div>
                             </div>
-                            <div class="col">
-                                <a href="detailProducts/{{$product['id']}}"><img src="storage/images/Arrow.png" width="42" height="35"> </a>
+                            <div class="col-6 col-md-4 text-end">
+                                <a href="detailProducts/{{$product['id']}}"><img src="storage/images/Arrow.png" class="img-fluid arrow"> </a>
                             </div>
                         </div>
                     </div>
-                @else
-                    @break
-                @endif
             @endforeach
         </div>
     </div>
 
-    <div class="row align-items-center py-4 bg-image-long text-light">
-        <a href="/products" class="link-light link-underline link-underline-opacity-0"><h1 class="text-center pb-5 pt-4 py-2"> Better in Black </h1></a>
-        <div class="row ps-all-products">
+    <div class="col-md-12 align-items-center p-4 bg-image-long text-light">
+        <h1 class="text-center py-4"> Better in Black </h1>
+        <div class="row align-items-center ps-all-products">
             @foreach ($products2 as $key => $product)
                     @php
-                        $animation_delay = $key * 150;
+                        $animation_delay = $key * 250;
                     @endphp
-                    <div class="col justify-content-center" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
-                        <a href="detailProducts/{{$product['id']}}"><img src="{{ asset('storage/'.$product->foto) }}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div home-product"> </a>
+                    <div class="col-md-4 justify-content-center pb-4" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
+                        <a href="detailProducts/{{$product['id']}}"><img src="{{ asset('storage/'.$product->foto) }}" alt="Banner 1" class="shadow-lg my-div home-product w-100"></a>
+                        <div class="row mt-3">
+                            <a href="detailProducts/{{$product['id']}}" class="link-underline-light link-light link-underline-opacity-0">
+                                <p class="fs-4 fw-bold"> {{$product->nama}} ({{$product->warna}}) </p>
+                            </a>
+                        </div>
                         <div class="row align-items-center home-product">
-                            <div class="col">
-                                <div class="pt-4"> <a href="detailProducts/{{$product['id']}}" class = "link-underline-light link-light"> <p class ="fs-4 fw-bold"> {{$product->nama}} ({{$product->warna}}) </p> </a> </div>
-                                <div class="pb-5 fw-normal fs-6 text-light">
-                                    <a href="detailProducts/{{$product['id']}}" class="link-underline-light link-light"> See in Detail </a>
+                            <div class="col-6 col-md-8 ">
+                                <div class="fw-normal fs-6 text-light">
+                                    <a href="detailProducts/{{$product['id']}}" class="link-underline-light link-light link-underline-opacity-0"> See in Detail </a>
                                 </div>
                             </div>
-                            <div class="col">
-                                <a href="detailProducts/{{$product['id']}}"><img src="storage/images/Arrow.png" width="42" height="35"> </a>
+                            <div class="col-6 col-md-4 text-end">
+                                <a href="detailProducts/{{$product['id']}}"><img src="storage/images/Arrow.png" class="img-fluid arrow"> </a>
                             </div>
                         </div>
                     </div>

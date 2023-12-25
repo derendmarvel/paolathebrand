@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="row align-items-center about-us-bg">
+<div class="row align-items-center login-bg">
     <div class="col-md p-4" data-aos="fade-right" data-aos-duration="3000">
         <img src="storage/images/Paola-Logo-2.png" alt="Paola" width="384" height="216">
     </div>

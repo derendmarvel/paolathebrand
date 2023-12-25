@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="row align-items-center about-us-bg">
+    <div class="row align-items-center login-bg">
         <div class="col-md p-4" data-aos="fade-right" data-aos-duration="3000">
             <div class="carousel-container ms-5" data-aos="fade-left" data-aos-duration="3000">
                 @foreach ($carts as $cart)
