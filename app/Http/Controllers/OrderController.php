@@ -108,32 +108,37 @@ class OrderController extends Controller
 
     public function store(Request $request, Order $order){
         $validatedData = $request->validate([
-            'foto' => 'image'
+            'shipment' => 'required',
+            'user_id' => 'required',
+            'payment' => 'image',
+            'total_price' => 'required',
+            'status' => 'required',
+            'order_weight' => 'required'
         ]);
 
-        $shipment = $request->input('expedition');
-        $user = Auth::user()->id;
-        $payment = $request->input('proof');
-        $price = $request->input('cost');
-        $status = "paid";
-        $weight = $request->input('weight');
+        // $shipment = $request->input('expedition');
+        // $user = Auth::user()->id;
+        // $payment = $request->input('proof');
+        // $price = $request->input('cost');
+        // $status = "paid";
+        // $weight = $request->input('weight');
 
-        if($request->input('proof')){
+        if($request->file('payment')){
             if($order->payment){
                 if(Storage::disk('public')->exists($order->payment)){
                     Storage::disk('public')->delete($order->payment);
                 }
             }
 
-            $validatedData['foto'] = $request->file('foto')->store('payment', ['disk' => 'public']);
+            $validatedData['payment'] = $request->file('payment')->store('image', ['disk' => 'public']);
 
             Order::create([
-                'shipment' => $shipment,
-                'user_id' => $user,
-                'payment' => $validatedData['foto'],
-                'total_price' => $price,
-                'status' => $status,
-                'order_weight' =>$weight
+                'shipment' => $validatedData['shipment'],
+                'user_id' => $validatedData['user_id'],
+                'payment' => $validatedData['payment'],
+                'total_price' => $validatedData['total_price'],
+                'status' => $validatedData['status'],
+                'order_weight' => $validatedData['order_weight']
             ]);
         }
 
