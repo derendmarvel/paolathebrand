@@ -16,9 +16,9 @@
                         <a href="detailProducts/{{$wishlist->produk->nama}}"><img src="{{asset('storage/'.$wishlist->produk->foto)}}" alt="Banner 1" class = "shadow-lg my-div p-product w-100"> </a>
                         <div class="row justify-content-start p-product">
                             <div class="col" data-aos="fade-up" data-aos-delay="300">
-                                <div class="pt-4 row"> <a href="detailProducts/{{$wishlist->produk['id']}}" class = "link-underline-light link-secondary"> 
+                                <div class="pt-4 row"> <a href="detailProducts/{{$wishlist->produk['id']}}" class = "link-underline-light link-secondary">
                                 <div class= "col-md-10">
-                                    <p class ="fs-4 fw-bold red"> {{$wishlist->produk->nama}} ({{$wishlist->produk->warna}}) </p> </a> 
+                                    <p class ="fs-4 fw-bold red"> {{$wishlist->produk->nama}} ({{$wishlist->produk->warna}}) </p> </a>
                                 </div>
                                 <div class= "col-md-2">
                                     <form action="{{ route('wishlist.destroy', $wishlist)}}" method="POST" id="addToCartForm">
@@ -32,20 +32,20 @@
                                     <a href="detailProducts/{{$wishlist->produk['id']}}" class="link-underline-light link-secondary"> See in Detail <img src="{{ asset('storage/images/Arrow.png') }}" width="30" height="20"></a>
                                 </div>
                                 <div class="pb-3">
-                                    <button class="btn btn-danger me-2 minus"> - </button>
-                                    <span class="me-2 counter"> 0 </span>
-                                    <button class="btn btn-success text-light plus"> + </button>
+                                    <button id="minus" class="btn btn-danger me-2"> - </button>
+                                    <span id="counter" class="me-2 counter"> 0 </span>
+                                    <button id="plus" class="btn btn-success text-light plus"> + </button>
                                 </div>
 
-                                <form action="/addToCart/{{$wishlist->produk['id']}}" method="POST" class="addToCartForm">
-                                    @method('post')    
+                                <form action="/addToCart/{{$wishlist->produk['id']}}" method="POST" id="addToCartForm">
+                                    @method('post')
                                     @csrf
                                     <!-- Update the form identifier to use a unique identifier -->
-                                    <input type="hidden" name="quantity" class="quantityInput" value="0">
+                                    <input type="hidden" name="quantity" id="quantityInput" value="0">
                                     <button type="submit" class="btn btn-success text-light w-100 h-100 p-2 fw-bold">Add to Cart</button>
                                 </form>
                                 <form action="{{ route('wishlist.destroy', $wishlist)}}" method="POST" id="addToCartForm">
-                                    @method('delete')    
+                                    @method('delete')
                                     @csrf
                                     <button type="submit" class="btn btn-danger w-100 h-100 p-2 fw-bold my-2"> Remove from Wishlist </button>
                                 </form>

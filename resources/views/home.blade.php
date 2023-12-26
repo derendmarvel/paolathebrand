@@ -18,7 +18,7 @@
                         <a href="/products" class="btn btn-danger px-5 py-3">SHOP NOW</a>
                     @endif
                 @else
-                    <a href="/productNoLogin" class="btn btn-danger px-5 py-3">SHOP NOW</a>
+                    <a href="{{ route('login') }}" class="btn btn-danger px-5 py-3">SHOP NOW</a>
                 @endauth
             </div>
             <div class="col-sm-12 col-md-6 order-lg-2 order-1" data-aos="fade-left" data-aos-delay="300" data-aos-duration="3000">

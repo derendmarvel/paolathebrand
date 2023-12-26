@@ -122,11 +122,18 @@ class OrderController extends Controller
             'order_weight' =>$weight
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('/history');
     }
 
     public function adminView(){
         return view('Admin.orders', [
+            "activateOrders" => "active",
+            'orders' => Order::all(),
+        ]);
+    }
+
+    public function visitorView(){
+        return view('history', [
             "activateOrders" => "active",
             'orders' => Order::all(),
         ]);

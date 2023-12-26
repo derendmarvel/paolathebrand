@@ -112,7 +112,7 @@
       box-shadow: -1rem 0 3rem #000;
       transition: 0.4s ease-out;
       position: relative;
-      
+
     }
 
     .card:not(:first-child) {
@@ -310,7 +310,7 @@
     .ps-delete {
         padding-left: 590px;
     }
-    
+
     .absolute-div {
       position: absolute;
       right: 0px;
@@ -336,7 +336,7 @@
       margin-left: 0px;
     }
 
-    
+
 
 
   </style>
@@ -358,21 +358,24 @@
                   <li class="nav-item">
                     <a class="nav-link {{ $activateHome ?? '' }}" href="/"> Home </a>
                   </li>
-                  <li class="nav-item">
-                      <a class="nav-link {{ $activateProduct ?? '' }}" href="/productNoLogin">Products</a>
-                  </li>
                 @auth
                   @if (Auth::user()->isVisitor())
+                  <li class="nav-item">
+                    <a class="nav-link {{ $activateProduct ?? '' }}" href="/products">Products</a>
+                  </li>
                   <li class="nav-item">
                       <a class="nav-link {{ $activateWishlist ?? '' }}" href="/wishlists">Wishlist</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link {{ $activateCart ?? '' }}" href="/cart">Cart</a>
                   </li>
-                  @endif
-                @endauth
-                @auth
-                  @if (Auth::user()->isAdmin())
+                  <li class="nav-item">
+                    <a class="nav-link {{ $activateOrders ?? '' }}" href="/history"> Orders </a>
+                  </li>
+                  @elseif (Auth::user()->isAdmin())
+                  <li class="nav-item">
+                    <a class="nav-link {{ $activateProduct ?? '' }}" href="/productNoLogin">Products</a>
+                  </li>
                   <li class="nav-item">
                       <a class="nav-link {{ $activateAddProduct ?? '' }}" href="/produk/create"> Add Product </a>
                   </li>
@@ -384,6 +387,10 @@
                   </li>
                   <li class="nav-item">
                       <a class="nav-link {{ $activateOrders ?? '' }}" href="/orders"> Orders </a>
+                  </li>
+                  @else
+                  <li class="nav-item">
+                    <a class="nav-link {{ $activateProduct ?? '' }}" href="/productNoLogin">Products</a>
                   </li>
                   @endif
                 @endauth

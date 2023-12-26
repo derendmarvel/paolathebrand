@@ -30,7 +30,7 @@ Route::get('/detailProducts/{id}', [ProdukController::class, 'detail'])->name('p
 
 Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
 
-Route::get('/cart', [CartController::class, 'show'])->middleware('visitor');
+Route::get('/cart', [CartController::class, 'show'])->middleware('visitor')->name('cart');
 
 Route::post('/addToCart/{id}', [CartController::class, 'store'])->middleware('visitor');
 Route::delete('/cart/destroy/{cart}', [CartController::class, 'destroy'])->middleware('visitor')->name('cart.destroy');
@@ -61,6 +61,7 @@ Route::post('/cekOngkir', [OrderController::class, 'cekOngkir'])->middleware('vi
 Route::post('/finalOrder', [OrderController::class, 'store'])->middleware('visitor');
 
 Route::get('/orders', [OrderController::class, 'adminView'])->middleware('admin');
+Route::get('/history', [OrderController::class, 'visitorView'])->middleware('visitor');
 
 // Route::get('/home', function(){
 //     return view('home',[

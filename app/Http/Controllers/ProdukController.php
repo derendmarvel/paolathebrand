@@ -28,8 +28,7 @@ class ProdukController extends Controller
         return view('product', [
             "activateProduct" => "active",
             'products' => Produk::all(),
-            'promos' => Promo::all(),
-            'wishlists' => Wishlist::where('user_id', Auth::user()->id)->get()
+            'promos' => Promo::all()
         ]);
     }
 

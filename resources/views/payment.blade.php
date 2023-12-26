@@ -27,6 +27,7 @@
 
         <form method="POST" action="/finalOrder">
             @csrf
+
             <strong>From :</strong>
             <p value="Jakarta Barat" type="text" name="from"> Jakarta Barat </p>
             {{-- <?php //echo "Jakarta Barat" ?> --}}
