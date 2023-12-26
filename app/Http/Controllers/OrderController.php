@@ -100,15 +100,6 @@ class OrderController extends Controller
 
         $carts = Cart::where('user_id', Auth::user()->id)->get();
 
-        foreach($carts as $cart){
-            OrderProduk::create([
-                'order_id' => Order::where('user_id', Auth::user()->id)->latest()->first(),
-                'produk_id' => $cart->produk,
-                'quantity' => $cart->quantity
-            ]);
-            $cart->delete();
-        }
-
         return view('payment', $data, compact('carts'));
     }
 
@@ -148,7 +139,18 @@ class OrderController extends Controller
             ]);
         }
 
-        $orderProduk = OrderProduk::where('user_id', Auth::user()->id)->latest()->first();
+        $orderProduk = OrderProduk::where('order_id', Order::where('user_id', Auth::user()->id)->latest()->first());
+        $order = Order::where('user_id', Auth::user()->id)->latest()->first();
+        $carts = Cart::where('user_id', Auth::user()->id)->get();
+
+        foreach($carts as $cart){
+            OrderProduk::create([
+                'order_id' => $order->id,
+                'produk_id' => $cart->produk,
+                'quantity' => $cart->quantity,
+            ]);
+            $cart->delete();
+        }
 
         return view('payment', compact('orderProduk'));
     }
@@ -163,7 +165,7 @@ class OrderController extends Controller
     public function visitorView(){
         return view('history', [
             "activateOrders" => "active",
-            'orders' => Order::all(),
+            'orders' => Order::where('user_id', Auth::user()->id)->get(),
         ]);
     }
 }

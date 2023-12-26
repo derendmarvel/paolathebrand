@@ -5,15 +5,6 @@
 @section('content')
 <div class = "col-12 align-items-center p-5 bg-image-light">
     <div class = "row p-0 p-md-4">
-    <div class="col-md-6 p-4" data-aos="fade-right" data-aos-duration="3000">
-        <div class="carousel-container d-none d-md-flex" data-aos="fade-left" data-aos-duration="3000">
-            @foreach ($carts as $cart)
-                <div class="card">
-                    <img src="{{ asset('storage/'.$cart->produk->foto) }}" alt="Banner 1" width="280" height="420" class = "shadow-lg my-div card-size">
-                </div>
-            @endforeach
-        </div>
-    </div>
     @if($orders->isNotEmpty())
     <h1 class="text-center red py-4"> Orders </h1>
         <table class="table table-striped table-hover px-5">
