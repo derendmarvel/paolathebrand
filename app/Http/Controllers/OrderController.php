@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Shipment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
 {
@@ -105,7 +106,11 @@ class OrderController extends Controller
         return view('payment', $data, compact('carts'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request, Order $order){
+        $validatedData = $request->validate([
+            'foto' => 'image'
+        ]);
+
         $shipment = $request->input('expedition');
         $user = Auth::user()->id;
         $payment = $request->input('proof');
@@ -113,16 +118,26 @@ class OrderController extends Controller
         $status = "paid";
         $weight = $request->input('weight');
 
-        Order::create([
-            'shipment' => $shipment,
-            'user_id' => $user,
-            'payment' => $payment,
-            'total_price' => $price,
-            'status' => $status,
-            'order_weight' =>$weight
-        ]);
+        if($request->input('proof')){
+            if($order->payment){
+                if(Storage::disk('public')->exists($order->payment)){
+                    Storage::disk('public')->delete($order->payment);
+                }
+            }
 
-        return redirect()->route('/history');
+            $validatedData['foto'] = $request->file('foto')->store('payment', ['disk' => 'public']);
+
+            Order::create([
+                'shipment' => $shipment,
+                'user_id' => $user,
+                'payment' => $validatedData['foto'],
+                'total_price' => $price,
+                'status' => $status,
+                'order_weight' =>$weight
+            ]);
+        }
+
+        return redirect()->route('history');
     }
 
     public function adminView(){

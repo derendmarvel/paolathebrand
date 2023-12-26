@@ -61,7 +61,7 @@ Route::post('/cekOngkir', [OrderController::class, 'cekOngkir'])->middleware('vi
 Route::post('/finalOrder', [OrderController::class, 'store'])->middleware('visitor');
 
 Route::get('/orders', [OrderController::class, 'adminView'])->middleware('admin');
-Route::get('/history', [OrderController::class, 'visitorView'])->middleware('visitor');
+Route::get('/history', [OrderController::class, 'visitorView'])->middleware('visitor')->name('history');
 
 // Route::get('/home', function(){
 //     return view('home',[
