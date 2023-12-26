@@ -42,6 +42,10 @@
       font-size: 18px;
     }
 
+    .smaller {
+      font-size: 18px;
+    }
+
     .arrow{
       width: 24px;
     }
@@ -142,6 +146,10 @@
 
       .small {
         font-size: 20px;
+      }
+
+      .smaller {
+        font-size: 18px;
       }
 
       .arrow{
@@ -358,11 +366,11 @@
                   <li class="nav-item">
                     <a class="nav-link {{ $activateHome ?? '' }}" href="/"> Home </a>
                   </li>
-                @auth
-                  @if (Auth::user()->isVisitor())
                   <li class="nav-item">
                     <a class="nav-link {{ $activateProduct ?? '' }}" href="/products">Products</a>
                   </li>
+                @auth
+                  @if (Auth::user()->isVisitor())
                   <li class="nav-item">
                       <a class="nav-link {{ $activateWishlist ?? '' }}" href="/wishlists">Wishlist</a>
                   </li>
@@ -373,9 +381,6 @@
                     <a class="nav-link {{ $activateOrders ?? '' }}" href="/history"> Orders </a>
                   </li>
                   @elseif (Auth::user()->isAdmin())
-                  <li class="nav-item">
-                    <a class="nav-link {{ $activateProduct ?? '' }}" href="/productNoLogin">Products</a>
-                  </li>
                   <li class="nav-item">
                       <a class="nav-link {{ $activateAddProduct ?? '' }}" href="/produk/create"> Add Product </a>
                   </li>
@@ -389,9 +394,6 @@
                       <a class="nav-link {{ $activateOrders ?? '' }}" href="/orders"> Orders </a>
                   </li>
                   @else
-                  <li class="nav-item">
-                    <a class="nav-link {{ $activateProduct ?? '' }}" href="/productNoLogin">Products</a>
-                  </li>
                   @endif
                 @endauth
                 <li class="nav-item">
@@ -446,7 +448,7 @@
     <div class="row align-items-center bg-red text-light p-4">
         <div class="col-md-8 p-5" data-aos="fade-up">
             <img src="{{ asset('storage/images/Paola-Logo-3.png') }}" alt="Paola" width="95" height="70">
-            <p class="small fw-lighter">Serving you the chicest and timeless pieces for your wardrobe. Made and built with love.</p>
+            <p class="smaller fw-lighter">Serving you the chicest and timeless pieces for your wardrobe. Made and built with love.</p>
             <a href="https://www.instagram.com/paola.thebrand/"><img src="{{ asset('storage/images/instagram.png') }}" alt="Paola" width="16" height="16"> </a>
         </div>
         <div class="col-md-4 p-5">

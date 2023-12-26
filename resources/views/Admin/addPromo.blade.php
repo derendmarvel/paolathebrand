@@ -25,7 +25,7 @@
             <img class="img-preview img-fluid mb-3 col-sm-5">
             <input type="file" name="image" id="image" class="form-control" accept="image/jpg, image/png, image/jpeg" onchange="previewImage()">
         </div>
-        <button type="submit" class="btn btn-danger">Submit</button>
+        <button type="submit" class="btn btn-danger"> Add Promo </button>
     </form>
 </div>
 

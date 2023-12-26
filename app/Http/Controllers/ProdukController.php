@@ -16,13 +16,21 @@ use Illuminate\Support\Facades\DB;
 class ProdukController extends Controller
 {
     public static function products(){
-         return view('product', [
-             "activateProduct" => "active",
-             'products' => Produk::all(),
-             'promos' => Promo::all(),
-             'wishlists' => Wishlist::where('user_id', Auth::user()->id)->get()
-         ]);
-     }
+        if (Auth::user()){
+            return view('product', [
+                "activateProduct" => "active",
+                'products' => Produk::all(),
+                'promos' => Promo::all(),
+                'wishlists' => Wishlist::where('user_id', Auth::user()->id)->get()
+            ]);
+        } else {
+            return view('product', [
+                "activateProduct" => "active",
+                'products' => Produk::all(),
+                'promos' => Promo::all(),
+            ]);
+        }    
+    }
 
     public static function productNoLogin(){
         return view('product', [

@@ -7,7 +7,7 @@
         dd($total);
     @endphp --}}
 
-    <div class="row align-items-center py-5 px-5">
+    <div class="col align-items-center py-5 px-5">
         <div class="row px-5">
             @foreach ($carts as $key => $cart)
                 @php
@@ -26,7 +26,9 @@
         </div>
 
         <form method="POST" action="/finalOrder">
+            @method('post')
             @csrf
+            
 
             <strong>From :</strong>
             <p value="Jakarta Barat" type="text" name="from"> Jakarta Barat </p>
@@ -37,14 +39,14 @@
             {{-- <?php //echo $total->rajaongkir->destination_details->city_name ?> --}}
 
             <strong>Expedition :</strong>
-            <select class="form-control autosearch" name="expedition">
+            <select class="form-select autosearch p-1 my-1" name="expedition">
                 <option value="{{$total->rajaongkir->results[0]->name}}">{{$total->rajaongkir->results[0]->name}}</option>
             </select>
             {{-- <p value="{{$total->rajaongkir->results[0]->name}}" type="text" name="expedition"> {{$total->rajaongkir->results[0]->name}} </p> --}}
             {{-- <?php //echo $total->rajaongkir->results[0]->name ?><br> --}}
 
             <strong>Weight :</strong>
-            <select class="form-control autosearch" name="weight">
+            <select class="form-select autosearch p-1 my-1" name="weight">
                 <option value="{{$total->rajaongkir->query->weight/1000}}">{{$total->rajaongkir->query->weight/1000}} Kg</option>
             </select>
             {{-- <p value="{{$total->rajaongkir->query->weight/1000}}" type="text" name="weight"> {{$total->rajaongkir->query->weight/1000}} </p> --}}
@@ -52,7 +54,7 @@
 
             <strong>Cost :</strong>
             <div class="mb-3">
-                <select class="form-control autosearch" name="cost">
+                <select class="form-select autosearch " name="cost">
                     {{-- <option value="">Select Expedition</option> --}}
                     @foreach ($total->rajaongkir->results[0]->costs as $biaya) <br>
                     <option value="{{$biaya->cost[0]->value}}"> {{$biaya->service}} = {{number_format($biaya->cost[0]->value)}} {{$biaya->cost[0]->etd}} Day </option>

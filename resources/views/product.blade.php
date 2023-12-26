@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div class="row align-items-center py-4 bg-image-light px-3">
+        <div class="col align-items-center py-4 bg-image-light px-3">
             <h1 class = "text-center red pb-5 pt-4 py-2 fw-bold"> All Products </h1>
             <div class="row px-5">
                 @foreach ($products as $key => $product)
@@ -52,18 +52,18 @@
                         </div>
                         <div class="row justify-content-start p-product">
                             <div class="col">
-                                <div class="row pt-4">
-                                    <div class= "col-md-9 ps-3">
-                                        <a href="/detailProducts/{{$product['id']}}" class ="link-underline-light link-secondary col fs-4 fw-bold text-danger pb-2"> {{$product->nama}} ({{$product->warna}}) </a>
+                                <div class="row pt-4 px-1">
+                                    <div class= "col-9">
+                                        <a href="/detailProducts/{{$product['id']}}" class ="link-underline-light link-secondary fs-5 fs-md-4 fw-bold text-danger pb-2"> {{$product->nama}} ({{$product->warna}}) </a>
                                     </div>
                                     @auth
                                     @if(Auth::user()->isVisitor())
-                                    <div class= "col-md-2">
+                                    <div class= "col-3">
                                         <form action="addWishlist/{{$product['id']}}" method="POST">
                                             @csrf
                                             @method('post')
-                                            <button type = "submit" class = "btn w-25" id="likeButton">
-                                                <img src="storage/images/Unlike_button.png" id="likeImage" width="25" height="25">
+                                            <button type = "submit" class = "btn" id="likeButton">
+                                                <img src="{{ asset('storage/images/Unlike_button.png') }}" id="likeImage" width="25" height="25">
                                             </button>
                                         </form>
                                     </div>

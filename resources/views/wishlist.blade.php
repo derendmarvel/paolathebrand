@@ -3,10 +3,10 @@
 @section('title', 'Wishlist')
 
 @section('content')
-    <div class="row align-items-center py-5 bg-image-light px-5 mb-4">
-        <div class="row px-5">
+    <div class="col align-items-center p-5 bg-image-light">
+        <div class="row p-0 p-md-4">
             @if($wishlists->isNotEmpty())
-                <h1 class="text-center pb-5 pt-4 py-2 red fw-bold"> Your Wishlist </h1>
+                <h1 class="text-center py-4 red fw-bold"> Your Wishlist </h1>
                 @foreach ($wishlists as $key => $wishlist)
                     @php
                         $delay_pattern = [0, 100, 200];
@@ -55,8 +55,10 @@
                     </div>
                 @endforeach
             @else
-                <h1 class = "fw-bold large text-center py-5"> Oh, no! Your Wishlist is Empty. </h1>
-                <a href="/products" class="btn btn-danger py-3"> SHOP NOW </a>
+                <div class="col-12 px-5 py-3 text-center">
+                    <h1 class = "fw-bold large py-5"> Oh, no! Your Wishlist is Empty. </h1>
+                    <a href="/products" class="btn btn-danger py-3 w-50"> SHOP NOW </a>
+                </div>
             @endif
         </div>
     </div>

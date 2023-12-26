@@ -50,7 +50,7 @@
         <label for="link" class="form-label"> Link </label>
         <input type="text" class="form-control" name = "link" required>
     </div>
-    <button type="submit" class="btn btn-danger px-5 py-3 fw-bold"> ADD PRODUCT </button>
+    <button type="submit" class="btn btn-danger"> Add Product </button>
     </form>
 </div>
 

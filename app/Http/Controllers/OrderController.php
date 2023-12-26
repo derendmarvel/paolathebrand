@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\OrderProduk;
 use App\Models\Shipment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -100,6 +101,11 @@ class OrderController extends Controller
         $carts = Cart::where('user_id', Auth::user()->id)->get();
 
         foreach($carts as $cart){
+            OrderProduk::create([
+                'order_id' => Order::where('user_id', Auth::user()->id)->latest()->first(),
+                'produk_id' => $cart->produk,
+                'quantity' => $cart->quantity
+            ]);
             $cart->delete();
         }
 
@@ -142,7 +148,9 @@ class OrderController extends Controller
             ]);
         }
 
-        return redirect()->route('history');
+        $orderProduk = OrderProduk::where('user_id', Auth::user()->id)->latest()->first();
+
+        return view('payment', compact('orderProduk'));
     }
 
     public function adminView(){

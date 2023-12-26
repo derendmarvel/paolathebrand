@@ -2,11 +2,12 @@
 
 @section('content')
 <div class="row align-items-center register-bg">
-    <div class="col-md p-4" data-aos="fade-right" data-aos-duration="3000">
+    <div class="col-12 col-md-6 p-4" data-aos="fade-right" data-aos-duration="3000">
         <img src="storage/images/Paola-Logo-2.png" alt="Paola" width="384" height="216">
     </div>
-    <div class="col-md px-3 py-5 bg-light" data-aos="fade-left" data-aos-duration="3000">
-    <h1 class="text-red pb-5 pt-4 py-2 padding-start"> Register </h1>
+    <div class="col-12 col-md-6 p-4 bg-light" data-aos="fade-left" data-aos-duration="3000">
+    <div class = "m-5 m-md-3">
+    <h1 class="red py-2 px-0 px-md-5 py-md-5"> Register </h1>
         <div class="card-body">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
@@ -75,6 +76,7 @@
                     </div>
                 </div>
             </form>
+        </div>
         </div>
     </div>
 </div>

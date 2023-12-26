@@ -24,4 +24,8 @@ class Order extends Model
     public function payment(): BelongsTo{
         return $this->belongsTo(Payment::class, 'payment_id', 'id');
     }
+
+    public function orderProduks(): HasMany{
+        return $this->hasMany(OrderProduk::class);
+    }
 }

@@ -22,7 +22,7 @@
                 @endauth
             </div>
             <div class="col-sm-12 col-md-6 order-lg-2 order-1" data-aos="fade-left" data-aos-delay="300" data-aos-duration="3000">
-                <img src="storage/images/Paola-Header-Image-Compressed.png" alt="Banner 1" class="img-fluid w-100">
+                <img src="{{ asset('storage/images/Paola-Header-Image-Compressed.png') }}" alt="Banner 1" class="img-fluid w-100">
             </div>
         </div>
         </div>

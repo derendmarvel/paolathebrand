@@ -30,4 +30,8 @@ class Produk extends Model
     public function promo() : BelongsTo{
         return $this->belongsTo(Promo::class, 'promo_id', 'id');
     }
+
+    public function orderProduks(): HasMany{
+        return $this->hasMany(OrderProduk::class);
+    }
 }
