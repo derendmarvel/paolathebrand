@@ -3,7 +3,7 @@
     @section('title', 'Paola The Brand')
 
     @section('content')
-    <div class="bg-image-long px-md-5">
+    <div class="bg-image-long px-0 px-md-5">
         <div class= "px-5 py-3" data-aos="fade-right" data-aos-duration="3000">
         <div class="row align-items-center">
             <div class="col-sm-12 col-md-6 px-4 header-text text-light order-lg-1 order-2">

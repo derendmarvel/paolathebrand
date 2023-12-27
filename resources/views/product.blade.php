@@ -5,11 +5,11 @@
     @section('content')
     <div class = "col-12">
         <div class="row align-items-center bg-image-long text-light py-5 px-2 py-md-5 px-md-5">
-            <div class="col-12 col-md-6 align-items-start ps-product header-text order-lg-1 order-2" data-aos="fade-right" data-aos-duration="3000">
+            <div class="col-12 col-md-6 align-items-start px-5 header-text order-lg-1 order-2" data-aos="fade-right" data-aos-duration="3000">
 
             @if(!Auth::user())
-            <h1 class = "fw-bold large"> Find Your </h1>
-            <h1 class = "fw-bold large"> Style </h1>
+            <h1 class = "fw-bold large ms-0 ms-md-5"> Find Your </h1>
+            <h1 class = "fw-bold large ms-0 ms-md-5"> Style </h1>
             @endif
 
             @auth

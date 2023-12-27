@@ -18,11 +18,11 @@
                             <div class="col">
                                 <div class="pt-4 pb-2 row header-text"> 
                                     <p class ="fs-4 fw-bold red"> {{$cart->produk->nama}} ({{$cart->produk->warna}}) </p> 
-                                    <p class ="fs-6 fw-bold"> Quantity: {{$cart->quantity}} </p>
+                                    <p class ="fs-6 text-secondary"> Quantity: {{$cart->quantity}} </p>
                                     <form action="{{ route('cart.destroy', $cart) }}" method="POST">
                                         @method('delete')    
                                         @csrf
-                                        <button type="submit" class="btn btn-danger w-75 fw-bold"> Remove from Cart </button>
+                                        <button type="submit" class="btn btn-danger w-100 my-3"> Remove from Cart </button>
                                     </form> 
                                 </div>
                             </div>

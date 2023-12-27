@@ -51,11 +51,24 @@ class ProdukController extends Controller
 
     public function detail($id){
         $produk = Produk::find($id);
+        $wishlist = Wishlist::where('user_id', Auth::user()->id)->where('produk_id', $id)->first();
 
-        return view('detailProducts', [
-            "activateProduct" => "active",
-            'produk' => $produk
-        ]);
+        if ($wishlist){
+            return view('detailProducts', [
+                "activateProduct" => "active",
+                'produk' => $produk,
+                'wishlist' => $wishlist
+            ]);
+        } else {
+            return view('detailProducts', [
+                "activateProduct" => "active",
+                'produk' => $produk,
+                'wishlist' => null
+            ]);
+        }
+        
+        
+        
     }
 
     public function create(){

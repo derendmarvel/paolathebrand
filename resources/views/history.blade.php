@@ -11,7 +11,6 @@
             <thead>
                 <tr>
                     <th scope="col">Shipment</th>
-                    <th scope="col">Payment</th>
                     <th scope="col">Order Weight</th>
                     <th scope="col">Total Price</th>
                     <th scope="col">Status</th>
@@ -21,7 +20,6 @@
                 @foreach($orders as $order)
                     <tr>
                         <th scope="row"> {{ $order->shipment }} </th>
-                        <td> <img src="{{ asset('storage/'.$order->payment) }}" width="30"> </td>
                         <td> {{ $order->order_weight }} </td>
                         <td> {{ $order->total_price }} </td>
                         <td> {{ $order->status }} </td>

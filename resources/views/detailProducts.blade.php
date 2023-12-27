@@ -33,15 +33,34 @@
                                 <span id = "counter" class= "me-2"> 0 </span>
                                 <button id = "plus" class = "btn btn-success"> + </button>
                             </div>
-                            <form action="/addToCart/{{$produk['id']}}" method="POST" id="addToCartForm">
-                                @csrf
-                                @method('post')
-                                <input type="hidden" name="quantity" id="quantityInput" value="0"> 
-                                <button type="submit" class="btn btn-danger w-75 p-2 fw-bold" data-aos="fade-up" data-aos-delay="1500">Add to Cart</button>
-                            </form>
+                            <div data-aos="fade-up" data-aos-delay="1500">
+                                <form action="/addToCart/{{$produk['id']}}" method="POST" id="addToCartForm">
+                                    @csrf
+                                    @method('post')
+                                    <input type="hidden" name="quantity" id="quantityInput" value="0"> 
+                                    <button type="submit" class="btn btn-danger w-100 p-2 fw-bold my-2">Add to Cart</button>
+                                </form>
+                            </div>
+                                @if($wishlist)
+                                <div data-aos="fade-up" data-aos-delay="1500">
+                                    <form action="{{ route('wishlist.destroy', $wishlist)}}" method="POST" id="addToCartForm">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" class="btn btn-dark w-100 p-2 fw-bold"> Remove from Wishlist </button>
+                                    </form>
+                                </div>
+                                @else
+                                <div data-aos="fade-up" data-aos-delay="1500">
+                                    <form action="/addWishlist/{{$produk['id']}}" method="POST">
+                                        @csrf
+                                        @method('post')
+                                        <button type="submit" class="btn btn-dark w-100 p-2 fw-bold">Add to Wishlist</button>
+                                    </form>
+                                </div>
+                                @endif
                             @endif
                         @else
-                            <div class = "col-12 col-md-4 align-items-center text-center" data-aos="fade-up" data-aos-delay="1250"> 
+                            <div class = "col-12 col-md-4 align-items-center text-center" data-aos="fade-up" data-aos-delay="1500"> 
                                 <a href="{{$produk['link']}}" class="btn btn-danger w-100 p-2 fw-bold"> Buy Now </a>
                             </div>
                         </div>

@@ -196,8 +196,8 @@
       }
 
       .ps-product {
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 240px;
+        padding-right: 240px;
       }
 
       .header-text{
