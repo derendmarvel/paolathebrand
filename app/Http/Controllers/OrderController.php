@@ -105,20 +105,11 @@ class OrderController extends Controller
 
     public function store(Request $request, Order $order){
         $validatedData = $request->validate([
-            'shipment' => 'required',
-            'user_id' => 'required',
-            'payment' => 'image',
-            'total_price' => 'required',
-            'status' => 'required',
-            'order_weight' => 'required'
+            'expedition' => 'required',
+            'payment' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'cost' => 'required',
+            'weight' => 'required'
         ]);
-
-        // $shipment = $request->input('expedition');
-        // $user = Auth::user()->id;
-        // $payment = $request->input('proof');
-        // $price = $request->input('cost');
-        // $status = "paid";
-        // $weight = $request->input('weight');
 
         if($request->file('payment')){
             if($order->payment){
@@ -130,29 +121,29 @@ class OrderController extends Controller
             $validatedData['payment'] = $request->file('payment')->store('image', ['disk' => 'public']);
 
             Order::create([
-                'shipment' => $validatedData['shipment'],
-                'user_id' => $validatedData['user_id'],
+                'shipment' => $validatedData['expedition'],
+                'user_id' => Auth::user()->id,
                 'payment' => $validatedData['payment'],
-                'total_price' => $validatedData['total_price'],
-                'status' => $validatedData['status'],
-                'order_weight' => $validatedData['order_weight']
+                'total_price' => $validatedData['cost'],
+                'status' => "Unverified",
+                'order_weight' => $validatedData['weight']
             ]);
         }
 
-        $orderProduk = OrderProduk::where('order_id', Order::where('user_id', Auth::user()->id)->latest()->first());
         $order = Order::where('user_id', Auth::user()->id)->latest()->first();
+        $orderProduk = OrderProduk::where('order_id', $order->id)->first();
         $carts = Cart::where('user_id', Auth::user()->id)->get();
 
         foreach($carts as $cart){
             OrderProduk::create([
                 'order_id' => $order->id,
-                'produk_id' => $cart->produk,
+                'produk_id' => $cart->produk->id,
                 'quantity' => $cart->quantity,
             ]);
             $cart->delete();
         }
 
-        return view('payment', compact('orderProduk'));
+        return view('complete');
     }
 
     public function adminView(){

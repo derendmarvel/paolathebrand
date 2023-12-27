@@ -63,6 +63,10 @@ Route::post('/finalOrder', [OrderController::class, 'store'])->middleware('visit
 Route::get('/orders', [OrderController::class, 'adminView'])->middleware('admin');
 Route::get('/history', [OrderController::class, 'visitorView'])->middleware('visitor')->name('history');
 
+Route::get('/complete', function(){
+    return view ('complete');
+});
+
 // Route::get('/home', function(){
 //     return view('home',[
 //         'activateHome' => 'active'

@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-12 col-md-12 mb-3 form-group">
                         <label> To </label>
-                        <select class="form-select my-1" name="to">
+                        <select class="form-select my-1" name="to" required>
                             <option value=""> Select City </option>
                             @if($city)
                                 @foreach ($city->rajaongkir->results as $each)

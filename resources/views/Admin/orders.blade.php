@@ -24,7 +24,7 @@
                         <th scope="row"> {{ $order->id }} </th>
                         <td> {{ $order->user_id }} </td>
                         <td> {{ $order->shipment }} </td>
-                        <td> <img src="{{ asset('storage/'.$order->payment) }}" width="30"> </td>
+                        <td> <img src="{{ asset('storage/'.$order->payment) }}" class = "w-50"> </td>
                         <td> {{ $order->order_weight }} </td>
                         <td> {{ $order->total_price }} </td>
                         <td> {{ $order->status }} </td>

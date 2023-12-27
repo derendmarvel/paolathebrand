@@ -78,10 +78,10 @@
             
             <div class = "col-12 col-md-12 mb-3 form-group">
                 <label>Proof of Payment</label>
-                <input type="file" name="proof" id="image" class="form-control" accept="image/jpg, image/png, image/jpeg" required>
+                <input type="file" name="payment" id="image" class="form-control" accept="image/jpg, image/png, image/jpeg" required>
             </div>
 
-            <div class="col-12 col-md-12 mb-3 form-group form-group pt-4">
+            <div class="col-12 col-md-12 mb-3 pt-4">
                 <button type="submit" class="btn btn-danger"> Pay Now </button>
             </div>
         </form>
