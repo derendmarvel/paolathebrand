@@ -70,22 +70,24 @@
         </div>
 
         <script>
-            var x = $("#counter").text();
+            $(document).ready(function () {
+                var x = $("#counter").text();
 
-            $("#plus").click(function () {
-                $("#counter").text(++x);
-            });
+                $("#plus").click(function () {
+                    $("#counter").text(++x);
+                });
 
-            $("#minus").click(function () {
-                if (x <= 0) {
-                    $("#counter").text(0);
-                } else {
-                    $("#counter").text(--x);
-                }
-            });
+                $("#minus").click(function () {
+                    if (x <= 0) {
+                        $("#counter").text(0);
+                    } else {
+                        $("#counter").text(--x);
+                    }
+                });
 
-            $("#addToCartForm").submit(function () {
-                $("#quantityInput").val(x);
+                $("#addToCartForm").submit(function () {
+                    $("#quantityInput").val(x);
+                });
             });
         </script>
     @endsection

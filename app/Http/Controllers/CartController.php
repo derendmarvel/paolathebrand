@@ -44,11 +44,12 @@ class CartController extends Controller
                 'user_id' => $user->id,
                 'produk_id' => $produk->id,
                 'quantity' => $request->input('quantity'),
-                'total_price' => (int)$produk->harga * (int)'quantity'
+                'total_price' => (int)$produk->harga * (int)$request->input('quantityInput')
             ]);
         } else {
             $existingItem->quantity = $existingItem->quantity + (int)$request->input('quantity');
-            $existingItem->total_price = (int)$produk->harga * (int)'quantity';
+            $existingItem->total_price = (int)$produk->harga * $existingItem->quantity; 
+            $existingItem->save();
         }
 
         return view('cart', [

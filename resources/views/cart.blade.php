@@ -13,7 +13,7 @@
                         $animation_delay = $delay_pattern[$key % count($delay_pattern)];
                     @endphp
                     <div class="col-md-4 align-items-start py-4" data-aos="fade-up" data-aos-delay="{{$animation_delay}}">
-                        <img src="{{asset('storage/'.$cart->produk->foto)}}" alt="Banner 1" class = "shadow-lg my-div p-product w-100">
+                        <a href="/detailProducts/{{$cart->produk_id}}"><img src="{{asset('storage/'.$cart->produk->foto)}}" alt="Banner 1" class = "shadow-lg my-div p-product w-100"> </a>
                         <div class="row justify-content-start p-2">
                             <div class="col">
                                 <div class="pt-4 pb-2 row header-text"> 
