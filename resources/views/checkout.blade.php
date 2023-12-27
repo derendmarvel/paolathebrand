@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-12 col-md-12 mb-3 form-group">
                         <label> To </label>
-                        <select class="form-select my-1" name="to" required>
+                        <select class="form-select my-1 autosearch" name="to" required>
                             <option value=""> Select City </option>
                             @if($city)
                                 @foreach ($city->rajaongkir->results as $each)
@@ -46,9 +46,9 @@
                         </select>
                     </div>
                     <div class="col-12 col-md-12 mb-3">
-                        <label> Weight in gr</label>
+                        <label> Weight</label>
                         <select class="form-select my-1" name="weight">
-                            <option value="{{(int)$weight}}">{{$weight}} Kg</option>
+                            <option value="{{(int)$weight}}">{{$weight}} Gr</option>
                         </select>
                         {{-- <input type="text" name="weight" class="form-control"> --}}
                     </div>

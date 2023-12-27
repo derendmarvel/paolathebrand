@@ -29,7 +29,7 @@ class ProdukController extends Controller
                 'products' => Produk::all(),
                 'promos' => Promo::all(),
             ]);
-        }    
+        }
     }
 
     public static function productNoLogin(){
@@ -51,24 +51,31 @@ class ProdukController extends Controller
 
     public function detail($id){
         $produk = Produk::find($id);
-        $wishlist = Wishlist::where('user_id', Auth::user()->id)->where('produk_id', $id)->first();
-
-        if ($wishlist){
+        if (Auth::user()){
+            $wishlist = Wishlist::where('user_id', Auth::user()->id)->where('produk_id', $id)->first();
             return view('detailProducts', [
                 "activateProduct" => "active",
                 'produk' => $produk,
                 'wishlist' => $wishlist
             ]);
-        } else {
+        }
+
+        // if ($wishlist){
+        //     return view('detailProducts', [
+        //         "activateProduct" => "active",
+        //         'produk' => $produk,
+        //         'wishlist' => $wishlist
+        //     ]);
+        // } else {
             return view('detailProducts', [
                 "activateProduct" => "active",
                 'produk' => $produk,
                 'wishlist' => null
             ]);
-        }
-        
-        
-        
+        // }
+
+
+
     }
 
     public function create(){
